@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using IoTManager.DAL.ReturnType;
 using IoTManager.DAL.Models;
 using IoTManager.DAL.DbContext;
-using IoTManager.DAL.ReturnType;
+using Microsoft.AspNetCore.WebSockets;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace IoTManager.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class DeviceController : ControllerBase
     {
         // GET api/values
         [HttpGet]
@@ -20,9 +22,9 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 return new Result(
-                    200, 
+                    200,
                     "success",
-                    dbcon.Set<User>().ToList()
+                    dbcon.Set<Device>().ToList()
                     );
             }
         }
@@ -36,52 +38,58 @@ namespace IoTManager.API.Controllers
                 return new Result(
                     200,
                     "success",
-                    dbcon.Find<User>(id)
+                    dbcon.Find<Device>(id)
                     );
             }
         }
 
         // POST api/values
         [HttpPost]
-        public Result Post([FromBody] User user)
+        public Result Post([FromBody] Device device)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                user.create_time = DateTime.Now;
-                user.update_time = DateTime.Now;
-                dbcon.user.Add(user);
+                device.lastconnectiontime = DateTime.Now;
+                device.create_time = DateTime.Now;
+                device.update_time = DateTime.Now;
+                dbcon.device.Add(device);
                 dbcon.SaveChanges();
                 return new Result(
                     200,
                     "success",
                     "success"
-                );
+                    );
             }
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public Result Put(int id, [FromBody] User newUser)
+        public Result Put(int id, [FromBody] Device newDevice)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                User oldUser = dbcon.Find<User>(id);
-                oldUser.username = newUser.username;
-                oldUser.nickname = newUser.nickname;
-                oldUser.password = newUser.password;
-                oldUser.email = newUser.email;
-                oldUser.company = newUser.company;
-                oldUser.phonenumber = newUser.phonenumber;
-                oldUser.update_time  = DateTime.Now;
-                oldUser.remark = newUser.remark;
-                oldUser.department = newUser.department;
-                dbcon.Update<User>(oldUser);
+                DateTime ctime;
+                Device oldDevice = dbcon.Find<Device>(id);
+                oldDevice.hardwaredeviceid = newDevice.hardwaredeviceid;
+                oldDevice.devicename = newDevice.devicename;
+                oldDevice.city = newDevice.city;
+                oldDevice.factory = newDevice.factory;
+                oldDevice.workshop = newDevice.workshop;
+                oldDevice.devicestate = newDevice.devicestate;
+                oldDevice.imageurl = newDevice.imageurl;
+                oldDevice.gatewayid = newDevice.gatewayid;
+                oldDevice.mac = newDevice.mac;
+                oldDevice.devicetype = newDevice.devicetype;
+                oldDevice.update_time = DateTime.Now;
+                oldDevice.remark = newDevice.remark;
+                oldDevice.department = newDevice.department;
+                dbcon.Update<Device>(oldDevice);
                 dbcon.SaveChanges();
                 return new Result(
                     200,
                     "success",
                     "success"
-                );
+                    );
             }
         }
 
@@ -91,13 +99,13 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                dbcon.user.Remove(dbcon.Find<User>(id));
+                dbcon.device.Remove(dbcon.Find<Device>(id));
                 dbcon.SaveChanges();
                 return new Result(
                     200,
                     "success",
                     "success"
-                );
+                    );
             }
         }
     }

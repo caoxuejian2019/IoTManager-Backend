@@ -7,6 +7,7 @@ namespace IoTManager.DAL.DbContext
     public class DatabaseContext : Microsoft.EntityFrameworkCore.DbContext
     {
         public virtual DbSet<User> user { get; set; }
+        public virtual DbSet<Device> device { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
