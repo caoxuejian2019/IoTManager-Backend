@@ -76,7 +76,6 @@ namespace IoTManager.API.Controllers
                 oldUser.remark = newUser.remark;
                 oldUser.department = newUser.department;
                 dbcon.Update<User>(oldUser);
-                
                 dbcon.SaveChanges();
                 return new Result(
                     200,
