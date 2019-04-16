@@ -8,6 +8,7 @@ namespace IoTManager.DAL.DbContext
     {
         public virtual DbSet<User> user { get; set; }
         public virtual DbSet<Device> device { get; set; }
+        public virtual DbSet<Gateway> gateway { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

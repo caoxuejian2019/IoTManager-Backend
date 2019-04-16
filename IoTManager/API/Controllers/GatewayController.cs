@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using IoTManager.DAL.ReturnType;
 using IoTManager.DAL.Models;
 using IoTManager.DAL.DbContext;
-using Microsoft.AspNetCore.WebSockets;
-using Microsoft.EntityFrameworkCore.Storage;
+using IoTManager.DAL.ReturnType;
 
 namespace IoTManager.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DeviceController : ControllerBase
+    public class GatewayController : ControllerBase
     {
         // GET api/values
         [HttpGet]
@@ -23,8 +21,8 @@ namespace IoTManager.API.Controllers
             {
                 return new Result(
                     200,
-                    "success",
-                    dbcon.Set<Device>().ToList()
+                    "success", 
+                    dbcon.Set<Gateway>().ToList()
                     );
             }
         }
@@ -38,21 +36,21 @@ namespace IoTManager.API.Controllers
                 return new Result(
                     200,
                     "success",
-                    dbcon.Find<Device>(id)
+                    dbcon.Find<Gateway>(id)
                     );
             }
         }
 
         // POST api/values
         [HttpPost]
-        public Result Post([FromBody] Device device)
+        public Result Post([FromBody] Gateway gateway)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                device.LastConnectionTime = DateTime.Now;
-                device.createTime = DateTime.Now;
-                device.updateTime = DateTime.Now;
-                dbcon.device.Add(device);
+                gateway.lastconnectiontime = DateTime.Now;
+                gateway.create_time = DateTime.Now;
+                gateway.update_time = DateTime.Now;
+                dbcon.gateway.Add(gateway);
                 dbcon.SaveChanges();
                 return new Result(
                     200,
@@ -64,26 +62,23 @@ namespace IoTManager.API.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public Result Put(int id, [FromBody] Device newDevice)
+        public Result Put(int id, [FromBody] Gateway newGateway)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                DateTime ctime;
-                Device oldDevice = dbcon.Find<Device>(id);
-                oldDevice.hardwareDeviceID = newDevice.hardwareDeviceID;
-                oldDevice.deviceName = newDevice.deviceName;
-                oldDevice.city = newDevice.city;
-                oldDevice.factory = newDevice.factory;
-                oldDevice.workshop = newDevice.workshop;
-                oldDevice.deviceState = newDevice.deviceState;
-                oldDevice.imageUrl = newDevice.imageUrl;
-                oldDevice.gatewayID = newDevice.gatewayID;
-                oldDevice.mac = newDevice.mac;
-                oldDevice.deviceType = newDevice.deviceType;
-                oldDevice.updateTime = DateTime.Now;
-                oldDevice.remark = newDevice.remark;
-                oldDevice.department = newDevice.department;
-                dbcon.Update<Device>(oldDevice);
+                Gateway oldGateway = dbcon.Find<Gateway>(id);
+                oldGateway.hardwaregatewayid = newGateway.hardwaregatewayid;
+                oldGateway.gatewayname = newGateway.gatewayname;
+                oldGateway.gatewaytype = newGateway.gatewaytype;
+                oldGateway.city = newGateway.city;
+                oldGateway.factory = newGateway.factory;
+                oldGateway.workshop = newGateway.workshop;
+                oldGateway.gatewaystate = newGateway.gatewaystate;
+                oldGateway.imageurl = newGateway.imageurl;
+                oldGateway.update_time = DateTime.Now;
+                oldGateway.remark = newGateway.remark;
+                oldGateway.department = newGateway.department;
+                dbcon.Update<Gateway>(oldGateway);
                 dbcon.SaveChanges();
                 return new Result(
                     200,
@@ -99,8 +94,7 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                dbcon.device.Remove(dbcon.Find<Device>(id));
-                dbcon.SaveChanges();
+                dbcon.gateway.Remove(dbcon.Find<Gateway>(id));
                 return new Result(
                     200,
                     "success",

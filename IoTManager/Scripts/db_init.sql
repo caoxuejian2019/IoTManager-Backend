@@ -106,21 +106,21 @@ DROP TABLE IF EXISTS `device`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `device` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `hardwaredeviceid` varchar(50) DEFAULT NULL,
-  `devicename` varchar(50) DEFAULT NULL,
+  `hardwareDeviceID` varchar(50) DEFAULT NULL,
+  `deviceName` varchar(50) DEFAULT NULL,
   `city` int(11) DEFAULT NULL,
   `factory` int(11) DEFAULT NULL,
   `workshop` int(11) DEFAULT NULL,
-  `devicestate` int(11) DEFAULT NULL,
-  `imageurl` varchar(500) DEFAULT NULL,
-  `gatewayid` int(11) DEFAULT NULL,
+  `deviceState` int(11) DEFAULT NULL,
+  `imageUrl` varchar(500) DEFAULT NULL,
+  `gatewayID` int(11) DEFAULT NULL,
   `mac` varchar(30) DEFAULT NULL,
-  `devicetype` int(11) DEFAULT NULL,
+  `deviceType` int(11) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
   `department` int(11) DEFAULT NULL,
-  `lastconnectiontime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `LastConnectionTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
