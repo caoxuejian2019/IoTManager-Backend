@@ -72,10 +72,10 @@ namespace IoTManager.API.Controllers
                 Device oldDevice = dbcon.Find<Device>(id);
                 oldDevice.hardwareDeviceID = newDevice.hardwareDeviceID;
                 oldDevice.deviceName = newDevice.deviceName;
-                oldDevice.city = newDevice.city;
-                oldDevice.factory = newDevice.factory;
-                oldDevice.workshop = newDevice.workshop;
-                oldDevice.deviceState = newDevice.deviceState;
+                oldDevice.city_id = newDevice.city_id;
+                oldDevice.factory_id = newDevice.factory_id;
+                oldDevice.workshop_id = newDevice.workshop_id;
+                oldDevice.deviceState_id = newDevice.deviceState_id;
                 oldDevice.imageUrl = newDevice.imageUrl;
                 oldDevice.gatewayID = newDevice.gatewayID;
                 oldDevice.mac = newDevice.mac;
