@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IoTManager.API.Formalizers;
 using Microsoft.AspNetCore.Mvc;
 using IoTManager.DAL.ReturnType;
 using IoTManager.DAL.Models;
 using IoTManager.DAL.DbContext;
 using Microsoft.AspNetCore.WebSockets;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace IoTManager.API.Controllers
@@ -21,10 +23,23 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
+                var devices = dbcon.Set<Device>()
+                    .Include(d => d.city)
+                    .Include(d => d.factory)
+                    .Include(d => d.workshop)
+                    .Include(d => d.deviceState)
+                    .Include(d => d.deviceType)
+                    .Include(d => d.department)
+                    .ToList();
+                List<DeviceFormalizer> results = new List<DeviceFormalizer>();
+                foreach (Device d in devices)
+                {
+                    results.Add(new DeviceFormalizer(d));
+                }
                 return new Result(
                     200,
                     "success",
-                    dbcon.Set<Device>().ToList()
+                    results
                     );
             }
         }
@@ -72,10 +87,10 @@ namespace IoTManager.API.Controllers
                 Device oldDevice = dbcon.Find<Device>(id);
                 oldDevice.hardwareDeviceID = newDevice.hardwareDeviceID;
                 oldDevice.deviceName = newDevice.deviceName;
-                oldDevice.city_id = newDevice.city_id;
-                oldDevice.factory_id = newDevice.factory_id;
-                oldDevice.workshop_id = newDevice.workshop_id;
-                oldDevice.deviceState_id = newDevice.deviceState_id;
+                oldDevice.city = newDevice.city;
+                oldDevice.factory = newDevice.factory;
+                oldDevice.workshop = newDevice.workshop;
+                oldDevice.deviceState = newDevice.deviceState;
                 oldDevice.imageUrl = newDevice.imageUrl;
                 oldDevice.gatewayID = newDevice.gatewayID;
                 oldDevice.mac = newDevice.mac;
