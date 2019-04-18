@@ -24,10 +24,10 @@ DROP TABLE IF EXISTS `city`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `city` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cityname` varchar(30) DEFAULT NULL,
+  `cityName` varchar(30) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -50,12 +50,12 @@ DROP TABLE IF EXISTS `company`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `company` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `companyname` varchar(50) DEFAULT NULL,
-  `phonenumber` varchar(20) DEFAULT NULL,
+  `companyName` varchar(50) DEFAULT NULL,
+  `phoneNumber` varchar(20) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -79,11 +79,11 @@ DROP TABLE IF EXISTS `department`;
 CREATE TABLE `department` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `path` varchar(100) DEFAULT NULL,
-  `departmentname` varchar(100) DEFAULT NULL,
-  `phonenumber` varchar(20) DEFAULT NULL,
+  `departmentName` varchar(100) DEFAULT NULL,
+  `phoneNumber` varchar(20) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -138,15 +138,15 @@ UNLOCK TABLES;
 -- Table structure for table `device_type`
 --
 
-DROP TABLE IF EXISTS `device_type`;
+DROP TABLE IF EXISTS `deviceType`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `device_type` (
+CREATE TABLE `devicetType` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `devicetypename` varchar(50) DEFAULT NULL,
+  `deviceTypeName` varchar(50) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -169,12 +169,12 @@ DROP TABLE IF EXISTS `factory`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `factory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `factoryname` varchar(50) DEFAULT NULL,
-  `factoryphonenumber` varchar(30) DEFAULT NULL,
-  `factoryaddress` varchar(100) DEFAULT NULL,
+  `factoryName` varchar(50) DEFAULT NULL,
+  `factoryPhoneNumber` varchar(30) DEFAULT NULL,
+  `factoryAddress` varchar(100) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -227,15 +227,15 @@ UNLOCK TABLES;
 -- Table structure for table `gateway_state`
 --
 
-DROP TABLE IF EXISTS `gateway_state`;
+DROP TABLE IF EXISTS `gatewayState`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `gateway_state` (
+CREATE TABLE `gatewayState` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `statename` varchar(30) DEFAULT NULL,
+  `stateName` varchar(30) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -253,15 +253,15 @@ UNLOCK TABLES;
 -- Table structure for table `gateway_type`
 --
 
-DROP TABLE IF EXISTS `gateway_type`;
+DROP TABLE IF EXISTS `gatewayType`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `gateway_type` (
+CREATE TABLE `gatewayType` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `gatewaytypename` varchar(50) DEFAULT NULL,
+  `gatewayTypeName` varchar(50) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -279,15 +279,15 @@ UNLOCK TABLES;
 -- Table structure for table `page_element`
 --
 
-DROP TABLE IF EXISTS `page_element`;
+DROP TABLE IF EXISTS `pageElement`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `page_element` (
+CREATE TABLE `pageElement` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pageelementname` varchar(30) DEFAULT NULL,
+  `pageElementName` varchar(30) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -310,10 +310,10 @@ DROP TABLE IF EXISTS `role`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `role` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rolename` varchar(20) DEFAULT NULL,
+  `roleName` varchar(20) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -423,12 +423,12 @@ DROP TABLE IF EXISTS `workshop`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `workshop` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `workshopname` varchar(50) DEFAULT NULL,
-  `workshopphonenumber` varchar(50) DEFAULT NULL,
-  `workshopaddress` varchar(100) DEFAULT NULL,
+  `workshopName` varchar(50) DEFAULT NULL,
+  `workshopPhoneNumber` varchar(50) DEFAULT NULL,
+  `workshopAddress` varchar(100) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
