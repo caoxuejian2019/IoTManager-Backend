@@ -24,12 +24,12 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 var devices = dbcon.Set<Device>()
-                    .Include(d => d.city)
-                    .Include(d => d.factory)
-                    .Include(d => d.workshop)
-                    .Include(d => d.deviceState)
-                    .Include(d => d.deviceType)
-                    .Include(d => d.department)
+                    .Include(d => d.City)
+                    .Include(d => d.Factory)
+                    .Include(d => d.Workshop)
+                    .Include(d => d.DeviceState)
+                    .Include(d => d.DeviceType)
+                    .Include(d => d.Department)
                     .ToList();
                 List<DeviceFormalizer> results = new List<DeviceFormalizer>();
                 foreach (Device d in devices)
@@ -65,8 +65,8 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 device.LastConnectionTime = DateTime.Now;
-                device.createTime = DateTime.Now;
-                device.updateTime = DateTime.Now;
+                device.CreateTime = DateTime.Now;
+                device.UpdateTime = DateTime.Now;
                 dbcon.device.Add(device);
                 dbcon.SaveChanges();
                 return new Result(
@@ -85,19 +85,19 @@ namespace IoTManager.API.Controllers
             {
                 DateTime ctime;
                 Device oldDevice = dbcon.Find<Device>(id);
-                oldDevice.hardwareDeviceID = newDevice.hardwareDeviceID;
-                oldDevice.deviceName = newDevice.deviceName;
-                oldDevice.city = newDevice.city;
-                oldDevice.factory = newDevice.factory;
-                oldDevice.workshop = newDevice.workshop;
-                oldDevice.deviceState = newDevice.deviceState;
-                oldDevice.imageUrl = newDevice.imageUrl;
-                oldDevice.gatewayID = newDevice.gatewayID;
-                oldDevice.mac = newDevice.mac;
-                oldDevice.deviceType = newDevice.deviceType;
-                oldDevice.updateTime = DateTime.Now;
-                oldDevice.remark = newDevice.remark;
-                oldDevice.department = newDevice.department;
+                oldDevice.HardwareDeviceId = newDevice.HardwareDeviceId;
+                oldDevice.DeviceName = newDevice.DeviceName;
+                oldDevice.City = newDevice.City;
+                oldDevice.Factory = newDevice.Factory;
+                oldDevice.Workshop = newDevice.Workshop;
+                oldDevice.DeviceState = newDevice.DeviceState;
+                oldDevice.ImageUrl = newDevice.ImageUrl;
+                oldDevice.GatewayId = newDevice.GatewayId;
+                oldDevice.Mac = newDevice.Mac;
+                oldDevice.DeviceType = newDevice.DeviceType;
+                oldDevice.UpdateTime = DateTime.Now;
+                oldDevice.Remark = newDevice.Remark;
+                oldDevice.Department = newDevice.Department;
                 dbcon.Update<Device>(oldDevice);
                 dbcon.SaveChanges();
                 return new Result(

@@ -29,7 +29,7 @@ CREATE TABLE `city` (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `city` (
 
 LOCK TABLES `city` WRITE;
 /*!40000 ALTER TABLE `city` DISABLE KEYS */;
+INSERT INTO `city` VALUES (1,'Shanghai','A big city','2019-04-18 13:26:46','2019-04-18 13:26:46'),(2,'Nanjing','A big city','2019-04-18 13:45:28','2019-04-18 13:45:28');
 /*!40000 ALTER TABLE `city` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +86,7 @@ CREATE TABLE `department` (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,6 +95,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
+INSERT INTO `department` VALUES (1,'/1','Offcial','+86 18221242858','The highest power in the company','2019-04-18 14:28:07','2019-04-18 14:28:07');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,8 +123,20 @@ CREATE TABLE `device` (
   `LastConnectionTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`),
+  KEY `city` (`city`),
+  KEY `factory` (`factory`),
+  KEY `workshop` (`workshop`),
+  KEY `deviceState` (`deviceState`),
+  KEY `deviceType` (`deviceType`),
+  KEY `department` (`department`),
+  CONSTRAINT `device_ibfk_1` FOREIGN KEY (`city`) REFERENCES `city` (`id`),
+  CONSTRAINT `device_ibfk_2` FOREIGN KEY (`factory`) REFERENCES `factory` (`id`),
+  CONSTRAINT `device_ibfk_3` FOREIGN KEY (`workshop`) REFERENCES `workshop` (`id`),
+  CONSTRAINT `device_ibfk_4` FOREIGN KEY (`deviceState`) REFERENCES `devicestate` (`id`),
+  CONSTRAINT `device_ibfk_5` FOREIGN KEY (`deviceType`) REFERENCES `devicetype` (`id`),
+  CONSTRAINT `device_ibfk_6` FOREIGN KEY (`department`) REFERENCES `department` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,33 +145,62 @@ CREATE TABLE `device` (
 
 LOCK TABLES `device` WRITE;
 /*!40000 ALTER TABLE `device` DISABLE KEYS */;
+INSERT INTO `device` VALUES (1,'asdfaefae','asdfasdfa',2,1,1,2,'jojo',3,'szdfgs',1,'adfe',1,'2019-04-16 12:45:53','2019-04-16 12:45:53','2019-04-16 12:45:53');
 /*!40000 ALTER TABLE `device` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `device_type`
+-- Table structure for table `deviceState`
+--
+
+DROP TABLE IF EXISTS `deviceState`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `deviceState` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `stateName` varchar(30) DEFAULT NULL,
+  `remark` varchar(500) DEFAULT NULL,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `deviceState`
+--
+
+LOCK TABLES `deviceState` WRITE;
+/*!40000 ALTER TABLE `deviceState` DISABLE KEYS */;
+INSERT INTO `deviceState` VALUES (1,'Normal','The device performs well.','2019-04-18 14:18:14','2019-04-18 14:18:14'),(2,'Error','There is something wrong with the device, please check the device as soon as you can.','2019-04-18 14:18:48','2019-04-18 14:18:48');
+/*!40000 ALTER TABLE `deviceState` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `deviceType`
 --
 
 DROP TABLE IF EXISTS `deviceType`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `devicetType` (
+CREATE TABLE `deviceType` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `deviceTypeName` varchar(50) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `device_type`
+-- Dumping data for table `deviceType`
 --
 
-LOCK TABLES `device_type` WRITE;
-/*!40000 ALTER TABLE `device_type` DISABLE KEYS */;
-/*!40000 ALTER TABLE `device_type` ENABLE KEYS */;
+LOCK TABLES `deviceType` WRITE;
+/*!40000 ALTER TABLE `deviceType` DISABLE KEYS */;
+INSERT INTO `deviceType` VALUES (1,'General Device','A kind of device widely used.','2019-04-18 14:23:42','2019-04-18 14:23:42');
+/*!40000 ALTER TABLE `deviceType` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -176,7 +219,7 @@ CREATE TABLE `factory` (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,6 +228,7 @@ CREATE TABLE `factory` (
 
 LOCK TABLES `factory` WRITE;
 /*!40000 ALTER TABLE `factory` DISABLE KEYS */;
+INSERT INTO `factory` VALUES (1,'Shanghai University','+86 18221242858','Shangda Rd. No. 99','A university named in the city Shanghai.','2019-04-18 14:07:46','2019-04-18 14:07:46');
 /*!40000 ALTER TABLE `factory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,7 +255,7 @@ CREATE TABLE `gateway` (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -220,11 +264,12 @@ CREATE TABLE `gateway` (
 
 LOCK TABLES `gateway` WRITE;
 /*!40000 ALTER TABLE `gateway` DISABLE KEYS */;
+INSERT INTO `gateway` VALUES (1,'asdfasdha','asdfasdfa',3,1,1,1,1,'asdagdah','as',1,'2019-04-18 02:19:59','2019-04-18 02:19:59','2019-04-18 02:19:59');
 /*!40000 ALTER TABLE `gateway` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `gateway_state`
+-- Table structure for table `gatewayState`
 --
 
 DROP TABLE IF EXISTS `gatewayState`;
@@ -241,16 +286,16 @@ CREATE TABLE `gatewayState` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `gateway_state`
+-- Dumping data for table `gatewayState`
 --
 
-LOCK TABLES `gateway_state` WRITE;
-/*!40000 ALTER TABLE `gateway_state` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gateway_state` ENABLE KEYS */;
+LOCK TABLES `gatewayState` WRITE;
+/*!40000 ALTER TABLE `gatewayState` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gatewayState` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `gateway_type`
+-- Table structure for table `gatewayType`
 --
 
 DROP TABLE IF EXISTS `gatewayType`;
@@ -267,16 +312,16 @@ CREATE TABLE `gatewayType` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `gateway_type`
+-- Dumping data for table `gatewayType`
 --
 
-LOCK TABLES `gateway_type` WRITE;
-/*!40000 ALTER TABLE `gateway_type` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gateway_type` ENABLE KEYS */;
+LOCK TABLES `gatewayType` WRITE;
+/*!40000 ALTER TABLE `gatewayType` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gatewayType` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `page_element`
+-- Table structure for table `pageElement`
 --
 
 DROP TABLE IF EXISTS `pageElement`;
@@ -293,12 +338,12 @@ CREATE TABLE `pageElement` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `page_element`
+-- Dumping data for table `pageElement`
 --
 
-LOCK TABLES `page_element` WRITE;
-/*!40000 ALTER TABLE `page_element` DISABLE KEYS */;
-/*!40000 ALTER TABLE `page_element` ENABLE KEYS */;
+LOCK TABLES `pageElement` WRITE;
+/*!40000 ALTER TABLE `pageElement` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pageElement` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -383,7 +428,6 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'123','234','jack','123@123.com',3,'1234','1345',5,'2019-04-03 12:25:10','2019-04-03 12:25:10');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -430,7 +474,7 @@ CREATE TABLE `workshop` (
   `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -439,6 +483,7 @@ CREATE TABLE `workshop` (
 
 LOCK TABLES `workshop` WRITE;
 /*!40000 ALTER TABLE `workshop` DISABLE KEYS */;
+INSERT INTO `workshop` VALUES (1,'Shanghai University','+86 18221242858','Shangda Rd. No. 99','A good University','2019-04-18 14:11:41','2019-04-18 14:11:41');
 /*!40000 ALTER TABLE `workshop` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -451,4 +496,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-03 20:26:36
+-- Dump completed on 2019-04-18 23:21:25

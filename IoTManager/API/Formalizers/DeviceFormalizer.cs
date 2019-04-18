@@ -28,22 +28,22 @@ namespace IoTManager.API.Formalizers
 
         public DeviceFormalizer(Device device)
         {
-            this.id = device.id;
-            this.hardwareDeviceID = device.hardwareDeviceID;
-            this.deviceName = device.deviceName;
-            this.city = device.city.cityName;
-            this.factory = device.factory.factoryName;
-            this.workshop = device.workshop.workshopName;
-            this.deviceState = device.deviceState.stateName;
+            this.id = device.Id;
+            this.hardwareDeviceID = device.HardwareDeviceId;
+            this.deviceName = device.DeviceName;
+            this.city = device.City.cityName;
+            this.factory = device.Factory.factoryName;
+            this.workshop = device.Workshop.workshopName;
+            this.deviceState = device.DeviceState.stateName;
             this.LastConnectionTime = device.LastConnectionTime;
-            this.imageUrl = device.imageUrl;
-            this.gatewayID = device.gatewayID;
-            this.mac = device.mac;
-            this.deviceType = device.deviceType.deviceTypeName;
-            this.createTime = device.createTime;
-            this.updateTime = device.updateTime;
-            this.remark = device.remark;
-            this.department = device.department.departmentName;
+            this.imageUrl = device.ImageUrl;
+            this.gatewayID = device.GatewayId;
+            this.mac = device.Mac;
+            this.deviceType = device.DeviceType.deviceTypeName;
+            this.createTime = device.CreateTime;
+            this.updateTime = device.UpdateTime;
+            this.remark = device.Remark;
+            this.department = device.Department.departmentName;
         }
         
         public int id { get; set; }

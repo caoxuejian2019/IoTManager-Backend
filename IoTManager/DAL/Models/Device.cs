@@ -7,55 +7,79 @@ namespace IoTManager.DAL.Models
 {
     public class Device
     {
-        public int id { get; set; }
-        public String hardwareDeviceID { get; set; }
-        public String deviceName { get; set; }
+        [Column("id")]
+        public int Id { get; set; }
+        
+        
+        [Column("hardwareDeviceID")]
+        public String HardwareDeviceId { get; set; }
+        
+        
+        [Column("deviceName")]
+        public String DeviceName { get; set; }
         
         
         [Column("city")]
-        public int cityId { get; set; }
-        [ForeignKey("cityId")]
-        public City city { get; set; }
+        public int CityId { get; set; }
+        [ForeignKey("CityId")]
+        public City City { get; set; }
         
         
         [Column("factory")]
-        public int factoryId { get; set; }
-        [ForeignKey("factoryId")]
-        public Factory factory { get; set; }
+        public int FactoryId { get; set; }
+        [ForeignKey("FactoryId")]
+        public Factory Factory { get; set; }
         
         
         [Column("workshop")]
-        public int workshopId { get; set; }
-        [ForeignKey("workshopId")]
-        public Workshop workshop { get; set; }
+        public int WorkshopId { get; set; }
+        [ForeignKey("WorkshopId")]
+        public Workshop Workshop { get; set; }
         
         
         [Column("deviceState")]
-        public int deviceStateId { get; set; }
-        [ForeignKey("deviceStateId")]
-        public DeviceState deviceState { get; set; }
+        public int DeviceStateId { get; set; }
+        [ForeignKey("DeviceStateId")]
+        public DeviceState DeviceState { get; set; }
         
         
+        [Column("LastConnectionTime")]
         public DateTime LastConnectionTime { get; set; }
-        public String imageUrl { get; set; }
-        public int gatewayID { get; set; }
-        public String mac { get; set; }
+        
+        
+        [Column("imageUrl")]
+        public String ImageUrl { get; set; }
+        
+        
+        [Column("gatewayID")]
+        public int GatewayId { get; set; }
+        
+        
+        [Column("mac")]
+        public String Mac { get; set; }
         
         
         [Column("deviceType")]
-        public int deviceTypeId { get; set; }
-        [ForeignKey("deviceTypeId")]
-        public DeviceType deviceType { get; set; }
+        public int DeviceTypeId { get; set; }
+        [ForeignKey("DeviceTypeId")]
+        public DeviceType DeviceType { get; set; }
         
         
-        public DateTime createTime { get; set; }
-        public DateTime updateTime { get; set; }
-        public String remark { get; set; }
+        [Column("createTime")]
+        public DateTime CreateTime { get; set; }
+        
+        
+        [Column("updateTime")]
+        public DateTime UpdateTime { get; set; }
+        
+        
+        [Column("remark")]
+        public String Remark { get; set; }
         
         
         [Column("department")]
-        public int departmentId { get; set; }
-        [ForeignKey("departmentId")]
-        public Department department { get; set; }
+        public int DepartmentId { get; set; }
+        [ForeignKey("DepartmentId")]
+        public Department Department { get; set; }
     }
 }

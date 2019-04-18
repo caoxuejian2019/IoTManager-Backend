@@ -15,46 +15,49 @@ namespace IoTManager.DAL.DbContext
         {
             //Device Model Builder
             modelBuilder.Entity<Device>()
-                .Property<int>("cityId");
+                .ToTable("device");
+            
             modelBuilder.Entity<Device>()
-                .HasOne(d => d.city)
+                .Property<int>("CityId");
+            modelBuilder.Entity<Device>()
+                .HasOne(d => d.City)
                 .WithMany()
-                .HasForeignKey(d => d.cityId);
+                .HasForeignKey(d => d.CityId);
 
             modelBuilder.Entity<Device>()
-                .Property<int>("factoryId");
+                .Property<int>("FactoryId");
             modelBuilder.Entity<Device>()
-                .HasOne(d => d.factory)
+                .HasOne(d => d.Factory)
                 .WithMany()
-                .HasForeignKey(d => d.factoryId);
+                .HasForeignKey(d => d.FactoryId);
 
             modelBuilder.Entity<Device>()
-                .Property<int>("workshopId");
+                .Property<int>("WorkshopId");
             modelBuilder.Entity<Device>()
-                .HasOne(d => d.workshop)
+                .HasOne(d => d.Workshop)
                 .WithMany()
-                .HasForeignKey(d => d.workshopId);
+                .HasForeignKey(d => d.WorkshopId);
 
             modelBuilder.Entity<Device>()
-                .Property<int>("deviceStateId");
+                .Property<int>("DeviceStateId");
             modelBuilder.Entity<Device>()
-                .HasOne(d => d.deviceState)
+                .HasOne(d => d.DeviceState)
                 .WithMany()
-                .HasForeignKey(d => d.deviceStateId);
+                .HasForeignKey(d => d.DeviceStateId);
 
             modelBuilder.Entity<Device>()
-                .Property<int>("deviceTypeId");
+                .Property<int>("DeviceTypeId");
             modelBuilder.Entity<Device>()
-                .HasOne(d => d.deviceType)
+                .HasOne(d => d.DeviceType)
                 .WithMany()
-                .HasForeignKey(d => d.deviceTypeId);
+                .HasForeignKey(d => d.DeviceTypeId);
 
             modelBuilder.Entity<Device>()
-                .Property<int>("departmentId");
+                .Property<int>("DepartmentId");
             modelBuilder.Entity<Device>()
-                .HasOne(d => d.department)
+                .HasOne(d => d.Department)
                 .WithMany()
-                .HasForeignKey(d => d.departmentId);
+                .HasForeignKey(d => d.DepartmentId);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
