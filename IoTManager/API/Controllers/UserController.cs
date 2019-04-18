@@ -47,8 +47,8 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                user.create_time = DateTime.Now;
-                user.update_time = DateTime.Now;
+                user.createTime = DateTime.Now;
+                user.updateTime = DateTime.Now;
                 dbcon.user.Add(user);
                 dbcon.SaveChanges();
                 return new Result(
@@ -66,13 +66,13 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 User oldUser = dbcon.Find<User>(id);
-                oldUser.username = newUser.username;
-                oldUser.nickname = newUser.nickname;
+                oldUser.userName = newUser.userName;
+                oldUser.displayName = newUser.displayName;
                 oldUser.password = newUser.password;
                 oldUser.email = newUser.email;
                 oldUser.company = newUser.company;
-                oldUser.phonenumber = newUser.phonenumber;
-                oldUser.update_time  = DateTime.Now;
+                oldUser.phoneNumber = newUser.phoneNumber;
+                oldUser.updateTime  = DateTime.Now;
                 oldUser.remark = newUser.remark;
                 oldUser.department = newUser.department;
                 dbcon.Update<User>(oldUser);

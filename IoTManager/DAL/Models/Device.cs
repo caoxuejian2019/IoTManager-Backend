@@ -16,8 +16,8 @@ namespace IoTManager.DAL.Models
         public int? gatewayID { get; set; }
         public String mac { get; set; }
         public int? deviceType { get; set; }
-        public DateTime createTime { get; set; }
-        public DateTime updateTime { get; set; }
+        public DateTime? createTime { get; set; }
+        public DateTime? updateTime { get; set; }
         public String remark { get; set; }
         public int? department { get; set; }
     }

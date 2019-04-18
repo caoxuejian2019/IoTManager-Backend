@@ -197,19 +197,19 @@ DROP TABLE IF EXISTS `gateway`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `gateway` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `hardwaregatewayid` varchar(50) DEFAULT NULL,
-  `gatewayname` varchar(50) DEFAULT NULL,
-  `gatewaytype` int(11) DEFAULT NULL,
+  `hardwareGatewayID` varchar(50) DEFAULT NULL,
+  `gatewayName` varchar(50) DEFAULT NULL,
+  `gatewayType` int(11) DEFAULT NULL,
   `city` int(11) DEFAULT NULL,
   `factory` int(11) DEFAULT NULL,
   `workshop` int(11) DEFAULT NULL,
-  `gatewaystate` int(11) DEFAULT NULL,
-  `imageurl` varchar(500) DEFAULT NULL,
+  `gatewayState` int(11) DEFAULT NULL,
+  `imageUrl` varchar(500) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
   `department` int(11) DEFAULT NULL,
-  `lastconnectiontime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastConnectionTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -363,16 +363,16 @@ DROP TABLE IF EXISTS `user`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(30) DEFAULT NULL,
-  `nickname` varchar(30) DEFAULT NULL,
+  `userName` varchar(30) DEFAULT NULL,
+  `displayName` varchar(30) DEFAULT NULL,
   `password` varchar(60) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `company` int(11) DEFAULT NULL,
-  `phonenumber` varchar(20) DEFAULT NULL,
+  `phoneNumber` varchar(20) DEFAULT NULL,
   `remark` varchar(500) DEFAULT NULL,
   `department` int(11) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

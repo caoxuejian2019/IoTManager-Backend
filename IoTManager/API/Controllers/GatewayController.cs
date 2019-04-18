@@ -47,9 +47,9 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                gateway.lastconnectiontime = DateTime.Now;
-                gateway.create_time = DateTime.Now;
-                gateway.update_time = DateTime.Now;
+                gateway.lastConnectionTime = DateTime.Now;
+                gateway.createTime = DateTime.Now;
+                gateway.updateTime = DateTime.Now;
                 dbcon.gateway.Add(gateway);
                 dbcon.SaveChanges();
                 return new Result(
@@ -67,15 +67,15 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 Gateway oldGateway = dbcon.Find<Gateway>(id);
-                oldGateway.hardwaregatewayid = newGateway.hardwaregatewayid;
-                oldGateway.gatewayname = newGateway.gatewayname;
-                oldGateway.gatewaytype = newGateway.gatewaytype;
+                oldGateway.hardwareGatewayID = newGateway.hardwareGatewayID;
+                oldGateway.gatewayName = newGateway.gatewayName;
+                oldGateway.gatewayType = newGateway.gatewayType;
                 oldGateway.city = newGateway.city;
                 oldGateway.factory = newGateway.factory;
                 oldGateway.workshop = newGateway.workshop;
-                oldGateway.gatewaystate = newGateway.gatewaystate;
-                oldGateway.imageurl = newGateway.imageurl;
-                oldGateway.update_time = DateTime.Now;
+                oldGateway.gatewayState = newGateway.gatewayState;
+                oldGateway.imageUrl = newGateway.imageUrl;
+                oldGateway.updateTime = DateTime.Now;
                 oldGateway.remark = newGateway.remark;
                 oldGateway.department = newGateway.department;
                 dbcon.Update<Gateway>(oldGateway);
