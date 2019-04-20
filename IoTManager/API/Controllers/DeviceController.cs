@@ -50,10 +50,20 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
+                var device = dbcon.Set<Device>()
+                    .Include(d => d.City)
+                    .Include(d => d.Factory)
+                    .Include(d => d.Workshop)
+                    .Include(d => d.DeviceState)
+                    .Include(d => d.DeviceType)
+                    .Include(d => d.Department)
+                    .Where(d => d.Id == id)
+                    .ToList();
+                DeviceFormalizer result = new DeviceFormalizer(device[0]);
                 return new Result(
                     200,
                     "success",
-                    dbcon.Find<Device>(id)
+                    result
                     );
             }
         }
