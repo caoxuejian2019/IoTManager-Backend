@@ -7,10 +7,26 @@ namespace IoTManager.DAL.DbContext
 {
     public class DatabaseContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        public virtual DbSet<User> user { get; set; }
-        public virtual DbSet<Device> device { get; set; }
-        public virtual DbSet<Gateway> gateway { get; set; }
+        //Three complex models
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Device> Device { get; set; }
+        public virtual DbSet<Gateway> Gateway { get; set; }
+        
+        
+        //Eleven easy models
+        public virtual DbSet<City> City { get; set; }
+        public virtual DbSet<Company> Company { get; set; }
+        public virtual DbSet<Department> Department { get; set; }
+        public virtual DbSet<DeviceState> DeviceState { get; set; }
+        public virtual DbSet<DeviceType> DeviceType { get; set; }
+        public virtual DbSet<Factory> Factory { get; set; }
+        public virtual DbSet<GatewayState> GatewayState { get; set; }
+        public virtual DbSet<GatewayType> GatewayType { get; set; }
+        public virtual DbSet<PageElement> PageElement { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Workshop> WorkShop { get; set; }
 
+            
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Device Model Builder

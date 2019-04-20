@@ -49,7 +49,7 @@ namespace IoTManager.API.Controllers
             {
                 user.createTime = DateTime.Now;
                 user.updateTime = DateTime.Now;
-                dbcon.user.Add(user);
+                dbcon.User.Add(user);
                 dbcon.SaveChanges();
                 return new Result(
                     200,
@@ -91,7 +91,7 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                dbcon.user.Remove(dbcon.Find<User>(id));
+                dbcon.User.Remove(dbcon.Find<User>(id));
                 dbcon.SaveChanges();
                 return new Result(
                     200,

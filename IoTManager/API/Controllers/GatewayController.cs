@@ -50,7 +50,7 @@ namespace IoTManager.API.Controllers
                 gateway.lastConnectionTime = DateTime.Now;
                 gateway.createTime = DateTime.Now;
                 gateway.updateTime = DateTime.Now;
-                dbcon.gateway.Add(gateway);
+                dbcon.Gateway.Add(gateway);
                 dbcon.SaveChanges();
                 return new Result(
                     200,
@@ -94,7 +94,7 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                dbcon.gateway.Remove(dbcon.Find<Gateway>(id));
+                dbcon.Gateway.Remove(dbcon.Find<Gateway>(id));
                 return new Result(
                     200,
                     "success",

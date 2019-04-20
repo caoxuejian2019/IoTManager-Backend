@@ -77,7 +77,7 @@ namespace IoTManager.API.Controllers
                 device.LastConnectionTime = DateTime.Now;
                 device.CreateTime = DateTime.Now;
                 device.UpdateTime = DateTime.Now;
-                dbcon.device.Add(device);
+                dbcon.Device.Add(device);
                 dbcon.SaveChanges();
                 return new Result(
                     200,
@@ -124,7 +124,7 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                dbcon.device.Remove(dbcon.Find<Device>(id));
+                dbcon.Device.Remove(dbcon.Find<Device>(id));
                 dbcon.SaveChanges();
                 return new Result(
                     200,
