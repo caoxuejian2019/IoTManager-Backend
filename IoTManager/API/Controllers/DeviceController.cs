@@ -95,37 +95,37 @@ namespace IoTManager.API.Controllers
                 //Information Based on Relation
                 
                 //City
-                City deviceCity = dbcon.Set<City>()
+                City deviceCity = dbcon.City
                     .Single(c => c.cityName == device.city);
                 newDevice.City = deviceCity;
                 newDevice.CityId = deviceCity.id;
 
                 //Factory
-                Factory deviceFactory = dbcon.Set<Factory>()
+                Factory deviceFactory = dbcon.Factory
                     .Single(f => f.factoryName == device.factory);
                 newDevice.Factory = deviceFactory;
                 newDevice.FactoryId = deviceFactory.id;
 
                 //Workshop
-                Workshop deviceWorkshop = dbcon.Set<Workshop>()
+                Workshop deviceWorkshop = dbcon.WorkShop
                     .Single(w => w.workshopName == device.workshop);
                 newDevice.Workshop = deviceWorkshop;
                 newDevice.WorkshopId = deviceWorkshop.id;
 
                 //DeviceState
-                DeviceState deviceDeviceState = dbcon.Set<DeviceState>()
+                DeviceState deviceDeviceState = dbcon.DeviceState
                     .Single(ds => ds.stateName == device.deviceState);
                 newDevice.DeviceState = deviceDeviceState;
                 newDevice.DeviceStateId = deviceDeviceState.id;
 
                 //DeviceType
-                DeviceType deviceDeviceType = dbcon.Set<DeviceType>()
+                DeviceType deviceDeviceType = dbcon.DeviceType
                     .Single(dt => dt.deviceTypeName == device.deviceType);
                 newDevice.DeviceType = deviceDeviceType;
                 newDevice.DeviceTypeId = deviceDeviceType.id;
 
                 //Department
-                Department deviceDepartment = dbcon.Set<Department>()
+                Department deviceDepartment = dbcon.Department
                     .Single(d => d.departmentName == device.department);
                 newDevice.Department = deviceDepartment;
                 newDevice.DepartmentId = deviceDepartment.id;
