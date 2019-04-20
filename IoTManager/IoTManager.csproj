@@ -5,7 +5,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="DAL\Exceptions" />
         <Folder Include="wwwroot\" />
     </ItemGroup>
 

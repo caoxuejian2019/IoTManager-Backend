@@ -33,13 +33,15 @@ namespace IoTManager.DAL.DbContext
             modelBuilder.Entity<Device>()
                 .ToTable("device");
             
+            //City
             modelBuilder.Entity<Device>()
                 .Property<int>("CityId");
             modelBuilder.Entity<Device>()
                 .HasOne(d => d.City)
                 .WithMany()
                 .HasForeignKey(d => d.CityId);
-
+            
+            //Factory
             modelBuilder.Entity<Device>()
                 .Property<int>("FactoryId");
             modelBuilder.Entity<Device>()
@@ -47,6 +49,7 @@ namespace IoTManager.DAL.DbContext
                 .WithMany()
                 .HasForeignKey(d => d.FactoryId);
 
+            //Workshop
             modelBuilder.Entity<Device>()
                 .Property<int>("WorkshopId");
             modelBuilder.Entity<Device>()
@@ -54,6 +57,7 @@ namespace IoTManager.DAL.DbContext
                 .WithMany()
                 .HasForeignKey(d => d.WorkshopId);
 
+            //DeviceState
             modelBuilder.Entity<Device>()
                 .Property<int>("DeviceStateId");
             modelBuilder.Entity<Device>()
@@ -61,6 +65,7 @@ namespace IoTManager.DAL.DbContext
                 .WithMany()
                 .HasForeignKey(d => d.DeviceStateId);
 
+            //DeviceType
             modelBuilder.Entity<Device>()
                 .Property<int>("DeviceTypeId");
             modelBuilder.Entity<Device>()
@@ -68,6 +73,7 @@ namespace IoTManager.DAL.DbContext
                 .WithMany()
                 .HasForeignKey(d => d.DeviceTypeId);
 
+            //Department
             modelBuilder.Entity<Device>()
                 .Property<int>("DepartmentId");
             modelBuilder.Entity<Device>()

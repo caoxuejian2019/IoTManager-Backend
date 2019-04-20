@@ -57,9 +57,8 @@ namespace IoTManager.API.Controllers
                     .Include(d => d.DeviceState)
                     .Include(d => d.DeviceType)
                     .Include(d => d.Department)
-                    .Where(d => d.Id == id)
-                    .ToList();
-                DeviceFormalizer result = new DeviceFormalizer(device[0]);
+                    .Single(d => d.Id == id);
+                DeviceFormalizer result = new DeviceFormalizer(device);
                 return new Result(
                     200,
                     "success",
@@ -70,20 +69,76 @@ namespace IoTManager.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public Result Post([FromBody] Device device)
+        public object Post([FromBody] DeviceFormalizer device)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                device.LastConnectionTime = DateTime.Now;
-                device.CreateTime = DateTime.Now;
-                device.UpdateTime = DateTime.Now;
-                dbcon.Device.Add(device);
+                Device newDevice = new Device();
+                
+                
+                //Basic Information
+                newDevice.Id = device.id;
+                newDevice.HardwareDeviceId = device.hardwareDeviceID;
+                newDevice.DeviceName = device.deviceName;
+                newDevice.ImageUrl = device.imageUrl;
+                newDevice.GatewayId = device.gatewayID;
+                newDevice.Mac = device.mac;
+                newDevice.Remark = device.remark;
+
+                
+                //Basic Time Information
+                newDevice.LastConnectionTime = DateTime.Now;
+                newDevice.CreateTime = DateTime.Now;
+                newDevice.UpdateTime = DateTime.Now;
+                
+                
+                //Information Based on Relation
+                
+                //City
+                City deviceCity = dbcon.Set<City>()
+                    .Single(c => c.cityName == device.city);
+                newDevice.City = deviceCity;
+                newDevice.CityId = deviceCity.id;
+
+                //Factory
+                Factory deviceFactory = dbcon.Set<Factory>()
+                    .Single(f => f.factoryName == device.factory);
+                newDevice.Factory = deviceFactory;
+                newDevice.FactoryId = deviceFactory.id;
+
+                //Workshop
+                Workshop deviceWorkshop = dbcon.Set<Workshop>()
+                    .Single(w => w.workshopName == device.workshop);
+                newDevice.Workshop = deviceWorkshop;
+                newDevice.WorkshopId = deviceWorkshop.id;
+
+                //DeviceState
+                DeviceState deviceDeviceState = dbcon.Set<DeviceState>()
+                    .Single(ds => ds.stateName == device.deviceState);
+                newDevice.DeviceState = deviceDeviceState;
+                newDevice.DeviceStateId = deviceDeviceState.id;
+
+                //DeviceType
+                DeviceType deviceDeviceType = dbcon.Set<DeviceType>()
+                    .Single(dt => dt.deviceTypeName == device.deviceType);
+                newDevice.DeviceType = deviceDeviceType;
+                newDevice.DeviceTypeId = deviceDeviceType.id;
+
+                //Department
+                Department deviceDepartment = dbcon.Set<Department>()
+                    .Single(d => d.departmentName == device.department);
+                newDevice.Department = deviceDepartment;
+                newDevice.DepartmentId = deviceDepartment.id;
+
+
+                dbcon.Device.Add(newDevice);
                 dbcon.SaveChanges();
+
                 return new Result(
                     200,
                     "success",
-                    "success"
-                    );
+                    newDevice
+                );
             }
         }
 
