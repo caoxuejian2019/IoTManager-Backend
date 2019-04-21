@@ -47,9 +47,9 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                gateway.lastConnectionTime = DateTime.Now;
-                gateway.createTime = DateTime.Now;
-                gateway.updateTime = DateTime.Now;
+                gateway.LastConnectionTime = DateTime.Now;
+                gateway.CreateTime = DateTime.Now;
+                gateway.UpdateTime = DateTime.Now;
                 dbcon.Gateway.Add(gateway);
                 dbcon.SaveChanges();
                 return new Result(
@@ -67,17 +67,17 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 Gateway oldGateway = dbcon.Find<Gateway>(id);
-                oldGateway.hardwareGatewayID = newGateway.hardwareGatewayID;
-                oldGateway.gatewayName = newGateway.gatewayName;
-                oldGateway.gatewayType = newGateway.gatewayType;
-                oldGateway.city = newGateway.city;
-                oldGateway.factory = newGateway.factory;
-                oldGateway.workshop = newGateway.workshop;
-                oldGateway.gatewayState = newGateway.gatewayState;
-                oldGateway.imageUrl = newGateway.imageUrl;
-                oldGateway.updateTime = DateTime.Now;
-                oldGateway.remark = newGateway.remark;
-                oldGateway.department = newGateway.department;
+                oldGateway.HardwareGatewayId = newGateway.HardwareGatewayId;
+                oldGateway.GatewayName = newGateway.GatewayName;
+                oldGateway.GatewayType = newGateway.GatewayType;
+                oldGateway.City = newGateway.City;
+                oldGateway.Factory = newGateway.Factory;
+                oldGateway.Workshop = newGateway.Workshop;
+                oldGateway.GatewayState = newGateway.GatewayState;
+                oldGateway.ImageUrl = newGateway.ImageUrl;
+                oldGateway.UpdateTime = DateTime.Now;
+                oldGateway.Remark = newGateway.Remark;
+                oldGateway.Department = newGateway.Department;
                 dbcon.Update<Gateway>(oldGateway);
                 dbcon.SaveChanges();
                 return new Result(
