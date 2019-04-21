@@ -33,6 +33,10 @@ namespace IoTManager.DAL.DbContext
             modelBuilder.Entity<Device>()
                 .ToTable("device");
             
+            //Primary Key
+            modelBuilder.Entity<Device>()
+                .HasKey(d => d.Id);
+            
             //City
             modelBuilder.Entity<Device>()
                 .Property<int>("CityId");
