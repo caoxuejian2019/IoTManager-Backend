@@ -23,7 +23,11 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                var devices = dbcon.Set<Device>()
+                /************************************
+                 * Find All Devices from the Database
+                 ************************************/
+                
+                var devices = dbcon.Device
                     .Include(d => d.City)
                     .Include(d => d.Factory)
                     .Include(d => d.Workshop)
@@ -31,11 +35,23 @@ namespace IoTManager.API.Controllers
                     .Include(d => d.DeviceType)
                     .Include(d => d.Department)
                     .ToList();
+                
+                
+                /************************************
+                 * Serialize the Result
+                 ************************************/
+                
                 List<DeviceFormalizer> results = new List<DeviceFormalizer>();
+                
                 foreach (Device d in devices)
                 {
                     results.Add(new DeviceFormalizer(d));
                 }
+                
+                
+                /************************************
+                 * Return
+                 ************************************/
                 return new Result(
                     200,
                     "success",
@@ -50,7 +66,11 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                var device = dbcon.Set<Device>()
+                /************************************
+                 * Find the Device with Certain Id
+                 ************************************/
+                
+                var device = dbcon.Device
                     .Include(d => d.City)
                     .Include(d => d.Factory)
                     .Include(d => d.Workshop)
@@ -58,7 +78,17 @@ namespace IoTManager.API.Controllers
                     .Include(d => d.DeviceType)
                     .Include(d => d.Department)
                     .Single(d => d.Id == id);
+                
+                
+                /************************************
+                 * Serialize the Result
+                 ************************************/
                 DeviceFormalizer result = new DeviceFormalizer(device);
+                
+                
+                /************************************
+                 * Return
+                 ************************************/
                 return new Result(
                     200,
                     "success",
@@ -92,15 +122,12 @@ namespace IoTManager.API.Controllers
                 newDevice.Mac = device.mac;
                 newDevice.Remark = device.remark;
 
-                
                 //Basic Time Information
                 newDevice.LastConnectionTime = DateTime.Now;
                 newDevice.CreateTime = DateTime.Now;
                 newDevice.UpdateTime = DateTime.Now;
                 
-                
                 //Information Based on Relation
-                
                 //City
                 City deviceCity = dbcon.City
                     .Single(c => c.cityName == device.city);
@@ -176,13 +203,10 @@ namespace IoTManager.API.Controllers
                 oldDevice.Mac = newDevice.mac;
                 oldDevice.Remark = newDevice.remark;
                 
-                
                 //Basic Time Information
                 oldDevice.UpdateTime = DateTime.Now;
                 
-                
                 //Information Based on Relation
-                
                 //City
                 City deviceCity = dbcon.City
                     .Single(c => c.cityName == newDevice.city);
@@ -240,12 +264,38 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                dbcon.Device.Remove(dbcon.Find<Device>(id));
+                /************************************
+                 * Find the Device To Delete
+                 ************************************/
+                
+                Device device = dbcon.Device
+                    .Include(d => d.City)
+                    .Include(d => d.Factory)
+                    .Include(d => d.Workshop)
+                    .Include(d => d.DeviceState)
+                    .Include(d => d.DeviceType)
+                    .Include(d => d.Department)
+                    .Single(d => d.Id == id);
+                
+                
+                /************************************
+                 * Serialize the Deleted Device
+                 ************************************/
+                
+                DeviceFormalizer result = new DeviceFormalizer(device);
+                
+                
+                /************************************
+                 * Delete and Return the Deleted Device
+                 ************************************/
+                
+                dbcon.Device.Remove(device);
                 dbcon.SaveChanges();
+                
                 return new Result(
                     200,
                     "success",
-                    "success"
+                    result
                     );
             }
         }
