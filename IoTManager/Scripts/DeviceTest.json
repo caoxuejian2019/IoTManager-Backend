@@ -1,0 +1,14 @@
+{
+  "hardwareDeviceID": "Not the previous Test Device",
+  "deviceName": "Test Device 17",
+  "city": "Shenzhen",
+  "factory": "Fudan University",
+  "workshop": "Tongji University",
+  "deviceState": "Error",
+  "imageUrl": "https://www.douyu.com",
+  "gatewayID": 17,
+  "mac": "apdojgaoieg",
+  "deviceType": "General Device",
+  "remark": "A Test Device",
+  "Department": "Official 2"
+}

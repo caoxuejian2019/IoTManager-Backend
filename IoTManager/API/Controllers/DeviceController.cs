@@ -44,7 +44,7 @@ namespace IoTManager.API.Controllers
             }
         }
 
-        // GET api/values/5
+        // GET api/values/{id}
         [HttpGet("{id}")]
         public Result Get(int id)
         {
@@ -73,11 +73,18 @@ namespace IoTManager.API.Controllers
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
+                /************************************
+                 * Create A New Device Model
+                 ************************************/
+                
                 Device newDevice = new Device();
                 
                 
+                /************************************
+                 * Process New Device Information
+                 ************************************/
+                
                 //Basic Information
-                newDevice.Id = device.id;
                 newDevice.HardwareDeviceId = device.hardwareDeviceID;
                 newDevice.DeviceName = device.deviceName;
                 newDevice.ImageUrl = device.imageUrl;
@@ -107,7 +114,7 @@ namespace IoTManager.API.Controllers
                 newDevice.FactoryId = deviceFactory.id;
 
                 //Workshop
-                Workshop deviceWorkshop = dbcon.WorkShop
+                Workshop deviceWorkshop = dbcon.Workshop
                     .Single(w => w.workshopName == device.workshop);
                 newDevice.Workshop = deviceWorkshop;
                 newDevice.WorkshopId = deviceWorkshop.id;
@@ -131,6 +138,9 @@ namespace IoTManager.API.Controllers
                 newDevice.DepartmentId = deviceDepartment.id;
 
 
+                /************************************
+                 * Save and Return
+                 ************************************/
                 dbcon.Device.Add(newDevice);
                 dbcon.SaveChanges();
 
@@ -142,38 +152,89 @@ namespace IoTManager.API.Controllers
             }
         }
 
-        // PUT api/values/5
+        // PUT api/values/{id}
         [HttpPut("{id}")]
-        public Result Put(int id, [FromBody] Device newDevice)
+        public Result Put(int id, [FromBody] DeviceFormalizer newDevice)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
-                DateTime ctime;
+                /************************************
+                 * Find the Old Device Information
+                 ************************************/
                 Device oldDevice = dbcon.Find<Device>(id);
-                oldDevice.HardwareDeviceId = newDevice.HardwareDeviceId;
-                oldDevice.DeviceName = newDevice.DeviceName;
-                oldDevice.City = newDevice.City;
-                oldDevice.Factory = newDevice.Factory;
-                oldDevice.Workshop = newDevice.Workshop;
-                oldDevice.DeviceState = newDevice.DeviceState;
-                oldDevice.ImageUrl = newDevice.ImageUrl;
-                oldDevice.GatewayId = newDevice.GatewayId;
-                oldDevice.Mac = newDevice.Mac;
-                oldDevice.DeviceType = newDevice.DeviceType;
+                
+                
+                /************************************
+                 * Process the New Device Information
+                 ************************************/
+                
+                //Basic Information
+                oldDevice.HardwareDeviceId = newDevice.hardwareDeviceID;
+                oldDevice.DeviceName = newDevice.deviceName;
+                oldDevice.ImageUrl = newDevice.imageUrl;
+                oldDevice.GatewayId = newDevice.gatewayID;
+                oldDevice.Mac = newDevice.mac;
+                oldDevice.Remark = newDevice.remark;
+                
+                
+                //Basic Time Information
                 oldDevice.UpdateTime = DateTime.Now;
-                oldDevice.Remark = newDevice.Remark;
-                oldDevice.Department = newDevice.Department;
-                dbcon.Update<Device>(oldDevice);
+                
+                
+                //Information Based on Relation
+                
+                //City
+                City deviceCity = dbcon.City
+                    .Single(c => c.cityName == newDevice.city);
+                oldDevice.City = deviceCity;
+                oldDevice.CityId = deviceCity.id;
+                
+                //Factory
+                Factory deviceFactory = dbcon.Factory
+                    .Single(f => f.factoryName == newDevice.factory);
+                oldDevice.Factory = deviceFactory;
+                oldDevice.FactoryId = deviceFactory.id;
+                
+                //Workshop
+                Workshop deviceWorkshop = dbcon.Workshop
+                    .Single(w => w.workshopName == newDevice.workshop);
+                oldDevice.Workshop = deviceWorkshop;
+                oldDevice.WorkshopId = deviceWorkshop.id;
+                
+                //DeviceState
+                DeviceState deviceDeviceState = dbcon.DeviceState
+                    .Single(ds => ds.stateName == newDevice.deviceState);
+                oldDevice.DeviceState = deviceDeviceState;
+                oldDevice.DeviceStateId = deviceDeviceState.id;
+                
+                //DeviceType
+                DeviceType deviceDeviceType = dbcon.DeviceType
+                    .Single(dt => dt.deviceTypeName == newDevice.deviceType);
+                oldDevice.DeviceType = deviceDeviceType;
+                oldDevice.DeviceTypeId = deviceDeviceType.id;
+                
+                //Department
+                Department deviceDepartment = dbcon.Department
+                    .Single(d => d.departmentName == newDevice.department);
+                oldDevice.Department = deviceDepartment;
+                oldDevice.DepartmentId = deviceDepartment.id;
+                
+                
+                /************************************
+                 * Save and Return
+                 ************************************/
+
                 dbcon.SaveChanges();
+                
                 return new Result(
                     200,
                     "success",
-                    "success"
-                    );
+                    oldDevice
+                );
             }
         }
 
-        // DELETE api/values/5
+        // DELETE api/values/{id}
         [HttpDelete("{id}")]
         public Result Delete(int id)
         {

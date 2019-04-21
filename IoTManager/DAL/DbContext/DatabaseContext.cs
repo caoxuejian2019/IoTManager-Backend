@@ -24,12 +24,14 @@ namespace IoTManager.DAL.DbContext
         public virtual DbSet<GatewayType> GatewayType { get; set; }
         public virtual DbSet<PageElement> PageElement { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<Workshop> WorkShop { get; set; }
+        public virtual DbSet<Workshop> Workshop { get; set; }
 
             
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Device Model Builder
+            /**********************
+            Device Model Builder
+            ***********************/
             modelBuilder.Entity<Device>()
                 .ToTable("device");
             
