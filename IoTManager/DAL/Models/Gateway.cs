@@ -23,7 +23,9 @@ namespace IoTManager.DAL.Models
         
         
         [Column("city")]
-        public int City { get; set; }
+        public int CityId { get; set; }
+        [ForeignKey("CityId")]
+        public City City { get; set; }
         
         
         [Column("factory")]

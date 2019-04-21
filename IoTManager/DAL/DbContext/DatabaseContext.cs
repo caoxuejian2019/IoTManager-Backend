@@ -32,6 +32,8 @@ namespace IoTManager.DAL.DbContext
             /**********************
             Device Model Builder
             ***********************/
+            
+            //Bind Model to Table
             modelBuilder.Entity<Device>()
                 .ToTable("device");
             
@@ -86,6 +88,20 @@ namespace IoTManager.DAL.DbContext
                 .HasOne(d => d.Department)
                 .WithMany()
                 .HasForeignKey(d => d.DepartmentId);
+            
+            
+            /**********************
+            Device Model Builder
+            ***********************/
+            
+            //Bind Model to Table
+            modelBuilder.Entity<Gateway>()
+                .ToTable("gateway");
+            
+            //Primary Key
+            modelBuilder.Entity<Gateway>()
+                .HasKey(g => g.Id);
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

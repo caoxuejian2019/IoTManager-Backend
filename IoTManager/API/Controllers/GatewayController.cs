@@ -70,7 +70,7 @@ namespace IoTManager.API.Controllers
                 oldGateway.HardwareGatewayId = newGateway.HardwareGatewayId;
                 oldGateway.GatewayName = newGateway.GatewayName;
                 oldGateway.GatewayType = newGateway.GatewayType;
-                oldGateway.City = newGateway.City;
+                oldGateway.CityId = newGateway.CityId;
                 oldGateway.Factory = newGateway.Factory;
                 oldGateway.Workshop = newGateway.Workshop;
                 oldGateway.GatewayState = newGateway.GatewayState;
