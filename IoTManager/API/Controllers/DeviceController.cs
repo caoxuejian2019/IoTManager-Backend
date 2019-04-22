@@ -52,6 +52,7 @@ namespace IoTManager.API.Controllers
                 /************************************
                  * Return
                  ************************************/
+                
                 return new Result(
                     200,
                     "success",
@@ -83,12 +84,14 @@ namespace IoTManager.API.Controllers
                 /************************************
                  * Serialize the Result
                  ************************************/
+                
                 DeviceFormalizer result = new DeviceFormalizer(device);
                 
                 
                 /************************************
                  * Return
                  ************************************/
+                
                 return new Result(
                     200,
                     "success",
@@ -168,13 +171,14 @@ namespace IoTManager.API.Controllers
                 /************************************
                  * Save and Return
                  ************************************/
+                
                 dbcon.Device.Add(newDevice);
                 dbcon.SaveChanges();
 
                 return new Result(
                     200,
                     "success",
-                    newDevice
+                    device
                 );
             }
         }
@@ -245,6 +249,13 @@ namespace IoTManager.API.Controllers
                 
                 
                 /************************************
+                 * Serialize the Old Device Information
+                 ************************************/
+                
+                DeviceFormalizer result = new DeviceFormalizer(oldDevice);
+                
+                
+                /************************************
                  * Save and Return
                  ************************************/
 
@@ -253,7 +264,7 @@ namespace IoTManager.API.Controllers
                 return new Result(
                     200,
                     "success",
-                    oldDevice
+                    result
                 );
             }
         }

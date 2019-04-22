@@ -19,7 +19,9 @@ namespace IoTManager.DAL.Models
         
         
         [Column("gatewayType")]
-        public int GatewayType { get; set; }
+        public int GatewayTypeId { get; set; }
+        [ForeignKey("GatewayTypeId")]
+        public GatewayType GatewayType { get; set; }
         
         
         [Column("city")]
@@ -29,15 +31,21 @@ namespace IoTManager.DAL.Models
         
         
         [Column("factory")]
-        public int Factory { get; set; }
+        public int FactoryId { get; set; }
+        [ForeignKey("FactoryId")]
+        public Factory Factory { get; set; }
         
         
         [Column("workshop")]
-        public int Workshop { get; set; }
+        public int WorkshopId { get; set; }
+        [ForeignKey("WorkshopId")]
+        public Workshop Workshop { get; set; }
         
         
         [Column("gatewayState")]
-        public int GatewayState { get; set; }
+        public int GatewayStateId { get; set; }
+        [ForeignKey("GatewayStateId")]
+        public GatewayState GatewayState { get; set; }
         
         
         [Column("lastConnectionTime")]
@@ -61,6 +69,8 @@ namespace IoTManager.DAL.Models
         
         
         [Column("department")]
-        public int Department { get; set; }
+        public int DepartmentId { get; set; }
+        [ForeignKey("DepartmentId")]
+        public Department Department { get; set; }
     }
 }

@@ -26,6 +26,7 @@ namespace IoTManager.API.Formalizers
             this.department = null;
         }
 
+        
         public DeviceFormalizer(Device device)
         {
             this.id = device.Id;
@@ -45,6 +46,7 @@ namespace IoTManager.API.Formalizers
             this.remark = device.Remark;
             this.department = device.Department.departmentName;
         }
+        
         
         public int id { get; set; }
         public String hardwareDeviceID { get; set; }

@@ -91,7 +91,7 @@ namespace IoTManager.DAL.DbContext
             
             
             /**********************
-            Device Model Builder
+            Gateway Model Builder
             ***********************/
             
             //Bind Model to Table
@@ -101,6 +101,57 @@ namespace IoTManager.DAL.DbContext
             //Primary Key
             modelBuilder.Entity<Gateway>()
                 .HasKey(g => g.Id);
+            
+            //GatewayType
+            modelBuilder.Entity<Gateway>()
+                .Property<int>("GatewayTypeId");
+            modelBuilder.Entity<Gateway>()
+                .HasOne(g => g.GatewayType)
+                .WithMany()
+                .HasForeignKey(g => g.GatewayTypeId);
+
+            //City
+            modelBuilder.Entity<Gateway>()
+                .Property<int>("CityId");
+            modelBuilder.Entity<Gateway>()
+                .HasOne(g => g.City)
+                .WithMany()
+                .HasForeignKey(g => g.CityId);
+            
+            //Factory
+            modelBuilder.Entity<Gateway>()
+                .Property<int>("FactoryId");
+            modelBuilder.Entity<Gateway>()
+                .HasOne(g => g.Factory)
+                .WithMany()
+                .HasForeignKey(g => g.FactoryId);
+            
+            //Workshop
+            modelBuilder.Entity<Gateway>()
+                .Property<int>("WorkshopId");
+            modelBuilder.Entity<Gateway>()
+                .HasOne(g => g.Workshop)
+                .WithMany()
+                .HasForeignKey(g => g.WorkshopId);
+            
+            //GatewayState
+            modelBuilder.Entity<Gateway>()
+                .Property<int>("GatewayStateId");
+            modelBuilder.Entity<Gateway>()
+                .HasOne(g => g.GatewayState)
+                .WithMany()
+                .HasForeignKey(g => g.GatewayStateId);
+            
+            //Department
+            modelBuilder.Entity<Gateway>()
+                .Property<int>("DepartmentId");
+            modelBuilder.Entity<Gateway>()
+                .HasOne(g => g.Department)
+                .WithMany()
+                .HasForeignKey(g => g.DepartmentId);
+
+
+
 
         }
 
