@@ -1,19 +1,56 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using MySqlX.XDevAPI.Relational;
 
 namespace IoTManager.DAL.Models
 {
     public class User
     {
-        public int id { get; set; }
-        public String userName { get; set; }
-        public String displayName { get; set; }
-        public String password { get; set; }
-        public String email { get; set; }
-        public int company { get; set; }
-        public String phoneNumber { get; set; }
-        public DateTime createTime { get; set; }
-        public DateTime updateTime { get; set; }
-        public String remark { get; set; }
-        public int department { get; set; }
+        [Column("id")]
+        public int Id { get; set; }
+        
+        
+        [Column("userName")]
+        public String UserName { get; set; }
+        
+        
+        [Column("displayName")]
+        public String DisplayName { get; set; }
+        
+        
+        [Column("password")]
+        public String Password { get; set; }
+        
+        
+        [Column("email")]
+        public String Email { get; set; }
+        
+        
+        [Column("company")]
+        public int CompanyId { get; set; }
+        [ForeignKey("CompanyId")]
+        public Company Company { get; set; }
+        
+        
+        [Column("phoneNumber")]
+        public String PhoneNumber { get; set; }
+        
+        
+        [Column("createTime")]
+        public DateTime CreateTime { get; set; }
+        
+        
+        [Column("updateTime")]
+        public DateTime UpdateTime { get; set; }
+        
+        
+        [Column("remark")]
+        public String Remark { get; set; }
+        
+        
+        [Column("department")]
+        public int DepartmentId { get; set; }
+        [ForeignKey("DepartmentId")]
+        public Department Department { get; set; }
     }
 }
