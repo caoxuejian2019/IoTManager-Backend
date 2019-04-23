@@ -1,20 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using IoTManager.API.Formalizers;
-using Microsoft.AspNetCore.Mvc;
-using IoTManager.DAL.Models;
 using IoTManager.DAL.DbContext;
-using IoTManager.DAL.ReturnType;
+using IoTManager.DAL.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MySqlX.XDevAPI.Common;
+using Result = IoTManager.DAL.ReturnType.Result;
 
 namespace IoTManager.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class CityController : ControllerBase
     {
         // GET api/values
         [HttpGet]
@@ -26,9 +26,7 @@ namespace IoTManager.API.Controllers
                  * Find All Gateways from the Database
                  ************************************/
 
-                var users = dbcon.User
-                    .Include(u => u.Company)
-                    .Include(u => u.Department)
+                var cities = dbcon.City
                     .ToList();
                 
                 
@@ -36,11 +34,11 @@ namespace IoTManager.API.Controllers
                  * Serialize the Result
                  ************************************/
                 
-                List<UserFormalizer> results = new List<UserFormalizer>();
+                List<CityFormalizer> results = new List<CityFormalizer>();
 
-                foreach (User u in users)
+                foreach (City c in cities)
                 {
-                    results.Add(new UserFormalizer(u));
+                    results.Add(new CityFormalizer(c));
                 }
                 
                 
@@ -63,19 +61,18 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find the User with Certain Id
+                 * Find the City with Certain Id
                  ************************************/
+
+                var city = dbcon.City
+                    .Single(c => c.Id == id);
                 
-                var user = dbcon.User
-                    .Include(u => u.Company)
-                    .Include(u => u.Department)
-                    .Single(u => u.Id == id);
                 
                 /************************************
                  * Serialize the Result
                  ************************************/
                 
-                UserFormalizer result = new UserFormalizer(user);
+                CityFormalizer result = new CityFormalizer(city);
                 
                 
                 /************************************
@@ -83,7 +80,7 @@ namespace IoTManager.API.Controllers
                  ************************************/
                 
                 return new Result(
-                    200, 
+                    200,
                     "success",
                     result
                 );
@@ -92,109 +89,74 @@ namespace IoTManager.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public Result Post([FromBody] UserFormalizer user)
+        public Result Post([FromBody] CityFormalizer city)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Create A New User Model
+                 * Create A New City Model
                  ************************************/
                 
-                User newUser = new User();
+                City newCity = new City();
                 
                 
                 /************************************
-                 * Process New User Information
+                 * Process New City Information
                  ************************************/
-                
+
                 //Basic Information
-                newUser.UserName = user.userName;
-                newUser.DisplayName = user.displayName;
-                newUser.Password = user.password;
-                newUser.Email = user.email;
-                newUser.PhoneNumber = user.phoneNumber;
-                newUser.Remark = user.remark;
+                newCity.CityName = city.cityName;
+                newCity.Remark = city.remark;
                 
                 //Basic Time Information
-                newUser.CreateTime = DateTime.Now;
-                newUser.UpdateTime = DateTime.Now;
-                
-                //Information Based on Relation
-                //Company
-                Company userCompany = dbcon.Company
-                    .Single(c => c.companyName == user.company);
-                newUser.Company = userCompany;
-                newUser.CompanyId = userCompany.id;
-                
-                //Department
-                Department userDepartment = dbcon.Department
-                    .Single(d => d.departmentName == user.department);
-                newUser.Department = userDepartment;
-                newUser.DepartmentId = userDepartment.id;
+                newCity.CreateTime = DateTime.Now;
+                newCity.UpdateTime = DateTime.Now;
                 
                 
                 /************************************
                  * Save and Return
                  ************************************/
 
-                dbcon.User.Add(newUser);
+                dbcon.City.Add(newCity);
                 dbcon.SaveChanges();
                 
                 return new Result(
                     200,
                     "success",
-                    user
+                    city
                 );
             }
         }
 
         // PUT api/values/{id}
         [HttpPut("{id}")]
-        public Result Put(int id, [FromBody] UserFormalizer newUser)
+        public Result Put(int id, [FromBody] CityFormalizer newCity)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find the Old User Information
+                 * Find the Old City Information
                  ************************************/
 
-                User oldUser = dbcon.Find<User>(id);
+                City oldCity = dbcon.Find<City>(id);
                 
                 
                 /************************************
-                 * Process the New User Information
+                 * Process the New City Information
                  ************************************/
                 
                 //Basic Information
-                oldUser.UserName = newUser.userName;
-                oldUser.DisplayName = newUser.displayName;
-                oldUser.Password = newUser.password;
-                oldUser.Email = newUser.email;
-                oldUser.PhoneNumber = newUser.phoneNumber;
-                oldUser.Remark = newUser.remark;
+                oldCity.CityName = newCity.cityName;
+                oldCity.Remark = newCity.remark;
                 
                 //Basic Time Information
-                oldUser.UpdateTime = DateTime.Now;
-                
-                //Information Based on Relation
-                //Company
-                Company userCompany = dbcon.Company
-                    .Single(c => c.companyName == newUser.company);
-                oldUser.Company = userCompany;
-                oldUser.CompanyId = userCompany.id;
-                
-                //Department
-                Department userDepartment = dbcon.Department
-                    .Single(d => d.departmentName == newUser.department);
-                oldUser.Department = userDepartment;
-                oldUser.DepartmentId = userDepartment.id;
+                oldCity.UpdateTime = newCity.updateTime;
                 
                 
                 /************************************
-                 * Serialize the Old User Information
+                 * Serialize the Old City Information
                  ************************************/
-                
-                UserFormalizer result = new UserFormalizer(oldUser);
+                CityFormalizer result = new CityFormalizer(oldCity);
                 
                 
                 /************************************
@@ -202,13 +164,15 @@ namespace IoTManager.API.Controllers
                  ************************************/
 
                 dbcon.SaveChanges();
-                
+
                 return new Result(
                     200,
                     "success",
                     result
                 );
+
             }
+            
         }
 
         // DELETE api/values/5
@@ -218,27 +182,25 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find the User To Delete
-                 ************************************/
-                
-                var user = dbcon.User
-                    .Include(u => u.Company)
-                    .Include(u => u.Department)
-                    .Single(u => u.Id == id);
-                
-                
-                /************************************
-                 * Serialize the Deleted User
-                 ************************************/
-                
-                UserFormalizer result = new UserFormalizer(user);
-                
-                
-                /************************************
-                 * Delete and Return the Deleted User
+                 * Find the City To Delete
                  ************************************/
 
-                dbcon.User.Remove(user);
+                var city = dbcon.City
+                    .Single(c => c.Id == id);
+                
+                
+                /************************************
+                 * Serialize the Deleted City
+                 ************************************/
+                
+                CityFormalizer result = new CityFormalizer(city);
+                
+                
+                /************************************
+                 * Delete and Return the Deleted City
+                 ************************************/
+
+                dbcon.City.Remove(city);
                 dbcon.SaveChanges();
                 
                 return new Result(

@@ -32,7 +32,7 @@ namespace IoTManager.API.Formalizers
             this.id = device.Id;
             this.hardwareDeviceID = device.HardwareDeviceId;
             this.deviceName = device.DeviceName;
-            this.city = device.City.cityName;
+            this.city = device.City.CityName;
             this.factory = device.Factory.factoryName;
             this.workshop = device.Workshop.workshopName;
             this.deviceState = device.DeviceState.stateName;

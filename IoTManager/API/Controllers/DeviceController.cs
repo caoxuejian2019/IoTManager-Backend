@@ -133,9 +133,9 @@ namespace IoTManager.API.Controllers
                 //Information Based on Relation
                 //City
                 City deviceCity = dbcon.City
-                    .Single(c => c.cityName == device.city);
+                    .Single(c => c.CityName == device.city);
                 newDevice.City = deviceCity;
-                newDevice.CityId = deviceCity.id;
+                newDevice.CityId = deviceCity.Id;
 
                 //Factory
                 Factory deviceFactory = dbcon.Factory
@@ -213,9 +213,9 @@ namespace IoTManager.API.Controllers
                 //Information Based on Relation
                 //City
                 City deviceCity = dbcon.City
-                    .Single(c => c.cityName == newDevice.city);
+                    .Single(c => c.CityName == newDevice.city);
                 oldDevice.City = deviceCity;
-                oldDevice.CityId = deviceCity.id;
+                oldDevice.CityId = deviceCity.Id;
                 
                 //Factory
                 Factory deviceFactory = dbcon.Factory

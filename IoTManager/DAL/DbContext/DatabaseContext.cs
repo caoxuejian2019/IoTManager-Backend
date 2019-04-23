@@ -178,6 +178,21 @@ namespace IoTManager.DAL.DbContext
                 .HasOne(u => u.Department)
                 .WithMany()
                 .HasForeignKey(u => u.DepartmentId);
+            
+            
+            /**********************
+            City Model Builder
+            ***********************/
+            
+            //Bing City Model to Table
+            modelBuilder.Entity<City>()
+                .ToTable("city");
+            
+            //Primary Key
+            modelBuilder.Entity<City>()
+                .HasKey(c => c.Id);
+            
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

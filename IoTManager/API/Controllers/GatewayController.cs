@@ -142,9 +142,9 @@ namespace IoTManager.API.Controllers
                 
                 //City
                 City gatewayCity = dbcon.City
-                    .Single(c => c.cityName == gateway.city);
+                    .Single(c => c.CityName == gateway.city);
                 newGateway.City = gatewayCity;
-                newGateway.CityId = gatewayCity.id;
+                newGateway.CityId = gatewayCity.Id;
                 
                 //Factory
                 Factory gatewayFactory = dbcon.Factory
@@ -221,9 +221,9 @@ namespace IoTManager.API.Controllers
                 
                 //City
                 City gatewayCity = dbcon.City
-                    .Single(c => c.cityName == newGateway.city);
+                    .Single(c => c.CityName == newGateway.city);
                 oldGateway.City = gatewayCity;
-                oldGateway.CityId = gatewayCity.id;
+                oldGateway.CityId = gatewayCity.Id;
                 
                 //Factory
                 Factory gatewayFactory = dbcon.Factory
@@ -286,14 +286,14 @@ namespace IoTManager.API.Controllers
                 
                 
                 /************************************
-                 * Serialize the Deleted Device
+                 * Serialize the Deleted Gateway
                  ************************************/
                 
                 GatewayFormalizer result = new GatewayFormalizer(gateway);
                 
                 
                 /************************************
-                 * Delete and Return the Deleted Device
+                 * Delete and Return the Deleted Gateway
                  ************************************/
 
                 dbcon.Gateway.Remove(gateway);

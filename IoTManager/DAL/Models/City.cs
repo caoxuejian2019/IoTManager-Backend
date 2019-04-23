@@ -6,10 +6,23 @@ namespace IoTManager.DAL.Models
 {
     public class City
     {
-        public int id { get; set; }
-        public String cityName { get; set; }
-        public String remark { get; set; }
-        public DateTime createTime { get; set; }
-        public DateTime updateTime { get; set; }
+        [Column("id")]
+        public int Id { get; set; }
+        
+        
+        [Column("cityName")]
+        public String CityName { get; set; }
+        
+        
+        [Column("remark")]
+        public String Remark { get; set; }
+        
+        
+        [Column("createTime")]
+        public DateTime CreateTime { get; set; }
+        
+        
+        [Column("updateTime")]
+        public DateTime UpdateTime { get; set; }
     }
 }
