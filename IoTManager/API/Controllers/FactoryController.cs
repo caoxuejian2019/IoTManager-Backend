@@ -201,7 +201,7 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find the User To Delete
+                 * Find the Factory To Delete
                  ************************************/
 
                 var factory = dbcon.Factory
@@ -210,14 +210,14 @@ namespace IoTManager.API.Controllers
                 
                 
                 /************************************
-                 * Serialize the Deleted User
+                 * Serialize the Deleted Factory
                  ************************************/
                 
                 FactoryFormalizer result = new FactoryFormalizer(factory);
                 
                 
                 /************************************
-                 * Delete and Return the Deleted User
+                 * Delete and Return the Deleted Factory
                  ************************************/
 
                 dbcon.Factory.Remove(factory);
