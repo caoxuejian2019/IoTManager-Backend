@@ -139,9 +139,9 @@ namespace IoTManager.API.Controllers
 
                 //Factory
                 Factory deviceFactory = dbcon.Factory
-                    .Single(f => f.factoryName == device.factory);
+                    .Single(f => f.FactoryName == device.factory);
                 newDevice.Factory = deviceFactory;
-                newDevice.FactoryId = deviceFactory.id;
+                newDevice.FactoryId = deviceFactory.Id;
 
                 //Workshop
                 Workshop deviceWorkshop = dbcon.Workshop
@@ -219,9 +219,9 @@ namespace IoTManager.API.Controllers
                 
                 //Factory
                 Factory deviceFactory = dbcon.Factory
-                    .Single(f => f.factoryName == newDevice.factory);
+                    .Single(f => f.FactoryName == newDevice.factory);
                 oldDevice.Factory = deviceFactory;
-                oldDevice.FactoryId = deviceFactory.id;
+                oldDevice.FactoryId = deviceFactory.Id;
                 
                 //Workshop
                 Workshop deviceWorkshop = dbcon.Workshop

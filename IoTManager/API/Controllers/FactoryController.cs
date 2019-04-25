@@ -1,21 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using IoTManager.API.Formalizers;
-using IoTManager.API.Services;
-using Microsoft.AspNetCore.Mvc;
-using IoTManager.DAL.Models;
 using IoTManager.DAL.DbContext;
-using IoTManager.DAL.ReturnType;
+using IoTManager.DAL.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MySqlX.XDevAPI.Common;
+using Result = IoTManager.DAL.ReturnType.Result;
 
 namespace IoTManager.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class FactoryController : ControllerBase
     {
         // GET api/values
         [HttpGet]
@@ -24,12 +23,11 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find All Users from the Database
+                 * Find All Factories from the Database
                  ************************************/
 
-                var users = dbcon.User
-                    .Include(u => u.Company)
-                    .Include(u => u.Department)
+                var factories = dbcon.Factory
+                    .Include(f => f.City)
                     .ToList();
                 
                 
@@ -37,11 +35,11 @@ namespace IoTManager.API.Controllers
                  * Serialize the Result
                  ************************************/
                 
-                List<UserFormalizer> results = new List<UserFormalizer>();
+                List<FactoryFormalizer> results = new List<FactoryFormalizer>();
 
-                foreach (User u in users)
+                foreach (Factory f in factories)
                 {
-                    results.Add(new UserFormalizer(u));
+                    results.Add(new FactoryFormalizer(f));
                 }
                 
                 
@@ -64,27 +62,27 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find the User with Certain Id
+                 * Find the Factory with Certain Id
                  ************************************/
+
+                var factory = dbcon.Factory
+                    .Include(f => f.City)
+                    .Single(f => f.Id == id);
                 
-                var user = dbcon.User
-                    .Include(u => u.Company)
-                    .Include(u => u.Department)
-                    .Single(u => u.Id == id);
                 
                 /************************************
                  * Serialize the Result
                  ************************************/
                 
-                UserFormalizer result = new UserFormalizer(user);
+                FactoryFormalizer result = new FactoryFormalizer(factory);
                 
                 
                 /************************************
                  * Return
                  ************************************/
-                
+
                 return new Result(
-                    200, 
+                    200,
                     "success",
                     result
                 );
@@ -93,109 +91,93 @@ namespace IoTManager.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public Result Post([FromBody] UserFormalizer user)
+        public Result Post([FromBody] FactoryFormalizer factory)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Create A New User Model
+                 * Create A New Factory Model
                  ************************************/
                 
-                User newUser = new User();
+                Factory newFactory = new Factory();
                 
                 
                 /************************************
-                 * Process New User Information
+                 * Process New Factory Information
                  ************************************/
                 
                 //Basic Information
-                newUser.UserName = user.userName;
-                newUser.DisplayName = user.displayName;
-                newUser.Password = EncryptionService.Encrypt(user.password);
-                newUser.Email = user.email;
-                newUser.PhoneNumber = user.phoneNumber;
-                newUser.Remark = user.remark;
+                newFactory.FactoryName = factory.factoryName;
+                newFactory.FactoryPhoneNumber = factory.factoryPhoneNumber;
+                newFactory.FactoryAddress = factory.factoryAddress;
+                newFactory.Remark = factory.remark;
                 
                 //Basic Time Information
-                newUser.CreateTime = DateTime.Now;
-                newUser.UpdateTime = DateTime.Now;
+                newFactory.CreateTime = DateTime.Now;
+                newFactory.UpdateTime = DateTime.Now;
                 
                 //Information Based on Relation
-                //Company
-                Company userCompany = dbcon.Company
-                    .Single(c => c.companyName == user.company);
-                newUser.Company = userCompany;
-                newUser.CompanyId = userCompany.id;
-                
-                //Department
-                Department userDepartment = dbcon.Department
-                    .Single(d => d.departmentName == user.department);
-                newUser.Department = userDepartment;
-                newUser.DepartmentId = userDepartment.id;
+                //City
+                City factoryCity = dbcon.City
+                    .Single(c => c.CityName == factory.city);
+                newFactory.City = factoryCity;
+                newFactory.CityId = factoryCity.Id;
                 
                 
                 /************************************
                  * Save and Return
                  ************************************/
 
-                dbcon.User.Add(newUser);
+                dbcon.Factory.Add(newFactory);
                 dbcon.SaveChanges();
                 
                 return new Result(
                     200,
                     "success",
-                    user
+                    factory
                 );
             }
         }
 
         // PUT api/values/{id}
         [HttpPut("{id}")]
-        public Result Put(int id, [FromBody] UserFormalizer newUser)
+        public Result Put(int id, [FromBody] FactoryFormalizer newFactory)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find the Old User Information
+                 * Find the Old Factory Information
                  ************************************/
 
-                User oldUser = dbcon.Find<User>(id);
+                Factory oldFactory = dbcon.Find<Factory>(id);
                 
                 
                 /************************************
-                 * Process the New User Information
+                 * Process the New Factory Information
                  ************************************/
                 
                 //Basic Information
-                oldUser.UserName = newUser.userName;
-                oldUser.DisplayName = newUser.displayName;
-                oldUser.Password = EncryptionService.Encrypt(newUser.password);
-                oldUser.Email = newUser.email;
-                oldUser.PhoneNumber = newUser.phoneNumber;
-                oldUser.Remark = newUser.remark;
+                oldFactory.FactoryName = newFactory.factoryName;
+                oldFactory.FactoryPhoneNumber = newFactory.factoryPhoneNumber;
+                oldFactory.FactoryAddress = newFactory.factoryAddress;
+                oldFactory.Remark = newFactory.remark;
                 
                 //Basic Time Information
-                oldUser.UpdateTime = DateTime.Now;
+                oldFactory.UpdateTime = DateTime.Now;
                 
                 //Information Based on Relation
-                //Company
-                Company userCompany = dbcon.Company
-                    .Single(c => c.companyName == newUser.company);
-                oldUser.Company = userCompany;
-                oldUser.CompanyId = userCompany.id;
-                
-                //Department
-                Department userDepartment = dbcon.Department
-                    .Single(d => d.departmentName == newUser.department);
-                oldUser.Department = userDepartment;
-                oldUser.DepartmentId = userDepartment.id;
+                //City
+                City factoryCity = dbcon.City
+                    .Single(c => c.CityName == newFactory.city);
+                oldFactory.City = factoryCity;
+                oldFactory.CityId = factoryCity.Id;
                 
                 
                 /************************************
-                 * Serialize the Old User Information
+                 * Serialize the Old Factory Information
                  ************************************/
                 
-                UserFormalizer result = new UserFormalizer(oldUser);
+                FactoryFormalizer result = new FactoryFormalizer(oldFactory);
                 
                 
                 /************************************
@@ -212,7 +194,7 @@ namespace IoTManager.API.Controllers
             }
         }
 
-        // DELETE api/values/5
+        // DELETE api/values/{id}
         [HttpDelete("{id}")]
         public Result Delete(int id)
         {
@@ -221,25 +203,24 @@ namespace IoTManager.API.Controllers
                 /************************************
                  * Find the User To Delete
                  ************************************/
-                
-                var user = dbcon.User
-                    .Include(u => u.Company)
-                    .Include(u => u.Department)
-                    .Single(u => u.Id == id);
+
+                var factory = dbcon.Factory
+                    .Include(f => f.City)
+                    .Single(f => f.Id == id);
                 
                 
                 /************************************
                  * Serialize the Deleted User
                  ************************************/
                 
-                UserFormalizer result = new UserFormalizer(user);
+                FactoryFormalizer result = new FactoryFormalizer(factory);
                 
                 
                 /************************************
                  * Delete and Return the Deleted User
                  ************************************/
 
-                dbcon.User.Remove(user);
+                dbcon.Factory.Remove(factory);
                 dbcon.SaveChanges();
                 
                 return new Result(

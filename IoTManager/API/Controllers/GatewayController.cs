@@ -148,9 +148,9 @@ namespace IoTManager.API.Controllers
                 
                 //Factory
                 Factory gatewayFactory = dbcon.Factory
-                    .Single(f => f.factoryName == gateway.factory);
+                    .Single(f => f.FactoryName == gateway.factory);
                 newGateway.Factory = gatewayFactory;
-                newGateway.FactoryId = gatewayFactory.id;
+                newGateway.FactoryId = gatewayFactory.Id;
                 
                 //Workshop
                 Workshop gatewayWorkshop = dbcon.Workshop
@@ -227,9 +227,9 @@ namespace IoTManager.API.Controllers
                 
                 //Factory
                 Factory gatewayFactory = dbcon.Factory
-                    .Single(f => f.factoryName == newGateway.factory);
+                    .Single(f => f.FactoryName == newGateway.factory);
                 oldGateway.Factory = gatewayFactory;
-                oldGateway.FactoryId = gatewayFactory.id;
+                oldGateway.FactoryId = gatewayFactory.Id;
                 
                 //Workshop
                 Workshop gatewayWorkshop = dbcon.Workshop

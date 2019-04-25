@@ -33,7 +33,7 @@ namespace IoTManager.API.Formalizers
             this.hardwareDeviceID = device.HardwareDeviceId;
             this.deviceName = device.DeviceName;
             this.city = device.City.CityName;
-            this.factory = device.Factory.factoryName;
+            this.factory = device.Factory.FactoryName;
             this.workshop = device.Workshop.workshopName;
             this.deviceState = device.DeviceState.stateName;
             this.LastConnectionTime = device.LastConnectionTime;
