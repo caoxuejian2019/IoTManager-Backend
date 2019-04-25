@@ -154,9 +154,9 @@ namespace IoTManager.API.Controllers
                 
                 //Workshop
                 Workshop gatewayWorkshop = dbcon.Workshop
-                    .Single(w => w.workshopName == gateway.workshop);
+                    .Single(w => w.WorkshopName == gateway.workshop);
                 newGateway.Workshop = gatewayWorkshop;
-                newGateway.WorkshopId = gatewayWorkshop.id;
+                newGateway.WorkshopId = gatewayWorkshop.Id;
                 
                 //Department
                 Department gatewayDepartment = dbcon.Department
@@ -233,9 +233,9 @@ namespace IoTManager.API.Controllers
                 
                 //Workshop
                 Workshop gatewayWorkshop = dbcon.Workshop
-                    .Single(w => w.workshopName == newGateway.workshop);
+                    .Single(w => w.WorkshopName == newGateway.workshop);
                 oldGateway.Workshop = gatewayWorkshop;
-                oldGateway.WorkshopId = gatewayWorkshop.id;
+                oldGateway.WorkshopId = gatewayWorkshop.Id;
                 
                 //Department
                 Department gatewayDepartment = dbcon.Department

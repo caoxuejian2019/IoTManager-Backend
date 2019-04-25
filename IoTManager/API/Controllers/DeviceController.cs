@@ -145,9 +145,9 @@ namespace IoTManager.API.Controllers
 
                 //Workshop
                 Workshop deviceWorkshop = dbcon.Workshop
-                    .Single(w => w.workshopName == device.workshop);
+                    .Single(w => w.WorkshopName == device.workshop);
                 newDevice.Workshop = deviceWorkshop;
-                newDevice.WorkshopId = deviceWorkshop.id;
+                newDevice.WorkshopId = deviceWorkshop.Id;
 
                 //DeviceState
                 DeviceState deviceDeviceState = dbcon.DeviceState
@@ -225,9 +225,9 @@ namespace IoTManager.API.Controllers
                 
                 //Workshop
                 Workshop deviceWorkshop = dbcon.Workshop
-                    .Single(w => w.workshopName == newDevice.workshop);
+                    .Single(w => w.WorkshopName == newDevice.workshop);
                 oldDevice.Workshop = deviceWorkshop;
-                oldDevice.WorkshopId = deviceWorkshop.id;
+                oldDevice.WorkshopId = deviceWorkshop.Id;
                 
                 //DeviceState
                 DeviceState deviceDeviceState = dbcon.DeviceState

@@ -1,21 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using IoTManager.API.Formalizers;
-using IoTManager.API.Services;
-using Microsoft.AspNetCore.Mvc;
-using IoTManager.DAL.Models;
 using IoTManager.DAL.DbContext;
+using IoTManager.DAL.Models;
 using IoTManager.DAL.ReturnType;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace IoTManager.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class WorkshopController : ControllerBase
     {
         // GET api/values
         [HttpGet]
@@ -24,12 +22,11 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find All Users from the Database
+                 * Find All Workshops from the Database
                  ************************************/
 
-                var users = dbcon.User
-                    .Include(u => u.Company)
-                    .Include(u => u.Department)
+                var workshops = dbcon.Workshop
+                    .Include(w => w.Factory)
                     .ToList();
                 
                 
@@ -37,11 +34,11 @@ namespace IoTManager.API.Controllers
                  * Serialize the Result
                  ************************************/
                 
-                List<UserFormalizer> results = new List<UserFormalizer>();
+                List<WorkshopFormalizer> results = new List<WorkshopFormalizer>();
 
-                foreach (User u in users)
+                foreach (Workshop w in workshops)
                 {
-                    results.Add(new UserFormalizer(u));
+                    results.Add(new WorkshopFormalizer(w));
                 }
                 
                 
@@ -64,20 +61,19 @@ namespace IoTManager.API.Controllers
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find the User with Certain Id
+                 * Find the Workshop with Certain Id
                  ************************************/
-                
-                var user = dbcon.User
-                    .Include(u => u.Company)
-                    .Include(u => u.Department)
-                    .Single(u => u.Id == id);
+
+                var workshop = dbcon.Workshop
+                    .Include(w => w.Factory)
+                    .Single(w => w.Id == id);
                 
                 
                 /************************************
                  * Serialize the Result
                  ************************************/
                 
-                UserFormalizer result = new UserFormalizer(user);
+                WorkshopFormalizer result = new WorkshopFormalizer(workshop);
                 
                 
                 /************************************
@@ -85,7 +81,7 @@ namespace IoTManager.API.Controllers
                  ************************************/
                 
                 return new Result(
-                    200, 
+                    200,
                     "success",
                     result
                 );
@@ -94,109 +90,92 @@ namespace IoTManager.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public Result Post([FromBody] UserFormalizer user)
+        public Result Post([FromBody] WorkshopFormalizer workshop)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Create A New User Model
+                 * Create A New Workshop Model
                  ************************************/
                 
-                User newUser = new User();
+                Workshop newWorkshop = new Workshop();
                 
                 
                 /************************************
-                 * Process New User Information
+                 * Process New Workshop Information
                  ************************************/
                 
                 //Basic Information
-                newUser.UserName = user.userName;
-                newUser.DisplayName = user.displayName;
-                newUser.Password = EncryptionService.Encrypt(user.password);
-                newUser.Email = user.email;
-                newUser.PhoneNumber = user.phoneNumber;
-                newUser.Remark = user.remark;
+                newWorkshop.WorkshopName = workshop.workshopName;
+                newWorkshop.WorkshopPhoneNumber = workshop.workshopPhoneNumber;
+                newWorkshop.WorkshopAddress = workshop.workshopAddress;
+                newWorkshop.Remark = workshop.remark;
                 
                 //Basic Time Information
-                newUser.CreateTime = DateTime.Now;
-                newUser.UpdateTime = DateTime.Now;
+                newWorkshop.CreateTime = DateTime.Now;
+                newWorkshop.UpdateTime = DateTime.Now;
                 
                 //Information Based on Relation
-                //Company
-                Company userCompany = dbcon.Company
-                    .Single(c => c.companyName == user.company);
-                newUser.Company = userCompany;
-                newUser.CompanyId = userCompany.id;
-                
-                //Department
-                Department userDepartment = dbcon.Department
-                    .Single(d => d.departmentName == user.department);
-                newUser.Department = userDepartment;
-                newUser.DepartmentId = userDepartment.id;
+                //Factory
+                Factory workshopFactory = dbcon.Factory
+                    .Single(f => f.FactoryName == workshop.factory);
+                newWorkshop.Factory = workshopFactory;
+                newWorkshop.FactoryId = workshopFactory.Id;
                 
                 
                 /************************************
                  * Save and Return
                  ************************************/
 
-                dbcon.User.Add(newUser);
+                dbcon.Workshop.Add(newWorkshop);
                 dbcon.SaveChanges();
                 
                 return new Result(
                     200,
                     "success",
-                    user
+                    workshop
                 );
             }
         }
 
         // PUT api/values/{id}
         [HttpPut("{id}")]
-        public Result Put(int id, [FromBody] UserFormalizer newUser)
+        public Result Put(int id, [FromBody] WorkshopFormalizer newWorkshop)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find the Old User Information
+                 * Find the Old Workshop Information
                  ************************************/
 
-                User oldUser = dbcon.Find<User>(id);
+                Workshop oldWorkshop = dbcon.Find<Workshop>(id);
                 
                 
                 /************************************
-                 * Process the New User Information
+                 * Process the New Workshop Information
                  ************************************/
                 
                 //Basic Information
-                oldUser.UserName = newUser.userName;
-                oldUser.DisplayName = newUser.displayName;
-                oldUser.Password = EncryptionService.Encrypt(newUser.password);
-                oldUser.Email = newUser.email;
-                oldUser.PhoneNumber = newUser.phoneNumber;
-                oldUser.Remark = newUser.remark;
+                oldWorkshop.WorkshopName = newWorkshop.workshopName;
+                oldWorkshop.WorkshopPhoneNumber = newWorkshop.workshopPhoneNumber;
+                oldWorkshop.WorkshopAddress = newWorkshop.workshopAddress;
+                oldWorkshop.Remark = newWorkshop.remark;
                 
                 //Basic Time Information
-                oldUser.UpdateTime = DateTime.Now;
+                oldWorkshop.UpdateTime = DateTime.Now;
                 
                 //Information Based on Relation
-                //Company
-                Company userCompany = dbcon.Company
-                    .Single(c => c.companyName == newUser.company);
-                oldUser.Company = userCompany;
-                oldUser.CompanyId = userCompany.id;
-                
-                //Department
-                Department userDepartment = dbcon.Department
-                    .Single(d => d.departmentName == newUser.department);
-                oldUser.Department = userDepartment;
-                oldUser.DepartmentId = userDepartment.id;
+                Factory workshopFactory = dbcon.Factory
+                    .Single(f => f.FactoryName == newWorkshop.factory);
+                oldWorkshop.Factory = workshopFactory;
+                oldWorkshop.FactoryId = workshopFactory.Id;
                 
                 
                 /************************************
-                 * Serialize the Old User Information
+                 * Serialize the Old Workshop Information
                  ************************************/
                 
-                UserFormalizer result = new UserFormalizer(oldUser);
+                WorkshopFormalizer result = new WorkshopFormalizer(oldWorkshop);
                 
                 
                 /************************************
@@ -213,34 +192,33 @@ namespace IoTManager.API.Controllers
             }
         }
 
-        // DELETE api/values/5
+        // DELETE api/values/{id}
         [HttpDelete("{id}")]
         public Result Delete(int id)
         {
             using (DatabaseContext dbcon = new DatabaseContext())
             {
                 /************************************
-                 * Find the User To Delete
-                 ************************************/
-                
-                var user = dbcon.User
-                    .Include(u => u.Company)
-                    .Include(u => u.Department)
-                    .Single(u => u.Id == id);
-                
-                
-                /************************************
-                 * Serialize the Deleted User
-                 ************************************/
-                
-                UserFormalizer result = new UserFormalizer(user);
-                
-                
-                /************************************
-                 * Delete and Return the Deleted User
+                 * Find the Workshop To Delete
                  ************************************/
 
-                dbcon.User.Remove(user);
+                var workshop = dbcon.Workshop
+                    .Include(w => w.Factory)
+                    .Single(w => w.Id == id);
+                
+                
+                /************************************
+                 * Serialize the Deleted Workshop
+                 ************************************/
+                
+                WorkshopFormalizer result = new WorkshopFormalizer(workshop);
+                
+                
+                /************************************
+                 * Delete and Return the Deleted Workshop
+                 ************************************/
+
+                dbcon.Workshop.Remove(workshop);
                 dbcon.SaveChanges();
                 
                 return new Result(

@@ -32,7 +32,7 @@ namespace IoTManager.API.Formalizers
             this.gatewayType = gateway.GatewayType.gatewayTypeName;
             this.city = gateway.City.CityName;
             this.factory = gateway.Factory.FactoryName;
-            this.workshop = gateway.Workshop.workshopName;
+            this.workshop = gateway.Workshop.WorkshopName;
             this.gatewayState = gateway.GatewayState.stateName;
             this.lastConnectionTime = gateway.LastConnectionTime;
             this.imageUrl = gateway.ImageUrl;
