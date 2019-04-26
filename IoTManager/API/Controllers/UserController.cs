@@ -130,9 +130,9 @@ namespace IoTManager.API.Controllers
                 
                 //Department
                 Department userDepartment = dbcon.Department
-                    .Single(d => d.departmentName == user.department);
+                    .Single(d => d.DepartmentName == user.department);
                 newUser.Department = userDepartment;
-                newUser.DepartmentId = userDepartment.id;
+                newUser.DepartmentId = userDepartment.Id;
                 
                 
                 /************************************
@@ -187,9 +187,9 @@ namespace IoTManager.API.Controllers
                 
                 //Department
                 Department userDepartment = dbcon.Department
-                    .Single(d => d.departmentName == newUser.department);
+                    .Single(d => d.DepartmentName == newUser.department);
                 oldUser.Department = userDepartment;
-                oldUser.DepartmentId = userDepartment.id;
+                oldUser.DepartmentId = userDepartment.Id;
                 
                 
                 /************************************

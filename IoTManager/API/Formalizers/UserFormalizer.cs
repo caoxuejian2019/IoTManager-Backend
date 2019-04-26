@@ -30,7 +30,7 @@ namespace IoTManager.API.Formalizers
             this.company = user.Company.companyName;
             this.phoneNumber = user.PhoneNumber;
             this.remark = user.Remark;
-            this.department = user.Department.departmentName;
+            this.department = user.Department.DepartmentName;
             this.createTime = user.CreateTime;
             this.updateTime = user.UpdateTime;
         }

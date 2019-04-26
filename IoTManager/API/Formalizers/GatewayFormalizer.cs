@@ -39,7 +39,7 @@ namespace IoTManager.API.Formalizers
             this.createTime = gateway.CreateTime;
             this.updateTime = gateway.UpdateTime;
             this.remark = gateway.Remark;
-            this.department = gateway.Department.departmentName;
+            this.department = gateway.Department.DepartmentName;
         }
         
         

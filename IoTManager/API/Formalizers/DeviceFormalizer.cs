@@ -44,7 +44,7 @@ namespace IoTManager.API.Formalizers
             this.createTime = device.CreateTime;
             this.updateTime = device.UpdateTime;
             this.remark = device.Remark;
-            this.department = device.Department.departmentName;
+            this.department = device.Department.DepartmentName;
         }
         
         
