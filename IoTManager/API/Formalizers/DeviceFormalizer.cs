@@ -1,4 +1,5 @@
 using System;
+using IoTManager.API.Services;
 using IoTManager.DAL.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -15,16 +16,13 @@ namespace IoTManager.API.Formalizers
             this.factory = null;
             this.workshop = null;
             this.deviceState = null;
-            this.LastConnectionTime = DateTime.Now
-                .ToString("yyyy年MM月dd日 hh:mm:ss");
+            this.LastConnectionTime = null;
             this.imageUrl = null;
             this.gatewayID = 0;
             this.mac = null;
             this.deviceType = null;
-            this.createTime = DateTime.Now
-                .ToString("yyyy年MM月dd日 hh:mm:ss");
-            this.updateTime = DateTime.Now
-                .ToString("yyyy年MM月dd日 hh:mm:ss");
+            this.createTime = null;
+            this.updateTime = null;
             this.remark = null;
             this.department = null;
         }
@@ -38,17 +36,17 @@ namespace IoTManager.API.Formalizers
             this.city = device.City.CityName;
             this.factory = device.Factory.FactoryName;
             this.workshop = device.Workshop.WorkshopName;
-            this.deviceState = device.DeviceState.stateName;
+            this.deviceState = device.DeviceState.StateName;
             this.LastConnectionTime = device.LastConnectionTime
-                .ToString("yyyy年MM月dd日 hh:mm:ss");
+                .ToString(ConstantService.DateTimeFormat);
             this.imageUrl = device.ImageUrl;
             this.gatewayID = device.GatewayId;
             this.mac = device.Mac;
             this.deviceType = device.DeviceType.deviceTypeName;
             this.createTime = device.CreateTime
-                .ToString("yyyy年MM月dd日 hh:mm:ss");
+                .ToString(ConstantService.DateTimeFormat);
             this.updateTime = device.UpdateTime
-                .ToString("yyyy年MM月dd日 hh:mm:ss");
+                .ToString(ConstantService.DateTimeFormat);
             this.remark = device.Remark;
             this.department = device.Department.DepartmentName;
         }

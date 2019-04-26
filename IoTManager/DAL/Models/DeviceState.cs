@@ -1,13 +1,27 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IoTManager.DAL.Models
 {
     public class DeviceState
     {
-        public int id { get; set; }
-        public String stateName { get; set; }
-        public String remark { get; set; }
-        public DateTime createTime { get; set; }
-        public DateTime updateTime { get; set; }
+        [Column("id")]
+        public int Id { get; set; }
+        
+        
+        [Column("stateName")]
+        public String StateName { get; set; }
+        
+        
+        [Column("remark")]
+        public String Remark { get; set; }
+        
+        
+        [Column("createTime")]
+        public DateTime CreateTime { get; set; }
+        
+        
+        [Column("updateTime")]
+        public DateTime UpdateTime { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using IoTManager.DAL.Models;
 using Microsoft.AspNetCore.Razor.Language.Intermediate;
 using Microsoft.EntityFrameworkCore;
@@ -206,6 +207,18 @@ namespace IoTManager.DAL.DbContext
             //Primary Key
             modelBuilder.Entity<Workshop>()
                 .HasKey(w => w.Id);
+            
+            
+            /**********************
+            DeviceState Model Builder
+            ***********************/
+            //Bind DeviceState Model to Table
+            modelBuilder.Entity<DeviceState>()
+                .ToTable("deviceState");
+            
+            //Primary Key
+            modelBuilder.Entity<DeviceState>()
+                .HasKey(ds => ds.Id);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
