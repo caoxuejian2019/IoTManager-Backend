@@ -231,6 +231,32 @@ namespace IoTManager.DAL.DbContext
             //Primary Key
             modelBuilder.Entity<DeviceType>()
                 .HasKey(dt => dt.Id);
+            
+            
+            /**********************
+            GatewayState Model Builder
+            ***********************/
+            //Bind GatewayState to Table
+            modelBuilder.Entity<GatewayState>()
+                .ToTable("gatewayState");
+
+            //Primary Key
+            modelBuilder.Entity<GatewayState>()
+                .HasKey(gs => gs.Id);
+            
+            
+            /**********************
+            GatewayState Model Builder
+            ***********************/
+            //Bind GatewayType to Table
+            modelBuilder.Entity<GatewayType>()
+                .ToTable("gatewayType");
+            
+            //Primary Key
+            modelBuilder.Entity<GatewayType>()
+                .HasKey(gt => gt.Id);
+
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

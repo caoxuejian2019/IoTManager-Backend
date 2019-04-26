@@ -1,4 +1,5 @@
 using System;
+using IoTManager.API.Services;
 using IoTManager.DAL.Models;
 
 namespace IoTManager.API.Formalizers
@@ -15,10 +16,10 @@ namespace IoTManager.API.Formalizers
             this.factory = null;
             this.workshop = null;
             this.gatewayState = null;
-            this.lastConnectionTime = DateTime.Now;
+            this.lastConnectionTime = null;
             this.imageUrl = null;
-            this.createTime = DateTime.Now;
-            this.updateTime = DateTime.Now;
+            this.createTime = null;
+            this.updateTime = null;
             this.remark = null;
             this.department = null;
         }
@@ -29,15 +30,18 @@ namespace IoTManager.API.Formalizers
             this.id = gateway.Id;
             this.hardwareGatewayID = gateway.HardwareGatewayId;
             this.gatewayName = gateway.GatewayName;
-            this.gatewayType = gateway.GatewayType.gatewayTypeName;
+            this.gatewayType = gateway.GatewayType.GatewayTypeName;
             this.city = gateway.City.CityName;
             this.factory = gateway.Factory.FactoryName;
             this.workshop = gateway.Workshop.WorkshopName;
-            this.gatewayState = gateway.GatewayState.stateName;
-            this.lastConnectionTime = gateway.LastConnectionTime;
+            this.gatewayState = gateway.GatewayState.StateName;
+            this.lastConnectionTime = gateway.LastConnectionTime
+                .ToString(ConstantService.DateTimeFormat);
             this.imageUrl = gateway.ImageUrl;
-            this.createTime = gateway.CreateTime;
-            this.updateTime = gateway.UpdateTime;
+            this.createTime = gateway.CreateTime
+                .ToString(ConstantService.DateTimeFormat);
+            this.updateTime = gateway.UpdateTime
+                .ToString(ConstantService.DateTimeFormat);
             this.remark = gateway.Remark;
             this.department = gateway.Department.DepartmentName;
         }
@@ -51,10 +55,10 @@ namespace IoTManager.API.Formalizers
         public String factory { get; set; }
         public String workshop { get; set; }
         public String gatewayState { get; set; }
-        public DateTime lastConnectionTime { get; set; }
+        public String lastConnectionTime { get; set; }
         public String imageUrl { get; set; }
-        public DateTime createTime { get; set; }
-        public DateTime updateTime { get; set; }
+        public String createTime { get; set; }
+        public String  updateTime { get; set; }
         public String remark { get; set; }
         public String department { get; set; }
     }

@@ -130,15 +130,15 @@ namespace IoTManager.API.Controllers
                 //Information Based on Relation
                 //GatewayState
                 GatewayState gatewayGatewayState = dbcon.GatewayState
-                    .Single(gs => gs.stateName == gateway.gatewayState);
+                    .Single(gs => gs.StateName == gateway.gatewayState);
                 newGateway.GatewayState = gatewayGatewayState;
-                newGateway.GatewayStateId = gatewayGatewayState.id;
+                newGateway.GatewayStateId = gatewayGatewayState.Id;
                 
                 //GatewayType
                 GatewayType gatewayGatewayType = dbcon.GatewayType
-                    .Single(gt => gt.gatewayTypeName == gateway.gatewayType);
+                    .Single(gt => gt.GatewayTypeName == gateway.gatewayType);
                 newGateway.GatewayType = gatewayGatewayType;
-                newGateway.GatewayTypeId = gatewayGatewayType.id;
+                newGateway.GatewayTypeId = gatewayGatewayType.Id;
                 
                 //City
                 City gatewayCity = dbcon.City
@@ -209,15 +209,15 @@ namespace IoTManager.API.Controllers
                 //Information Based on Relation
                 //GatewayState
                 GatewayState gatewayGatewayState = dbcon.GatewayState
-                    .Single(gs => gs.stateName == newGateway.gatewayState);
+                    .Single(gs => gs.StateName == newGateway.gatewayState);
                 oldGateway.GatewayState = gatewayGatewayState;
-                oldGateway.GatewayStateId = gatewayGatewayState.id;
+                oldGateway.GatewayStateId = gatewayGatewayState.Id;
                 
                 //GatewayType
                 GatewayType gatewayGatewayType = dbcon.GatewayType
-                    .Single(gt => gt.gatewayTypeName == newGateway.gatewayType);
+                    .Single(gt => gt.GatewayTypeName == newGateway.gatewayType);
                 oldGateway.GatewayType = gatewayGatewayType;
-                oldGateway.GatewayTypeId = gatewayGatewayType.id;
+                oldGateway.GatewayTypeId = gatewayGatewayType.Id;
                 
                 //City
                 City gatewayCity = dbcon.City
