@@ -219,6 +219,18 @@ namespace IoTManager.DAL.DbContext
             //Primary Key
             modelBuilder.Entity<DeviceState>()
                 .HasKey(ds => ds.Id);
+            
+            
+            /**********************
+            DeviceType Model Builder
+            ***********************/
+            //Bind DeviceType Model to Table
+            modelBuilder.Entity<DeviceType>()
+                .ToTable("deviceType");
+            
+            //Primary Key
+            modelBuilder.Entity<DeviceType>()
+                .HasKey(dt => dt.Id);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

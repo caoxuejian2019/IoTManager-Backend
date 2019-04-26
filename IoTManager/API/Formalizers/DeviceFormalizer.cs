@@ -42,7 +42,7 @@ namespace IoTManager.API.Formalizers
             this.imageUrl = device.ImageUrl;
             this.gatewayID = device.GatewayId;
             this.mac = device.Mac;
-            this.deviceType = device.DeviceType.deviceTypeName;
+            this.deviceType = device.DeviceType.DeviceTypeName;
             this.createTime = device.CreateTime
                 .ToString(ConstantService.DateTimeFormat);
             this.updateTime = device.UpdateTime

@@ -157,9 +157,9 @@ namespace IoTManager.API.Controllers
 
                 //DeviceType
                 DeviceType deviceDeviceType = dbcon.DeviceType
-                    .Single(dt => dt.deviceTypeName == device.deviceType);
+                    .Single(dt => dt.DeviceTypeName == device.deviceType);
                 newDevice.DeviceType = deviceDeviceType;
-                newDevice.DeviceTypeId = deviceDeviceType.id;
+                newDevice.DeviceTypeId = deviceDeviceType.Id;
 
                 //Department
                 Department deviceDepartment = dbcon.Department
@@ -237,9 +237,9 @@ namespace IoTManager.API.Controllers
                 
                 //DeviceType
                 DeviceType deviceDeviceType = dbcon.DeviceType
-                    .Single(dt => dt.deviceTypeName == newDevice.deviceType);
+                    .Single(dt => dt.DeviceTypeName == newDevice.deviceType);
                 oldDevice.DeviceType = deviceDeviceType;
-                oldDevice.DeviceTypeId = deviceDeviceType.id;
+                oldDevice.DeviceTypeId = deviceDeviceType.Id;
                 
                 //Department
                 Department deviceDepartment = dbcon.Department
