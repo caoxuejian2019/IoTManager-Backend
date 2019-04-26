@@ -26,12 +26,6 @@ namespace IoTManager.DAL.Models
         public String Email { get; set; }
         
         
-        [Column("company")]
-        public int CompanyId { get; set; }
-        [ForeignKey("CompanyId")]
-        public Company Company { get; set; }
-        
-        
         [Column("phoneNumber")]
         public String PhoneNumber { get; set; }
         

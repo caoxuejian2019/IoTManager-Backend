@@ -12,7 +12,6 @@ namespace IoTManager.API.Formalizers
             this.displayName = null;
             this.password = null;
             this.email = null;
-            this.company = null;
             this.phoneNumber = null;
             this.remark = null;
             this.department = null;
@@ -27,7 +26,6 @@ namespace IoTManager.API.Formalizers
             this.displayName = user.DisplayName;
             this.password = "";
             this.email = user.Email;
-            this.company = user.Company.companyName;
             this.phoneNumber = user.PhoneNumber;
             this.remark = user.Remark;
             this.department = user.Department.DepartmentName;
@@ -40,7 +38,6 @@ namespace IoTManager.API.Formalizers
         public String displayName { get; set; }
         public String password { get; set; }
         public String email { get; set; }
-        public String company { get; set; }
         public String phoneNumber { get; set; }
         public String remark { get; set; }
         public String department { get; set; }

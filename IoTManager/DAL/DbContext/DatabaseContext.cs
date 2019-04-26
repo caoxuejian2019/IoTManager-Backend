@@ -15,7 +15,6 @@ namespace IoTManager.DAL.DbContext
         
         //Eleven easy models
         public virtual DbSet<City> City { get; set; }
-        public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<Department> Department { get; set; }
         public virtual DbSet<DeviceState> DeviceState { get; set; }
         public virtual DbSet<DeviceType> DeviceType { get; set; }
@@ -163,14 +162,6 @@ namespace IoTManager.DAL.DbContext
             modelBuilder.Entity<User>()
                 .HasKey(u => u.Id);
             
-            //Company
-            modelBuilder.Entity<User>()
-                .Property<int>("CompanyId");
-            modelBuilder.Entity<User>()
-                .HasOne(u => u.Company)
-                .WithMany()
-                .HasForeignKey(u => u.CompanyId);
-            
             //Department
             modelBuilder.Entity<User>()
                 .Property<int>("DepartmentId");
@@ -184,7 +175,7 @@ namespace IoTManager.DAL.DbContext
             City Model Builder
             ***********************/
             
-            //Bing City Model to Table
+            //Bind City Model to Table
             modelBuilder.Entity<City>()
                 .ToTable("city");
             
@@ -193,6 +184,28 @@ namespace IoTManager.DAL.DbContext
                 .HasKey(c => c.Id);
             
             
+            /**********************
+            Factory Model Builder
+            ***********************/
+            //Bind Factory Model to Table
+            modelBuilder.Entity<Factory>()
+                .ToTable("factory");
+            
+            //Primary Key
+            modelBuilder.Entity<Factory>()
+                .HasKey(f => f.Id);
+            
+            
+            /**********************
+            Workshop Model Builder
+            ***********************/
+            //Bind Workshop Model to Table
+            modelBuilder.Entity<Workshop>()
+                .ToTable("workshop");
+            
+            //Primary Key
+            modelBuilder.Entity<Workshop>()
+                .HasKey(w => w.Id);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

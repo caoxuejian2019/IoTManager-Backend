@@ -28,7 +28,6 @@ namespace IoTManager.API.Controllers
                  ************************************/
 
                 var users = dbcon.User
-                    .Include(u => u.Company)
                     .Include(u => u.Department)
                     .ToList();
                 
@@ -68,7 +67,6 @@ namespace IoTManager.API.Controllers
                  ************************************/
                 
                 var user = dbcon.User
-                    .Include(u => u.Company)
                     .Include(u => u.Department)
                     .Single(u => u.Id == id);
                 
@@ -122,12 +120,6 @@ namespace IoTManager.API.Controllers
                 newUser.UpdateTime = DateTime.Now;
                 
                 //Information Based on Relation
-                //Company
-                Company userCompany = dbcon.Company
-                    .Single(c => c.companyName == user.company);
-                newUser.Company = userCompany;
-                newUser.CompanyId = userCompany.id;
-                
                 //Department
                 Department userDepartment = dbcon.Department
                     .Single(d => d.DepartmentName == user.department);
@@ -179,12 +171,6 @@ namespace IoTManager.API.Controllers
                 oldUser.UpdateTime = DateTime.Now;
                 
                 //Information Based on Relation
-                //Company
-                Company userCompany = dbcon.Company
-                    .Single(c => c.companyName == newUser.company);
-                oldUser.Company = userCompany;
-                oldUser.CompanyId = userCompany.id;
-                
                 //Department
                 Department userDepartment = dbcon.Department
                     .Single(d => d.DepartmentName == newUser.department);
@@ -224,7 +210,6 @@ namespace IoTManager.API.Controllers
                  ************************************/
                 
                 var user = dbcon.User
-                    .Include(u => u.Company)
                     .Include(u => u.Department)
                     .Single(u => u.Id == id);
                 
