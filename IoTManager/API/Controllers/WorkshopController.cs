@@ -39,6 +39,7 @@ namespace IoTManager.API.Controllers
                 foreach (Workshop w in workshops)
                 {
                     results.Add(new WorkshopFormalizer(w));
+                    
                 }
                 
                 

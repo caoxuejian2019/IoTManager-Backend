@@ -15,13 +15,16 @@ namespace IoTManager.API.Formalizers
             this.factory = null;
             this.workshop = null;
             this.deviceState = null;
-            this.LastConnectionTime = DateTime.Now;
+            this.LastConnectionTime = DateTime.Now
+                .ToString("yyyy年MM月dd日 hh:mm:ss");
             this.imageUrl = null;
             this.gatewayID = 0;
             this.mac = null;
             this.deviceType = null;
-            this.createTime = DateTime.Now;
-            this.updateTime = DateTime.Now;
+            this.createTime = DateTime.Now
+                .ToString("yyyy年MM月dd日 hh:mm:ss");
+            this.updateTime = DateTime.Now
+                .ToString("yyyy年MM月dd日 hh:mm:ss");
             this.remark = null;
             this.department = null;
         }
@@ -36,13 +39,16 @@ namespace IoTManager.API.Formalizers
             this.factory = device.Factory.FactoryName;
             this.workshop = device.Workshop.WorkshopName;
             this.deviceState = device.DeviceState.stateName;
-            this.LastConnectionTime = device.LastConnectionTime;
+            this.LastConnectionTime = device.LastConnectionTime
+                .ToString("yyyy年MM月dd日 hh:mm:ss");
             this.imageUrl = device.ImageUrl;
             this.gatewayID = device.GatewayId;
             this.mac = device.Mac;
             this.deviceType = device.DeviceType.deviceTypeName;
-            this.createTime = device.CreateTime;
-            this.updateTime = device.UpdateTime;
+            this.createTime = device.CreateTime
+                .ToString("yyyy年MM月dd日 hh:mm:ss");
+            this.updateTime = device.UpdateTime
+                .ToString("yyyy年MM月dd日 hh:mm:ss");
             this.remark = device.Remark;
             this.department = device.Department.DepartmentName;
         }
@@ -55,13 +61,13 @@ namespace IoTManager.API.Formalizers
         public String factory { get; set; }
         public String workshop { get; set; }
         public String deviceState { get; set; }
-        public DateTime LastConnectionTime { get; set; }
+        public String LastConnectionTime { get; set; }
         public String imageUrl { get; set; }
         public int gatewayID { get; set; }
         public String mac { get; set; }
         public String deviceType { get; set; }
-        public DateTime createTime { get; set; }
-        public DateTime updateTime { get; set; }
+        public String createTime { get; set; }
+        public String updateTime { get; set; }
         public String remark { get; set; }
         public String department { get; set; }
     }
