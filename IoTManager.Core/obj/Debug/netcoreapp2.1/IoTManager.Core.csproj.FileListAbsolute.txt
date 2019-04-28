@@ -1,0 +1,9 @@
+C:\WorkSpace\IoTManager-Backend\IoTManager.Core\bin\Debug\netcoreapp2.1\IoTManager.Core.deps.json
+C:\WorkSpace\IoTManager-Backend\IoTManager.Core\bin\Debug\netcoreapp2.1\IoTManager.Core.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.Core\bin\Debug\netcoreapp2.1\IoTManager.Core.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager.Core\obj\Debug\netcoreapp2.1\IoTManager.Core.csprojAssemblyReference.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.Core\obj\Debug\netcoreapp2.1\IoTManager.Core.csproj.CoreCompileInputs.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.Core\obj\Debug\netcoreapp2.1\IoTManager.Core.AssemblyInfoInputs.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.Core\obj\Debug\netcoreapp2.1\IoTManager.Core.AssemblyInfo.cs
+C:\WorkSpace\IoTManager-Backend\IoTManager.Core\obj\Debug\netcoreapp2.1\IoTManager.Core.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.Core\obj\Debug\netcoreapp2.1\IoTManager.Core.pdb

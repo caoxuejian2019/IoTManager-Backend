@@ -12,3 +12,17 @@
 /Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager/obj/Debug/netcoreapp2.1/IoTManager.RazorTargetAssemblyInfo.cache
 /Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager/obj/Debug/netcoreapp2.1/IoTManager.dll
 /Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager/obj/Debug/netcoreapp2.1/IoTManager.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.deps.json
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.runtimeconfig.json
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.runtimeconfig.dev.json
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.csprojAssemblyReference.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.csproj.CoreCompileInputs.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.RazorAssemblyInfo.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.RazorAssemblyInfo.cs
+C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.AssemblyInfoInputs.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.AssemblyInfo.cs
+C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.RazorTargetAssemblyInfo.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.pdb
