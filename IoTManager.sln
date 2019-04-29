@@ -5,15 +5,17 @@ VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager", "IoTManager\IoTManager.csproj", "{48E11E54-90EE-453A-8731-1ACBCCADF30B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.Core", "IoTManager.Core\IoTManager.Core.csproj", "{06B6A65B-BF75-476A-999C-DF18AEAEBB09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.Core", "IoTManager.Core\IoTManager.Core.csproj", "{06B6A65B-BF75-476A-999C-DF18AEAEBB09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.Utility", "IoTManager.Utility\IoTManager.Utility.csproj", "{086FA9C6-BAB7-466D-ACFB-80AA6CDE80EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.Utility", "IoTManager.Utility\IoTManager.Utility.csproj", "{086FA9C6-BAB7-466D-ACFB-80AA6CDE80EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.Model", "IoTManager.Model\IoTManager.Model.csproj", "{0D673653-BC8B-4D02-A59C-8B15EAD85CFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.Model", "IoTManager.Model\IoTManager.Model.csproj", "{0D673653-BC8B-4D02-A59C-8B15EAD85CFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.IDao", "IoTManager.IDao\IoTManager.IDao.csproj", "{2E8044A0-CD2D-460B-A795-C5CEB7764665}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.IDao", "IoTManager.IDao\IoTManager.IDao.csproj", "{2E8044A0-CD2D-460B-A795-C5CEB7764665}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.Dao", "IoTManager.Dao\IoTManager.Dao.csproj", "{29D058CB-BB6F-4EC1-B8E1-2BDBF328AF04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.Dao", "IoTManager.Dao\IoTManager.Dao.csproj", "{29D058CB-BB6F-4EC1-B8E1-2BDBF328AF04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.DI", "IoTManager.DI\IoTManager.DI.csproj", "{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{29D058CB-BB6F-4EC1-B8E1-2BDBF328AF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29D058CB-BB6F-4EC1-B8E1-2BDBF328AF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29D058CB-BB6F-4EC1-B8E1-2BDBF328AF04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

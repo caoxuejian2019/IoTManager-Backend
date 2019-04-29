@@ -207,6 +207,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "IoTManager.IDao/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/IoTManager.IDao.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IoTManager.IDao.dll": {}
+        }
       }
     }
   },
@@ -680,10 +690,16 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "IoTManager.IDao/1.0.0": {
+      "type": "project",
+      "path": "../IoTManager.IDao/IoTManager.IDao.csproj",
+      "msbuildProject": "../IoTManager.IDao/IoTManager.IDao.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "IoTManager.IDao >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -716,7 +732,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.IDao\\IoTManager.IDao.csproj": {
+              "projectPath": "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.IDao\\IoTManager.IDao.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

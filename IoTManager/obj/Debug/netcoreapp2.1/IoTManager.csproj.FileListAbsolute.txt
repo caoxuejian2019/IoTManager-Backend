@@ -26,3 +26,12 @@ C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.As
 C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.RazorTargetAssemblyInfo.cache
 C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.dll
 C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.Core.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.Dao.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.DI.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.IDao.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.DI.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.Core.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.Dao.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.IDao.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.csproj.CopyComplete

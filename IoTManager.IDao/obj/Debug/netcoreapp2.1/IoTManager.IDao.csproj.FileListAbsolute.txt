@@ -1,0 +1,8 @@
+C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\bin\Debug\netcoreapp2.1\IoTManager.IDao.deps.json
+C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\bin\Debug\netcoreapp2.1\IoTManager.IDao.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\bin\Debug\netcoreapp2.1\IoTManager.IDao.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\obj\Debug\netcoreapp2.1\IoTManager.IDao.csproj.CoreCompileInputs.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\obj\Debug\netcoreapp2.1\IoTManager.IDao.AssemblyInfoInputs.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\obj\Debug\netcoreapp2.1\IoTManager.IDao.AssemblyInfo.cs
+C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\obj\Debug\netcoreapp2.1\IoTManager.IDao.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\obj\Debug\netcoreapp2.1\IoTManager.IDao.pdb

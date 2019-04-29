@@ -1,0 +1,16 @@
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.DI.deps.json
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.DI.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\obj\Debug\netcoreapp2.1\IoTManager.DI.csproj.CoreCompileInputs.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\obj\Debug\netcoreapp2.1\IoTManager.DI.AssemblyInfoInputs.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\obj\Debug\netcoreapp2.1\IoTManager.DI.AssemblyInfo.cs
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\obj\Debug\netcoreapp2.1\IoTManager.DI.csprojAssemblyReference.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.DI.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.Core.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.Dao.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.IDao.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.Core.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.Dao.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.IDao.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\obj\Debug\netcoreapp2.1\IoTManager.DI.csproj.CopyComplete
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\obj\Debug\netcoreapp2.1\IoTManager.DI.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\obj\Debug\netcoreapp2.1\IoTManager.DI.pdb

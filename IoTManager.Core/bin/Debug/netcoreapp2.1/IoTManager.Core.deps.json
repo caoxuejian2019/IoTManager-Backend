@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "IoTManager.Core/1.0.0": {
+        "dependencies": {
+          "IoTManager.IDao": "1.0.0"
+        },
         "runtime": {
           "IoTManager.Core.dll": {}
+        }
+      },
+      "IoTManager.IDao/1.0.0": {
+        "runtime": {
+          "IoTManager.IDao.dll": {}
         }
       }
     }
   },
   "libraries": {
     "IoTManager.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IoTManager.IDao/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IoTManager.API.Formalizers;
+using IoTManager.Core.Infrastructures;
 using IoTManager.DAL.DbContext;
 using IoTManager.DAL.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,12 @@ namespace IoTManager.API.Controllers
     [ApiController]
     public class CityController : ControllerBase
     {
+        private readonly ICityBus _cityBus;
+        public CityController(ICityBus cityBus)
+        {
+            this._cityBus = cityBus;
+        }
+
         // GET api/values
         [HttpGet]
         public Result Get()

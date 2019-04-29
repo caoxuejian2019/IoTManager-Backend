@@ -12,6 +12,12 @@
         <PackageReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
         <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.15" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\IoTManager.Core\IoTManager.Core.csproj" />
+      <ProjectReference Include="..\IoTManager.DI\IoTManager.DI.csproj" />
     </ItemGroup>
 
 </Project>

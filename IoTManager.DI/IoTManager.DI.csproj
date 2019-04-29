@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.2" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IoTManager.Core\IoTManager.Core.csproj" />
+    <ProjectReference Include="..\IoTManager.Dao\IoTManager.Dao.csproj" />
+    <ProjectReference Include="..\IoTManager.IDao\IoTManager.IDao.csproj" />
+  </ItemGroup>
+
+</Project>
