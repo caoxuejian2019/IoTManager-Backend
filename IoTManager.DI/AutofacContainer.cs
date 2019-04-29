@@ -20,7 +20,7 @@ namespace IoTManager.DI
         public IContainer Build()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterModule<IoTModel>();
+            builder.RegisterModule<IoTPlatformModel>();
             builder.Populate(this._services);
             return builder.Build();
         }
