@@ -15,6 +15,10 @@ namespace IoTManager.DI
 
         public AutofacContainer(IServiceCollection services)
         {
+            if (services == null)
+            {
+                throw new NullReferenceException();
+            }
             this._services = services;
         }
 
@@ -29,6 +33,10 @@ namespace IoTManager.DI
 
         public AutofacServiceProvider FetchServiceProvider()
         {
+            if (this._container == null)
+            {
+                throw new Exception("you need call Build() to initial the Ioc Container before");
+            }
             return new AutofacServiceProvider(this._container);
         }
     }
