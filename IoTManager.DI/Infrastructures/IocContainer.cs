@@ -10,6 +10,6 @@ namespace IoTManager.DI.Infrastructures
     public interface IocContainer
     {
         IocContainer Build();
-        AutofacServiceProvider Injection();
+        AutofacServiceProvider FetchServiceProvider();
     }
 }

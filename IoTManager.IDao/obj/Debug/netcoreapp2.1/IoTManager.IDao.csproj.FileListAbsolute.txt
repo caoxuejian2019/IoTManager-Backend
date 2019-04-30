@@ -6,3 +6,4 @@ C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\obj\Debug\netcoreapp2.1\IoTManag
 C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\obj\Debug\netcoreapp2.1\IoTManager.IDao.AssemblyInfo.cs
 C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\obj\Debug\netcoreapp2.1\IoTManager.IDao.dll
 C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\obj\Debug\netcoreapp2.1\IoTManager.IDao.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager.IDao\obj\Debug\netcoreapp2.1\IoTManager.IDao.csprojAssemblyReference.cache

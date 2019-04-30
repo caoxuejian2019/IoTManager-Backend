@@ -33,7 +33,7 @@ namespace IoTManager
                 gen.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
             IocContainer autofac = new AutofacContainer(services);
-            return autofac.Build().Injection();
+            return autofac.Build().FetchServiceProvider();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

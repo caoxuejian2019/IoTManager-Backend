@@ -27,7 +27,7 @@ namespace IoTManager.DI
             return this;
         }
 
-        public AutofacServiceProvider Injection()
+        public AutofacServiceProvider FetchServiceProvider()
         {
             return new AutofacServiceProvider(this._container);
         }
