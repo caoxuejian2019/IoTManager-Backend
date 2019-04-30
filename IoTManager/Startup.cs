@@ -29,9 +29,15 @@ namespace IoTManager
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //add swagger 
             services.AddSwaggerGen(gen => {
                 gen.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
+            //add log
+            services.AddLogging(builder => {
+                
+            });
+            //add dependency injection
             IocContainer autofac = new AutofacContainer(services);
             return autofac.Build().FetchServiceProvider();
         }
@@ -58,6 +64,7 @@ namespace IoTManager
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+            
             app.UseMvc();
         }
     }

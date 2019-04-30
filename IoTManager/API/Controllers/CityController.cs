@@ -8,6 +8,7 @@ using IoTManager.DAL.DbContext;
 using IoTManager.DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MySqlX.XDevAPI.Common;
 using Result = IoTManager.DAL.ReturnType.Result;
 
@@ -18,9 +19,11 @@ namespace IoTManager.API.Controllers
     public class CityController : ControllerBase
     {
         private readonly ICityBus _cityBus;
-        public CityController(ICityBus cityBus)
+        private readonly ILogger _logger;
+        public CityController(ICityBus cityBus,ILogger<CityController> logger)
         {
             this._cityBus = cityBus;
+            this._logger = logger;
         }
 
         // GET api/values

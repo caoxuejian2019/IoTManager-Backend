@@ -20,3 +20,5 @@ C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager
 C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.AzureIoTHub.pdb
 C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.IHub.pdb
 C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\IoTManager.Model.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.DI\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Logging.Abstractions.xml

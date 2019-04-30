@@ -71,7 +71,8 @@
       "IoTManager.Core/1.0.0": {
         "dependencies": {
           "IoTManager.IDao": "1.0.0",
-          "IoTManager.IHub": "1.0.0"
+          "IoTManager.IHub": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.1.1.0"
         },
         "runtime": {
           "IoTManager.Core.dll": {}
@@ -101,6 +102,14 @@
       "IoTManager.Model/1.0.0": {
         "runtime": {
           "IoTManager.Model.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions.Reference/2.1.1.0": {
+        "runtime": {
+          "Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "2.1.1.0",
+            "fileVersion": "2.1.1.18157"
+          }
         }
       }
     }
@@ -166,6 +175,11 @@
     },
     "IoTManager.Model/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.Logging.Abstractions.Reference/2.1.1.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }
