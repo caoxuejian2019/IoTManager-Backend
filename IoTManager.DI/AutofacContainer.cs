@@ -25,7 +25,6 @@ namespace IoTManager.DI
             builder.Populate(this._services);
             this._container = builder.Build();
             return this;
-            //return builder.Build();
         }
 
         public AutofacServiceProvider Injection()

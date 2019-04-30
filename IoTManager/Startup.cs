@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IoTManager.DI;
+using IoTManager.DI.Infrastructures;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,7 +32,7 @@ namespace IoTManager
             services.AddSwaggerGen(gen => {
                 gen.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
-            var autofac = new AutofacContainer(services);
+            IocContainer autofac = new AutofacContainer(services);
             return autofac.Build().Injection();
         }
 
