@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    "signature": "71215c8d13724e55d2d22dd5e20ea8ea8cee3638"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,10 +10,18 @@
         "dependencies": {
           "IoTManager.IDao": "1.0.0",
           "IoTManager.IHub": "1.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "2.1.1.0"
+          "Microsoft.Extensions.Logging.Abstractions": "2.1.1"
         },
         "runtime": {
           "IoTManager.Core.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/2.1.1": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "2.1.1.0",
+            "fileVersion": "2.1.1.18157"
+          }
         }
       },
       "IoTManager.IDao/1.0.0": {
@@ -33,14 +41,6 @@
         "runtime": {
           "IoTManager.Model.dll": {}
         }
-      },
-      "Microsoft.Extensions.Logging.Abstractions/2.1.1.0": {
-        "runtime": {
-          "Microsoft.Extensions.Logging.Abstractions.dll": {
-            "assemblyVersion": "2.1.1.0",
-            "fileVersion": "2.1.1.18157"
-          }
-        }
       }
     }
   },
@@ -49,6 +49,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.Extensions.Logging.Abstractions/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XRzK7ZF+O6FzdfWrlFTi1Rgj2080ZDsd46vzOjadHUB0Cz5kOvDG8vI7caa5YFrsHQpcfn0DxtjS4E46N4FZsA==",
+      "path": "microsoft.extensions.logging.abstractions/2.1.1",
+      "hashPath": "microsoft.extensions.logging.abstractions.2.1.1.nupkg.sha512"
     },
     "IoTManager.IDao/1.0.0": {
       "type": "project",
@@ -62,11 +69,6 @@
     },
     "IoTManager.Model/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Logging.Abstractions/2.1.1.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "Microsoft.Extensions.Logging.Abstractions/2.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.1.0": {
         "type": "package",
         "dependencies": {
@@ -244,6 +253,19 @@
     }
   },
   "libraries": {
+    "Microsoft.Extensions.Logging.Abstractions/2.1.1": {
+      "sha512": "XRzK7ZF+O6FzdfWrlFTi1Rgj2080ZDsd46vzOjadHUB0Cz5kOvDG8vI7caa5YFrsHQpcfn0DxtjS4E46N4FZsA==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.abstractions/2.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "microsoft.extensions.logging.abstractions.2.1.1.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.nuspec"
+      ]
+    },
     "Microsoft.NETCore.App/2.1.0": {
       "sha512": "JNHhG+j5eIhG26+H721IDmwswGUznTwwSuJMFe/08h0X2YarHvA15sVAvUkA/2Sp3W0ENNm48t+J7KTPRqEpfA==",
       "type": "package",
@@ -734,6 +756,7 @@
     ".NETCoreApp,Version=v2.1": [
       "IoTManager.IDao >= 1.0.0",
       "IoTManager.IHub >= 1.0.0",
+      "Microsoft.Extensions.Logging.Abstractions >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -785,6 +808,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",

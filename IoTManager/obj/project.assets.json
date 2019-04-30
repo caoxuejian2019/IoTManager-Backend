@@ -4622,7 +4622,8 @@
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
           "IoTManager.IDao": "1.0.0",
-          "IoTManager.IHub": "1.0.0"
+          "IoTManager.IHub": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.1.1"
         },
         "compile": {
           "bin/placeholder/IoTManager.Core.dll": {}
