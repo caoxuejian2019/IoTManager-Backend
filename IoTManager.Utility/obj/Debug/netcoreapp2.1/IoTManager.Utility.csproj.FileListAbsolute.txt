@@ -6,4 +6,3 @@ C:\WorkSpace\IoTManager-Backend\IoTManager.Utility\obj\Debug\netcoreapp2.1\IoTMa
 C:\WorkSpace\IoTManager-Backend\IoTManager.Utility\obj\Debug\netcoreapp2.1\IoTManager.Utility.AssemblyInfo.cs
 C:\WorkSpace\IoTManager-Backend\IoTManager.Utility\obj\Debug\netcoreapp2.1\IoTManager.Utility.dll
 C:\WorkSpace\IoTManager-Backend\IoTManager.Utility\obj\Debug\netcoreapp2.1\IoTManager.Utility.pdb
-C:\WorkSpace\IoTManager-Backend\IoTManager.Utility\obj\Debug\netcoreapp2.1\IoTManager.Utility.csprojAssemblyReference.cache

@@ -24,10 +24,13 @@ namespace IoTManager.DI
 
         public IocContainer Build()
         {
-            var builder = new ContainerBuilder();
-            builder.RegisterModule<IoTPlatformModel>();
-            builder.Populate(this._services);
-            this._container = builder.Build();
+            if (this._container == null)
+            {
+                var builder = new ContainerBuilder();
+                builder.RegisterModule<IoTPlatformModel>();
+                builder.Populate(this._services);
+                this._container = builder.Build();
+            }
             return this;
         }
 
