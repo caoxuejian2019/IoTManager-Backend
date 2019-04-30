@@ -10,6 +10,7 @@ using IoTManager.DAL.DbContext;
 using Microsoft.AspNetCore.WebSockets;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using IoTManager.Core.Infrastructures;
 
 namespace IoTManager.API.Controllers
 {
@@ -17,6 +18,13 @@ namespace IoTManager.API.Controllers
     [ApiController]
     public class DeviceController : ControllerBase
     {
+        private readonly IDeviceBus _deviceBus;
+
+        public DeviceController(IDeviceBus deviceBus)
+        {
+            this._deviceBus = deviceBus;
+        }
+
         // GET api/values
         [HttpGet]
         public Result Get()

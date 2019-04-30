@@ -1,0 +1,12 @@
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\bin\Debug\netcoreapp2.1\IoTManager.IHub.deps.json
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\bin\Debug\netcoreapp2.1\IoTManager.IHub.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\bin\Debug\netcoreapp2.1\IoTManager.IHub.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\bin\Debug\netcoreapp2.1\IoTManager.Model.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\bin\Debug\netcoreapp2.1\IoTManager.Model.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\obj\Debug\netcoreapp2.1\IoTManager.IHub.csprojAssemblyReference.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\obj\Debug\netcoreapp2.1\IoTManager.IHub.csproj.CoreCompileInputs.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\obj\Debug\netcoreapp2.1\IoTManager.IHub.AssemblyInfoInputs.cache
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\obj\Debug\netcoreapp2.1\IoTManager.IHub.AssemblyInfo.cs
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\obj\Debug\netcoreapp2.1\IoTManager.IHub.csproj.CopyComplete
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\obj\Debug\netcoreapp2.1\IoTManager.IHub.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager.IHub\obj\Debug\netcoreapp2.1\IoTManager.IHub.pdb

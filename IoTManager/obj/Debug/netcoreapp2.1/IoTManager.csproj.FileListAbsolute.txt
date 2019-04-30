@@ -35,3 +35,9 @@ C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.Co
 C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.Dao.pdb
 C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.IDao.pdb
 C:\WorkSpace\IoTManager-Backend\IoTManager\obj\Debug\netcoreapp2.1\IoTManager.csproj.CopyComplete
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.AzureIoTHub.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.IHub.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.Model.dll
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.AzureIoTHub.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.IHub.pdb
+C:\WorkSpace\IoTManager-Backend\IoTManager\bin\Debug\netcoreapp2.1\IoTManager.Model.pdb

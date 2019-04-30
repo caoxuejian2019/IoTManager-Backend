@@ -10,9 +10,11 @@
         "dependencies": {
           "Autofac": "4.9.2",
           "Autofac.Extensions.DependencyInjection": "4.4.0",
+          "IoTManager.AzureIoTHub": "1.0.0",
           "IoTManager.Core": "1.0.0",
           "IoTManager.Dao": "1.0.0",
           "IoTManager.IDao": "1.0.0",
+          "IoTManager.IHub": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "2.1.1"
         },
         "runtime": {
@@ -58,9 +60,18 @@
           }
         }
       },
+      "IoTManager.AzureIoTHub/1.0.0": {
+        "dependencies": {
+          "IoTManager.IHub": "1.0.0"
+        },
+        "runtime": {
+          "IoTManager.AzureIoTHub.dll": {}
+        }
+      },
       "IoTManager.Core/1.0.0": {
         "dependencies": {
-          "IoTManager.IDao": "1.0.0"
+          "IoTManager.IDao": "1.0.0",
+          "IoTManager.IHub": "1.0.0"
         },
         "runtime": {
           "IoTManager.Core.dll": {}
@@ -77,6 +88,19 @@
       "IoTManager.IDao/1.0.0": {
         "runtime": {
           "IoTManager.IDao.dll": {}
+        }
+      },
+      "IoTManager.IHub/1.0.0": {
+        "dependencies": {
+          "IoTManager.Model": "1.0.0"
+        },
+        "runtime": {
+          "IoTManager.IHub.dll": {}
+        }
+      },
+      "IoTManager.Model/1.0.0": {
+        "runtime": {
+          "IoTManager.Model.dll": {}
         }
       }
     }
@@ -115,6 +139,11 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/2.1.1",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.2.1.1.nupkg.sha512"
     },
+    "IoTManager.AzureIoTHub/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "IoTManager.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -126,6 +155,16 @@
       "sha512": ""
     },
     "IoTManager.IDao/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IoTManager.IHub/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IoTManager.Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

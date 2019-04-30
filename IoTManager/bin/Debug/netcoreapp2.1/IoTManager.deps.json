@@ -478,9 +478,21 @@
           }
         }
       },
+      "IoTManager.AzureIoTHub/1.0.0": {
+        "dependencies": {
+          "IoTManager.IHub": "1.0.0"
+        },
+        "runtime": {
+          "IoTManager.AzureIoTHub.dll": {}
+        },
+        "compile": {
+          "IoTManager.AzureIoTHub.dll": {}
+        }
+      },
       "IoTManager.Core/1.0.0": {
         "dependencies": {
-          "IoTManager.IDao": "1.0.0"
+          "IoTManager.IDao": "1.0.0",
+          "IoTManager.IHub": "1.0.0"
         },
         "runtime": {
           "IoTManager.Core.dll": {}
@@ -504,9 +516,11 @@
         "dependencies": {
           "Autofac": "4.9.2",
           "Autofac.Extensions.DependencyInjection": "4.4.0",
+          "IoTManager.AzureIoTHub": "1.0.0",
           "IoTManager.Core": "1.0.0",
           "IoTManager.Dao": "1.0.0",
           "IoTManager.IDao": "1.0.0",
+          "IoTManager.IHub": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "2.1.1"
         },
         "runtime": {
@@ -522,6 +536,25 @@
         },
         "compile": {
           "IoTManager.IDao.dll": {}
+        }
+      },
+      "IoTManager.IHub/1.0.0": {
+        "dependencies": {
+          "IoTManager.Model": "1.0.0"
+        },
+        "runtime": {
+          "IoTManager.IHub.dll": {}
+        },
+        "compile": {
+          "IoTManager.IHub.dll": {}
+        }
+      },
+      "IoTManager.Model/1.0.0": {
+        "runtime": {
+          "IoTManager.Model.dll": {}
+        },
+        "compile": {
+          "IoTManager.Model.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3584,6 +3617,11 @@
       "path": "system.security.cryptography.protecteddata/4.4.0",
       "hashPath": "system.security.cryptography.protecteddata.4.4.0.nupkg.sha512"
     },
+    "IoTManager.AzureIoTHub/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "IoTManager.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -3600,6 +3638,16 @@
       "sha512": ""
     },
     "IoTManager.IDao/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IoTManager.IHub/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IoTManager.Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

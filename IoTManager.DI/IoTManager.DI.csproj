@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -11,9 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IoTManager.AzureIoTHub\IoTManager.AzureIoTHub.csproj" />
     <ProjectReference Include="..\IoTManager.Core\IoTManager.Core.csproj" />
     <ProjectReference Include="..\IoTManager.Dao\IoTManager.Dao.csproj" />
     <ProjectReference Include="..\IoTManager.IDao\IoTManager.IDao.csproj" />
+    <ProjectReference Include="..\IoTManager.IHub\IoTManager.IHub.csproj" />
   </ItemGroup>
 
 </Project>

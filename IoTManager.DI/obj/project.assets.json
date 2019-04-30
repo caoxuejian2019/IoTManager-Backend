@@ -251,11 +251,25 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "IoTManager.AzureIoTHub/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "IoTManager.IHub": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/IoTManager.AzureIoTHub.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IoTManager.AzureIoTHub.dll": {}
+        }
+      },
       "IoTManager.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "IoTManager.IDao": "1.0.0"
+          "IoTManager.IDao": "1.0.0",
+          "IoTManager.IHub": "1.0.0"
         },
         "compile": {
           "bin/placeholder/IoTManager.Core.dll": {}
@@ -285,6 +299,29 @@
         },
         "runtime": {
           "bin/placeholder/IoTManager.IDao.dll": {}
+        }
+      },
+      "IoTManager.IHub/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "IoTManager.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/IoTManager.IHub.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IoTManager.IHub.dll": {}
+        }
+      },
+      "IoTManager.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/IoTManager.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IoTManager.Model.dll": {}
         }
       }
     }
@@ -827,6 +864,11 @@
         "netstandard.library.nuspec"
       ]
     },
+    "IoTManager.AzureIoTHub/1.0.0": {
+      "type": "project",
+      "path": "../IoTManager.AzureIoTHub/IoTManager.AzureIoTHub.csproj",
+      "msbuildProject": "../IoTManager.AzureIoTHub/IoTManager.AzureIoTHub.csproj"
+    },
     "IoTManager.Core/1.0.0": {
       "type": "project",
       "path": "../IoTManager.Core/IoTManager.Core.csproj",
@@ -841,15 +883,27 @@
       "type": "project",
       "path": "../IoTManager.IDao/IoTManager.IDao.csproj",
       "msbuildProject": "../IoTManager.IDao/IoTManager.IDao.csproj"
+    },
+    "IoTManager.IHub/1.0.0": {
+      "type": "project",
+      "path": "../IoTManager.IHub/IoTManager.IHub.csproj",
+      "msbuildProject": "../IoTManager.IHub/IoTManager.IHub.csproj"
+    },
+    "IoTManager.Model/1.0.0": {
+      "type": "project",
+      "path": "../IoTManager.Model/IoTManager.Model.csproj",
+      "msbuildProject": "../IoTManager.Model/IoTManager.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "Autofac >= 4.9.2",
       "Autofac.Extensions.DependencyInjection >= 4.4.0",
+      "IoTManager.AzureIoTHub >= 1.0.0",
       "IoTManager.Core >= 1.0.0",
       "IoTManager.Dao >= 1.0.0",
       "IoTManager.IDao >= 1.0.0",
+      "IoTManager.IHub >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
@@ -884,6 +938,9 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.AzureIoTHub\\IoTManager.AzureIoTHub.csproj": {
+              "projectPath": "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.AzureIoTHub\\IoTManager.AzureIoTHub.csproj"
+            },
             "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.Core\\IoTManager.Core.csproj": {
               "projectPath": "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.Core\\IoTManager.Core.csproj"
             },
@@ -892,6 +949,9 @@
             },
             "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.IDao\\IoTManager.IDao.csproj": {
               "projectPath": "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.IDao\\IoTManager.IDao.csproj"
+            },
+            "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.IHub\\IoTManager.IHub.csproj": {
+              "projectPath": "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.IHub\\IoTManager.IHub.csproj"
             }
           }
         }

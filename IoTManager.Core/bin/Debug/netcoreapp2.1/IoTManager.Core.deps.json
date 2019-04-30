@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v2.1": {
       "IoTManager.Core/1.0.0": {
         "dependencies": {
-          "IoTManager.IDao": "1.0.0"
+          "IoTManager.IDao": "1.0.0",
+          "IoTManager.IHub": "1.0.0"
         },
         "runtime": {
           "IoTManager.Core.dll": {}
@@ -17,6 +18,19 @@
       "IoTManager.IDao/1.0.0": {
         "runtime": {
           "IoTManager.IDao.dll": {}
+        }
+      },
+      "IoTManager.IHub/1.0.0": {
+        "dependencies": {
+          "IoTManager.Model": "1.0.0"
+        },
+        "runtime": {
+          "IoTManager.IHub.dll": {}
+        }
+      },
+      "IoTManager.Model/1.0.0": {
+        "runtime": {
+          "IoTManager.Model.dll": {}
         }
       }
     }
@@ -28,6 +42,16 @@
       "sha512": ""
     },
     "IoTManager.IDao/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IoTManager.IHub/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IoTManager.Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

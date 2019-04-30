@@ -217,6 +217,29 @@
         "runtime": {
           "bin/placeholder/IoTManager.IDao.dll": {}
         }
+      },
+      "IoTManager.IHub/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "IoTManager.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/IoTManager.IHub.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IoTManager.IHub.dll": {}
+        }
+      },
+      "IoTManager.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/IoTManager.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IoTManager.Model.dll": {}
+        }
       }
     }
   },
@@ -695,11 +718,22 @@
       "type": "project",
       "path": "../IoTManager.IDao/IoTManager.IDao.csproj",
       "msbuildProject": "../IoTManager.IDao/IoTManager.IDao.csproj"
+    },
+    "IoTManager.IHub/1.0.0": {
+      "type": "project",
+      "path": "../IoTManager.IHub/IoTManager.IHub.csproj",
+      "msbuildProject": "../IoTManager.IHub/IoTManager.IHub.csproj"
+    },
+    "IoTManager.Model/1.0.0": {
+      "type": "project",
+      "path": "../IoTManager.Model/IoTManager.Model.csproj",
+      "msbuildProject": "../IoTManager.Model/IoTManager.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "IoTManager.IDao >= 1.0.0",
+      "IoTManager.IHub >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -735,6 +769,9 @@
           "projectReferences": {
             "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.IDao\\IoTManager.IDao.csproj": {
               "projectPath": "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.IDao\\IoTManager.IDao.csproj"
+            },
+            "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.IHub\\IoTManager.IHub.csproj": {
+              "projectPath": "C:\\WorkSpace\\IoTManager-Backend\\IoTManager.IHub\\IoTManager.IHub.csproj"
             }
           }
         }

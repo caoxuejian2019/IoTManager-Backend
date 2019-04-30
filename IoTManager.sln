@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.Dao", "IoTManage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.DI", "IoTManager.DI\IoTManager.DI.csproj", "{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.IHub", "IoTManager.IHub\IoTManager.IHub.csproj", "{9BEB430B-F96C-41FB-ACD3-E1721495F84A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.AzureIoTHub", "IoTManager.AzureIoTHub\IoTManager.AzureIoTHub.csproj", "{FB1FE35D-6A4A-48BE-B08C-6897E3877896}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BEB430B-F96C-41FB-ACD3-E1721495F84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BEB430B-F96C-41FB-ACD3-E1721495F84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BEB430B-F96C-41FB-ACD3-E1721495F84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BEB430B-F96C-41FB-ACD3-E1721495F84A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB1FE35D-6A4A-48BE-B08C-6897E3877896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB1FE35D-6A4A-48BE-B08C-6897E3877896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB1FE35D-6A4A-48BE-B08C-6897E3877896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB1FE35D-6A4A-48BE-B08C-6897E3877896}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

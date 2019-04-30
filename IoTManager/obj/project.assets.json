@@ -4480,11 +4480,25 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "IoTManager.AzureIoTHub/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "IoTManager.IHub": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/IoTManager.AzureIoTHub.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IoTManager.AzureIoTHub.dll": {}
+        }
+      },
       "IoTManager.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "IoTManager.IDao": "1.0.0"
+          "IoTManager.IDao": "1.0.0",
+          "IoTManager.IHub": "1.0.0"
         },
         "compile": {
           "bin/placeholder/IoTManager.Core.dll": {}
@@ -4512,9 +4526,11 @@
         "dependencies": {
           "Autofac": "4.9.2",
           "Autofac.Extensions.DependencyInjection": "4.4.0",
+          "IoTManager.AzureIoTHub": "1.0.0",
           "IoTManager.Core": "1.0.0",
           "IoTManager.Dao": "1.0.0",
           "IoTManager.IDao": "1.0.0",
+          "IoTManager.IHub": "1.0.0",
           "Microsoft.Extensions.DependencyInjection": "2.1.1"
         },
         "compile": {
@@ -4532,6 +4548,29 @@
         },
         "runtime": {
           "bin/placeholder/IoTManager.IDao.dll": {}
+        }
+      },
+      "IoTManager.IHub/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "IoTManager.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/IoTManager.IHub.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IoTManager.IHub.dll": {}
+        }
+      },
+      "IoTManager.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/IoTManager.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IoTManager.Model.dll": {}
         }
       }
     }
@@ -12188,6 +12227,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "IoTManager.AzureIoTHub/1.0.0": {
+      "type": "project",
+      "path": "../IoTManager.AzureIoTHub/IoTManager.AzureIoTHub.csproj",
+      "msbuildProject": "../IoTManager.AzureIoTHub/IoTManager.AzureIoTHub.csproj"
+    },
     "IoTManager.Core/1.0.0": {
       "type": "project",
       "path": "../IoTManager.Core/IoTManager.Core.csproj",
@@ -12207,6 +12251,16 @@
       "type": "project",
       "path": "../IoTManager.IDao/IoTManager.IDao.csproj",
       "msbuildProject": "../IoTManager.IDao/IoTManager.IDao.csproj"
+    },
+    "IoTManager.IHub/1.0.0": {
+      "type": "project",
+      "path": "../IoTManager.IHub/IoTManager.IHub.csproj",
+      "msbuildProject": "../IoTManager.IHub/IoTManager.IHub.csproj"
+    },
+    "IoTManager.Model/1.0.0": {
+      "type": "project",
+      "path": "../IoTManager.Model/IoTManager.Model.csproj",
+      "msbuildProject": "../IoTManager.Model/IoTManager.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {

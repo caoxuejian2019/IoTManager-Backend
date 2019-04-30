@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "IoTManager.AzureIoTHub/1.0.0": {
+        "dependencies": {
+          "IoTManager.IHub": "1.0.0"
+        },
+        "runtime": {
+          "IoTManager.AzureIoTHub.dll": {}
+        }
+      },
+      "IoTManager.IHub/1.0.0": {
+        "dependencies": {
+          "IoTManager.Model": "1.0.0"
+        },
+        "runtime": {
+          "IoTManager.IHub.dll": {}
+        }
+      },
+      "IoTManager.Model/1.0.0": {
+        "runtime": {
+          "IoTManager.Model.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "IoTManager.AzureIoTHub/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IoTManager.IHub/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IoTManager.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

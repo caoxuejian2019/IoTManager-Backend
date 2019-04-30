@@ -1,8 +1,10 @@
 ﻿using Autofac;
+using IoTManager.AzureIoTHub;
 using IoTManager.Core;
 using IoTManager.Core.Infrastructures;
 using IoTManager.Dao;
 using IoTManager.IDao;
+using IoTManager.IHub;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,6 +27,8 @@ namespace IoTManager.DI
             builder.RegisterType<DepartmentDao>().As<IDepartmentDao>();
             builder.RegisterType<DeviceDao>().As<IDeviceDao>();
             builder.RegisterType<GatewayDao>().As<IGatewayDao>();
+            //IoTManager.AzureIoTHub
+            builder.RegisterType<AzureIoTHub.AzureIoTHub>().As<IoTHub>();
             //base.Load(builder);
         }
     }
