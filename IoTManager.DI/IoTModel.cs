@@ -9,7 +9,7 @@ using System.Text;
 
 namespace IoTManager.DI
 {
-    public sealed class IoTPlatformModel:Module
+    internal sealed class IoTPlatformModel:Module
     {
         protected override void Load(ContainerBuilder builder)
         {
