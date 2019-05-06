@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MySqlX.XDevAPI.Common;
+using Swashbuckle.AspNetCore.Swagger;
 using Result = IoTManager.DAL.ReturnType.Result;
 
 namespace IoTManager.API.Controllers
@@ -31,52 +32,57 @@ namespace IoTManager.API.Controllers
 
         // GET api/values
         [HttpGet]
-        public List<CitySerializer> Get()
+        public ResponseSerializer Get()
         {
-            List<CityModel> cities = this._cityBus.GetAllCities();
-            List<CitySerializer> result = new List<CitySerializer>();
-            foreach (CityModel city in cities)
-            {
-                result.Add(new CitySerializer(city));
-            }
-            return result;
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._cityBus.GetAllCities()
+                );
         }
 
         // GET api/values/{id}
         [HttpGet("{id}")]
-        public CitySerializer Get(int id)
+        public ResponseSerializer Get(int id)
         {
-            CityModel city = this._cityBus.GetCityById(id);
-            CitySerializer result = new CitySerializer(city);
-            return result;
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._cityBus.GetCityById(id)
+                );
         }
 
         // POST api/values
         [HttpPost]
-        public String Post([FromBody] CitySerializer citySerializer)
+        public ResponseSerializer Post([FromBody] CitySerializer citySerializer)
         {
-            CityModel cityModel = new CityModel();
-            cityModel.CityName = citySerializer.cityName;
-            cityModel.Remark = citySerializer.remark;
-            return this._cityBus.CreateNewCity(cityModel);
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._cityBus.CreateNewCity(citySerializer)
+                );
         }
 
         // PUT api/values/{id}
         [HttpPut("{id}")]
-        public String Put(int id, [FromBody] CitySerializer citySerializer)
+        public ResponseSerializer Put(int id, [FromBody] CitySerializer citySerializer)
         {
-            CityModel cityModel = new CityModel();
-            cityModel.Id = id;
-            cityModel.CityName = citySerializer.cityName;
-            cityModel.Remark = citySerializer.remark;
-            return this._cityBus.UpdateCity(id, cityModel);
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._cityBus.UpdateCity(id, citySerializer)
+                );
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public String Delete(int id)
+        public ResponseSerializer Delete(int id)
         {
-            return this._cityBus.DeleteCity(id);
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._cityBus.DeleteCity(id)
+                );
         }
     }
 }

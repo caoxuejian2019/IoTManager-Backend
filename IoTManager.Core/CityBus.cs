@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using IoTManager.Model;
+using IoTManager.Utility.Serializers;
 
 namespace IoTManager.Core
 {
@@ -18,23 +19,38 @@ namespace IoTManager.Core
             this._logger = logger;
         }
 
-        public List<CityModel> GetAllCities()
+        public List<CitySerializer> GetAllCities()
         {
-            return this._cityDao.Get();
+            List<CityModel> cities =  this._cityDao.Get();
+            List<CitySerializer> result = new List<CitySerializer>();
+            foreach (CityModel city in cities)
+            {
+                result.Add(new CitySerializer(city));
+            }
+            return result;
         }
 
-        public CityModel GetCityById(int id)
+        public CitySerializer GetCityById(int id)
         {
-            return this._cityDao.GetById(id);
+            CityModel city = this._cityDao.GetById(id);
+            CitySerializer result = new CitySerializer(city);
+            return result;
         }
 
-        public String CreateNewCity(CityModel cityModel)
+        public String CreateNewCity(CitySerializer citySerializer)
         {
+            CityModel cityModel = new CityModel();
+            cityModel.CityName = citySerializer.cityName;
+            cityModel.Remark = citySerializer.remark;
             return this._cityDao.Create(cityModel); 
         }
 
-        public String UpdateCity(int id, CityModel cityModel)
+        public String UpdateCity(int id, CitySerializer citySerializer)
         {
+            CityModel cityModel = new CityModel();
+            cityModel.Id = id;
+            cityModel.CityName = citySerializer.cityName;
+            cityModel.Remark = citySerializer.remark;
             return this._cityDao.Update(id, cityModel);
         }
 

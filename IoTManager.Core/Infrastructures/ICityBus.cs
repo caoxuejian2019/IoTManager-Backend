@@ -8,10 +8,10 @@ namespace IoTManager.Core.Infrastructures
 {
     public interface ICityBus
     {
-        List<CityModel> GetAllCities();
-        CityModel GetCityById(int id);
-        String CreateNewCity(CityModel cityModel);
-        String UpdateCity(int id, CityModel cityModel);
+        List<CitySerializer> GetAllCities();
+        CitySerializer GetCityById(int id);
+        String CreateNewCity(CitySerializer citySerializer);
+        String UpdateCity(int id, CitySerializer citySerializer);
         String DeleteCity(int id);
     }
 }
