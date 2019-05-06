@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -6,6 +6,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IoTManager.IDao\IoTManager.IDao.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.60.6" />
+    <PackageReference Include="MySql.Data" Version="8.0.16" />
   </ItemGroup>
 
 </Project>

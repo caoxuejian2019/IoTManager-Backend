@@ -1,0 +1,55 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.Dao/IoTManager.Dao.csproj",
+    "projectName": "IoTManager.Dao",
+    "projectPath": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.Dao/IoTManager.Dao.csproj",
+    "outputPath": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.Dao/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.1"
+    ],
+    "frameworks": {
+      "netcoreapp2.1": {
+        "projectReferences": {
+          "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.IDao/IoTManager.IDao.csproj": {
+            "projectPath": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.IDao/IoTManager.IDao.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.1": {
+      "dependencies": {
+        "Dapper": {
+          "target": "Package",
+          "version": "[1.60.6, )"
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.1.0, )",
+          "autoReferenced": true
+        },
+        "MySql.Data": {
+          "target": "Package",
+          "version": "[8.0.16, )"
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

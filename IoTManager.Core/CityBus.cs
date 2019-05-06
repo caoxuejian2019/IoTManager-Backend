@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using IoTManager.Model;
 
 namespace IoTManager.Core
 {
@@ -15,6 +16,31 @@ namespace IoTManager.Core
         {
             this._cityDao = cityDao;
             this._logger = logger;
+        }
+
+        public List<CityModel> GetAllCities()
+        {
+            return this._cityDao.Get();
+        }
+
+        public CityModel GetCityById(int id)
+        {
+            return this._cityDao.GetById(id);
+        }
+
+        public String CreateNewCity(CityModel cityModel)
+        {
+            return this._cityDao.Create(cityModel); 
+        }
+
+        public String UpdateCity(int id, CityModel cityModel)
+        {
+            return this._cityDao.Update(id, cityModel);
+        }
+
+        public String DeleteCity(int id)
+        {
+            return this._cityDao.Delete(id);
         }
     }
 }

@@ -1,0 +1,71 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.DI/IoTManager.DI.csproj",
+    "projectName": "IoTManager.DI",
+    "projectPath": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.DI/IoTManager.DI.csproj",
+    "outputPath": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.DI/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.1"
+    ],
+    "frameworks": {
+      "netcoreapp2.1": {
+        "projectReferences": {
+          "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.AzureIoTHub/IoTManager.AzureIoTHub.csproj": {
+            "projectPath": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.AzureIoTHub/IoTManager.AzureIoTHub.csproj"
+          },
+          "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.Core/IoTManager.Core.csproj": {
+            "projectPath": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.Core/IoTManager.Core.csproj"
+          },
+          "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.Dao/IoTManager.Dao.csproj": {
+            "projectPath": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.Dao/IoTManager.Dao.csproj"
+          },
+          "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.IDao/IoTManager.IDao.csproj": {
+            "projectPath": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.IDao/IoTManager.IDao.csproj"
+          },
+          "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.IHub/IoTManager.IHub.csproj": {
+            "projectPath": "/Users/jackysong/Documents/IoTManager_New/IoTManager/IoTManager.IHub/IoTManager.IHub.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.1": {
+      "dependencies": {
+        "Autofac": {
+          "target": "Package",
+          "version": "[4.9.2, )"
+        },
+        "Autofac.Extensions.DependencyInjection": {
+          "target": "Package",
+          "version": "[4.4.0, )"
+        },
+        "Microsoft.Extensions.DependencyInjection": {
+          "target": "Package",
+          "version": "[2.1.1, )"
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.1.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}
