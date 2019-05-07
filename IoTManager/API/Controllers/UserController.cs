@@ -5,11 +5,14 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using IoTManager.API.Formalizers;
 using IoTManager.API.Services;
+using IoTManager.Core.Infrastructures;
 using Microsoft.AspNetCore.Mvc;
 using IoTManager.DAL.Models;
 using IoTManager.DAL.DbContext;
 using IoTManager.DAL.ReturnType;
+using IoTManager.Utility.Serializers;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace IoTManager.API.Controllers
 {
@@ -17,223 +20,79 @@ namespace IoTManager.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IUserBus _userBus;
+        private readonly ILogger _logger;
+
+        public UserController(IUserBus userBus, ILogger<UserController> logger)
+        {
+            this._userBus = userBus;
+            this._logger = logger;
+        }
+        
         // GET api/values
         [HttpGet]
-        public Result Get()
+        public ResponseSerializer Get()
         {
-            using (DatabaseContext dbcon = new DatabaseContext())
-            {
-                /************************************
-                 * Find All Users from the Database
-                 ************************************/
-
-                var users = dbcon.User
-                    .Include(u => u.Department)
-                    .ToList();
-                
-                
-                /************************************
-                 * Serialize the Result
-                 ************************************/
-                
-                List<UserFormalizer> results = new List<UserFormalizer>();
-
-                foreach (User u in users)
-                {
-                    results.Add(new UserFormalizer(u));
-                }
-                
-                
-                /************************************
-                 * Return
-                 ************************************/
-                
-                return new Result(
-                    200,
-                    "success",
-                    results
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._userBus.GetAllUsers()
                 );
-            }
         }
 
         // GET api/values/{id}
         [HttpGet("{id}")]
-        public Result Get(int id)
+        public ResponseSerializer Get(int id)
         {
-            using (DatabaseContext dbcon = new DatabaseContext())
-            {
-                /************************************
-                 * Find the User with Certain Id
-                 ************************************/
-                
-                var user = dbcon.User
-                    .Include(u => u.Department)
-                    .Single(u => u.Id == id);
-                
-                
-                /************************************
-                 * Serialize the Result
-                 ************************************/
-                
-                UserFormalizer result = new UserFormalizer(user);
-                
-                
-                /************************************
-                 * Return
-                 ************************************/
-                
-                return new Result(
-                    200, 
-                    "success",
-                    result
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._userBus.GetUserById(id)
                 );
-            }
+        }
+
+        //GET api/user/username/{userName}
+        [HttpGet("username/{userName}")]
+        public ResponseSerializer GetByUserName(String userName)
+        {
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._userBus.GetUserByUserName(userName)
+                );
         }
 
         // POST api/values
         [HttpPost]
-        public Result Post([FromBody] UserFormalizer user)
+        public ResponseSerializer Post([FromBody] UserSerializer userSerializer)
         {
-            using (DatabaseContext dbcon = new DatabaseContext())
-            {
-                /************************************
-                 * Create A New User Model
-                 ************************************/
-                
-                User newUser = new User();
-                
-                
-                /************************************
-                 * Process New User Information
-                 ************************************/
-                
-                //Basic Information
-                newUser.UserName = user.userName;
-                newUser.DisplayName = user.displayName;
-                newUser.Password = EncryptionService.Encrypt(user.password);
-                newUser.Email = user.email;
-                newUser.PhoneNumber = user.phoneNumber;
-                newUser.Remark = user.remark;
-                
-                //Basic Time Information
-                newUser.CreateTime = DateTime.Now;
-                newUser.UpdateTime = DateTime.Now;
-                
-                //Information Based on Relation
-                //Department
-                Department userDepartment = dbcon.Department
-                    .Single(d => d.DepartmentName == user.department);
-                newUser.Department = userDepartment;
-                newUser.DepartmentId = userDepartment.Id;
-                
-                
-                /************************************
-                 * Save and Return
-                 ************************************/
-
-                dbcon.User.Add(newUser);
-                dbcon.SaveChanges();
-                
-                return new Result(
-                    200,
-                    "success",
-                    user
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._userBus.CreateNewUser(userSerializer)
                 );
-            }
         }
 
         // PUT api/values/{id}
         [HttpPut("{id}")]
-        public Result Put(int id, [FromBody] UserFormalizer newUser)
+        public ResponseSerializer Put(int id, [FromBody] UserSerializer userSerializer)
         {
-            using (DatabaseContext dbcon = new DatabaseContext())
-            {
-                /************************************
-                 * Find the Old User Information
-                 ************************************/
-
-                User oldUser = dbcon.Find<User>(id);
-                
-                
-                /************************************
-                 * Process the New User Information
-                 ************************************/
-                
-                //Basic Information
-                oldUser.UserName = newUser.userName;
-                oldUser.DisplayName = newUser.displayName;
-                oldUser.Password = EncryptionService.Encrypt(newUser.password);
-                oldUser.Email = newUser.email;
-                oldUser.PhoneNumber = newUser.phoneNumber;
-                oldUser.Remark = newUser.remark;
-                
-                //Basic Time Information
-                oldUser.UpdateTime = DateTime.Now;
-                
-                //Information Based on Relation
-                //Department
-                Department userDepartment = dbcon.Department
-                    .Single(d => d.DepartmentName == newUser.department);
-                oldUser.Department = userDepartment;
-                oldUser.DepartmentId = userDepartment.Id;
-                
-                
-                /************************************
-                 * Serialize the Old User Information
-                 ************************************/
-                
-                UserFormalizer result = new UserFormalizer(oldUser);
-                
-                
-                /************************************
-                 * Save and Return
-                 ************************************/
-
-                dbcon.SaveChanges();
-                
-                return new Result(
-                    200,
-                    "success",
-                    result
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._userBus.UpdateUser(id, userSerializer)
                 );
-            }
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public Result Delete(int id)
+        public ResponseSerializer Delete(int id)
         {
-            using (DatabaseContext dbcon = new DatabaseContext())
-            {
-                /************************************
-                 * Find the User To Delete
-                 ************************************/
-                
-                var user = dbcon.User
-                    .Include(u => u.Department)
-                    .Single(u => u.Id == id);
-                
-                
-                /************************************
-                 * Serialize the Deleted User
-                 ************************************/
-                
-                UserFormalizer result = new UserFormalizer(user);
-                
-                
-                /************************************
-                 * Delete and Return the Deleted User
-                 ************************************/
-
-                dbcon.User.Remove(user);
-                dbcon.SaveChanges();
-                
-                return new Result(
-                    200,
-                    "success",
-                    result
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._userBus.DeleteUser(id)
                 );
-            }
         }
     }
 }

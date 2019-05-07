@@ -27,6 +27,7 @@ namespace IoTManager.DI
             builder.RegisterType<DepartmentDao>().As<IDepartmentDao>();
             builder.RegisterType<DeviceDao>().As<IDeviceDao>();
             builder.RegisterType<GatewayDao>().As<IGatewayDao>();
+            builder.RegisterType<UserDao>().As<IUserDao>();
             //IoTManager.AzureIoTHub
             builder.RegisterType<AzureIoTHub.AzureIoTHub>().As<IoTHub>();
             //base.Load(builder);

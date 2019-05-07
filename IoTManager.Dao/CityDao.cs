@@ -43,10 +43,10 @@ namespace IoTManager.Dao
             using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
                 return connection
-                    .Query<CityModel>("SELECT * FROM city WHERE id = @userId",
+                    .Query<CityModel>("SELECT * FROM city WHERE id = @cityId",
                         new
                         {
-                            userId = id
+                            cityId = id
                         }).FirstOrDefault();
             }
         }
@@ -55,7 +55,7 @@ namespace IoTManager.Dao
         {
             using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
-                int rows = connection.Execute("UPDATE city SET cityName=@cn, remark=@r WHERE id=@cityId", new
+                int rows = connection.Execute("UPDATE city SET cityName=@cn, remark=@r, updateTime=CURRENT_TIMESTAMP WHERE id=@cityId", new
                 {
                     cn = cityModel.CityName,
                     r = cityModel.Remark,

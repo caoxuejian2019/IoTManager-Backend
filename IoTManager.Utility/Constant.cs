@@ -8,7 +8,7 @@ namespace IoTManager.Utility
         {
             return "Data Source=iotmanagerdbserver.database.chinacloudapi.cn;" +
                    "User ID=azureuser;" +
-                   "Initial Catalog=iotmanager;" +
+                   "Initial Catalog=iotmanagerdb;" +
                    "Pwd=123qwe!@#QWE;";
         }
 
