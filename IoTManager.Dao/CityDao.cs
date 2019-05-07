@@ -17,7 +17,7 @@ namespace IoTManager.Dao
     {
         public String Create(CityModel cityModel)
         {
-            using (var connection = new MySqlConnection(Constant.getDatabaseConnectionString()))
+            using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
                 int rows = connection.Execute("INSERT INTO city(cityName, remark) VALUES (@cn, @r)", new
                 {
@@ -30,7 +30,7 @@ namespace IoTManager.Dao
 
         public List<CityModel> Get()
         {
-            using (var connection = new MySqlConnection(Constant.getDatabaseConnectionString()))
+            using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
                 return connection
                     .Query<CityModel>("SELECT * FROM city")
@@ -40,7 +40,7 @@ namespace IoTManager.Dao
 
         public CityModel GetById(int id)
         {
-            using (var connection = new MySqlConnection(Constant.getDatabaseConnectionString()))
+            using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
                 return connection
                     .Query<CityModel>("SELECT * FROM city WHERE id = @userId",
@@ -53,7 +53,7 @@ namespace IoTManager.Dao
 
         public String Update(int id, CityModel cityModel)
         {
-            using (var connection = new MySqlConnection(Constant.getDatabaseConnectionString()))
+            using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
                 int rows = connection.Execute("UPDATE city SET cityName=@cn, remark=@r WHERE id=@cityId", new
                 {
@@ -67,7 +67,7 @@ namespace IoTManager.Dao
 
         public String Delete(int id)
         {
-            using (var connection = new MySqlConnection(Constant.getDatabaseConnectionString()))
+            using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
                 int rows = connection.Execute("DELETE FROM city WHERE id=@cityId", new
                 {

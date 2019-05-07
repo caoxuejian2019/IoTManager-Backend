@@ -6,11 +6,10 @@ namespace IoTManager.Utility
     {
         public static String getDatabaseConnectionString()
         {
-            return "Database=iotmanager;" +
-                   "Data Source=localhost;" +
-                   "User Id=jackjack59;" +
-                   "Password=jackjack123;" +
-                   "port=3306";
+            return "Data Source=iotmanagerdbserver.database.chinacloudapi.cn;" +
+                   "User ID=azureuser;" +
+                   "Initial Catalog=iotmanager;" +
+                   "Pwd=123qwe!@#QWE;";
         }
 
         public static String getDateFormatString()
