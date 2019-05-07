@@ -26,6 +26,7 @@
     <ItemGroup>
       <ProjectReference Include="..\IoTManager.Core\IoTManager.Core.csproj" />
       <ProjectReference Include="..\IoTManager.DI\IoTManager.DI.csproj" />
+      <ProjectReference Include="..\IoTManager.Model\IoTManager.Model.csproj" />
     </ItemGroup>
 
 </Project>

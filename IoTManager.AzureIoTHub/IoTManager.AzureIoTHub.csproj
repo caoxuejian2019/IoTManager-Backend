@@ -5,7 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Devices" Version="1.17.3" />
+    <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.20.1" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\IoTManager.IHub\IoTManager.IHub.csproj" />
+    <ProjectReference Include="..\IoTManager.Model\IoTManager.Model.csproj" />
+    <ProjectReference Include="..\IoTManager.Utility\IoTManager.Utility.csproj" />
   </ItemGroup>
 
 </Project>
