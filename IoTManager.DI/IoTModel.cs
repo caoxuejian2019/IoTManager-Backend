@@ -22,12 +22,14 @@ namespace IoTManager.DI
             builder.RegisterType<GatewayBus>().As<IGatewayBus>();
             builder.RegisterType<RoleBus>().As<IRoleBus>();
             builder.RegisterType<UserBus>().As<IUserBus>();
+            builder.RegisterType<FactoryBus>().As<IFactoryBus>();
             //IoTManager.Dao
             builder.RegisterType<CityDao>().As<ICityDao>();
             builder.RegisterType<DepartmentDao>().As<IDepartmentDao>();
             builder.RegisterType<DeviceDao>().As<IDeviceDao>();
             builder.RegisterType<GatewayDao>().As<IGatewayDao>();
             builder.RegisterType<UserDao>().As<IUserDao>();
+            builder.RegisterType<FactoryDao>().As<IFactoryDao>();
             //IoTManager.AzureIoTHub
             builder.RegisterType<AzureIoTHub.AzureIoTHub>().As<IoTHub>();
             //base.Load(builder);
