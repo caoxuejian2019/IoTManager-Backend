@@ -16,7 +16,7 @@ namespace IoTManager.Dao
         {
             using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
-                List<FactoryModel> factoryModel = connection
+                List<FactoryModel> factoryModels = connection
                     .Query<FactoryModel>("SELECT factory.id, " +
                                          "factoryName, " +
                                          "factoryPhoneNumber, " +
@@ -28,7 +28,7 @@ namespace IoTManager.Dao
                                          "FROM factory " +
                                          "JOIN city ON factory.city=city.id")
                     .ToList();
-                return factoryModel;
+                return factoryModels;
             }
         }
 

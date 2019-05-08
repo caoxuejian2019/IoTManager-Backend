@@ -1,19 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IoTManager.API.Formalizers;
 using IoTManager.Core.Infrastructures;
-using IoTManager.DAL.DbContext;
-using IoTManager.DAL.Models;
-using IoTManager.IDao;
 using IoTManager.Utility.Serializers;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MySqlX.XDevAPI.Common;
-using Swashbuckle.AspNetCore.Swagger;
-using Result = IoTManager.DAL.ReturnType.Result;
 
 namespace IoTManager.API.Controllers
 {
