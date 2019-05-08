@@ -24,6 +24,7 @@ namespace IoTManager.DI
             builder.RegisterType<UserBus>().As<IUserBus>();
             builder.RegisterType<FactoryBus>().As<IFactoryBus>();
             builder.RegisterType<WorkshopBus>().As<IWorkshopBus>();
+            builder.RegisterType<StateTypeBus>().As<IStateTypeBus>();
             //IoTManager.Dao
             builder.RegisterType<CityDao>().As<ICityDao>();
             builder.RegisterType<DepartmentDao>().As<IDepartmentDao>();
@@ -32,6 +33,7 @@ namespace IoTManager.DI
             builder.RegisterType<UserDao>().As<IUserDao>();
             builder.RegisterType<FactoryDao>().As<IFactoryDao>();
             builder.RegisterType<WorkshopDao>().As<IWorkshopDao>();
+            builder.RegisterType<StateTypeDao>().As<IStateTypeDao>();
             //IoTManager.AzureIoTHub
             builder.RegisterType<AzureIoTHub.AzureIoTHub>().As<IoTHub>();
             //base.Load(builder);
