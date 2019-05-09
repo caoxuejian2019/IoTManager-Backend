@@ -7,9 +7,9 @@ namespace IoTManager.IHub
 {
     public interface IoTHub
     {
-        DeviceModel NewDevice(string deviceId);
+        IoTHubDeviceModel NewDevice(string deviceId);
         void RemoveDevice(string deviceId);
-        DeviceModel GetDevice(string deviceId);
-        List<DeviceModel> ListDevice();
+        IoTHubDeviceModel GetDevice(string deviceId);
+        List<IoTHubDeviceModel> ListDevice();
     }
 }
