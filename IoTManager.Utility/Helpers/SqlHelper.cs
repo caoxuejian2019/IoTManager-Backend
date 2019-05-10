@@ -28,6 +28,7 @@ namespace IoTManager.Utility.Helpers
                         command.Parameters.Add(para);
                     }
                 }
+                command.CommandType = cmdType;
                 if(this._dbConnection.State== ConnectionState.Closed)
                 {
                     this._dbConnection.Open();
