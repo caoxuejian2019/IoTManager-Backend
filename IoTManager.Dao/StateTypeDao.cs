@@ -15,7 +15,7 @@ namespace IoTManager.Dao
             using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
                 return connection
-                    .Query<String>("SELECT deviceTypeName FROM deviceType")
+                    .Query<String>("SELECT configValue FROM config WHERE configTag='deviceType'")
                     .ToList();
             }
         }
@@ -25,7 +25,7 @@ namespace IoTManager.Dao
             using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
                 return connection
-                    .Query<String>("SELECT stateName FROM deviceState")
+                    .Query<String>("SELECT configValue FROM config WHERE configTag='deviceState'")
                     .ToList();
             }
         }
@@ -35,7 +35,7 @@ namespace IoTManager.Dao
             using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
                 return connection
-                    .Query<String>("SELECT gatewayTypeName FROM gatewayType")
+                    .Query<String>("SELECT configValue FROM config WHERE configTag='gatewayType'")
                     .ToList();
             }
         }
@@ -45,7 +45,7 @@ namespace IoTManager.Dao
             using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
             {
                 return connection
-                    .Query<String>("SELECT stateName FROM gatewayState")
+                    .Query<String>("SELECT configValue FROM config WHERE configTag='gatewayState'")
                     .ToList();
             }
         }
