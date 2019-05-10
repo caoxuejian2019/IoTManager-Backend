@@ -21,15 +21,15 @@ namespace IoTManager.AzureIoTHub
             this._registeryManager = RegistryManager.CreateFromConnectionString(this._appsetting.ConnectionString);
         }
 
-        public DeviceModel GetDevice(string deviceId)
+        public IoTHubDeviceModel GetDevice(string deviceId)
         {
             var device = this._registeryManager.GetDeviceAsync(deviceId).Result;
-            return device.ToJson().ConvertToObj<DeviceModel>();
+            return device.ToJson().ConvertToObj<IoTHubDeviceModel>();
         }
 
-        public List<DeviceModel> ListDevice()
+        public List<IoTHubDeviceModel> ListDevice()
         {
-            List<DeviceModel> devices = new List<DeviceModel>();
+            List<IoTHubDeviceModel> devices = new List<IoTHubDeviceModel>();
             
             var query = this._registeryManager.CreateQuery("select * from devices");
             if (query.HasMoreResults)
@@ -37,16 +37,16 @@ namespace IoTManager.AzureIoTHub
                 var jsons = query.GetNextAsJsonAsync().Result;
                 foreach (var json in jsons)
                 {
-                    devices.Add(json.ConvertToObj<DeviceModel>());
+                    devices.Add(json.ConvertToObj<IoTHubDeviceModel>());
                 }
             }
             return devices;
         }
 
-        public DeviceModel NewDevice(string deviceId)
+        public IoTHubDeviceModel NewDevice(string deviceId)
         {
             var device = this._registeryManager.AddDeviceAsync(new Device(deviceId)).Result;
-            return device.ToJson().ConvertToObj<DeviceModel>();
+            return device.ToJson().ConvertToObj<IoTHubDeviceModel>();
         }
 
         public void RemoveDevice(string deviceId)
