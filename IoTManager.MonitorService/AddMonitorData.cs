@@ -24,7 +24,7 @@ namespace IoTManager.MonitorService
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             string name = "iot hub";
-
+            //TODO:insert monitor data to database
             using(SqlHelper helper=new SqlHelper(connectionString))
             {
                 string sql = "insert into ....";
