@@ -15,11 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.IDao", "IoTManag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.Dao", "IoTManager.Dao\IoTManager.Dao.csproj", "{29D058CB-BB6F-4EC1-B8E1-2BDBF328AF04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.DI", "IoTManager.DI\IoTManager.DI.csproj", "{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.DI", "IoTManager.DI\IoTManager.DI.csproj", "{AFD2B1EE-6CF4-435C-BA64-BD1B1A004EDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.IHub", "IoTManager.IHub\IoTManager.IHub.csproj", "{9BEB430B-F96C-41FB-ACD3-E1721495F84A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.IHub", "IoTManager.IHub\IoTManager.IHub.csproj", "{9BEB430B-F96C-41FB-ACD3-E1721495F84A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.AzureIoTHub", "IoTManager.AzureIoTHub\IoTManager.AzureIoTHub.csproj", "{FB1FE35D-6A4A-48BE-B08C-6897E3877896}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.AzureIoTHub", "IoTManager.AzureIoTHub\IoTManager.AzureIoTHub.csproj", "{FB1FE35D-6A4A-48BE-B08C-6897E3877896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.MonitorService", "IoTManager.MonitorService\IoTManager.MonitorService.csproj", "{5D791BB9-C8BE-44D8-B1C9-3132EE05071F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{FB1FE35D-6A4A-48BE-B08C-6897E3877896}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB1FE35D-6A4A-48BE-B08C-6897E3877896}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB1FE35D-6A4A-48BE-B08C-6897E3877896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D791BB9-C8BE-44D8-B1C9-3132EE05071F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D791BB9-C8BE-44D8-B1C9-3132EE05071F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D791BB9-C8BE-44D8-B1C9-3132EE05071F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D791BB9-C8BE-44D8-B1C9-3132EE05071F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
