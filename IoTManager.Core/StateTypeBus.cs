@@ -17,24 +17,48 @@ namespace IoTManager.Core
             this._logger = logger;
         }
         
-        public List<String> GetAllDeviceTypes()
+        public List<object> GetAllDeviceTypes()
         {
-            return this._stateTypeDao.GetDeviceType();
+            List<String> deviceTypes = this._stateTypeDao.GetDeviceType();
+            List<object> result = new List<object>();
+            foreach (String dt in deviceTypes)
+            {
+                result.Add(new {deviceTypeName = dt});
+            }
+            return result;
         }
 
-        public List<String> GetAllDeviceStates()
+        public List<object> GetAllDeviceStates()
         {
-            return this._stateTypeDao.GetDeviceState();
+            List<String> deviceStates = this._stateTypeDao.GetDeviceState();
+            List<object> result = new List<object>();
+            foreach (String ds in deviceStates)
+            {
+                result.Add(new {stateName = ds});   
+            }
+            return result;
         }
 
-        public List<String> GetAllGatewayTypes()
+        public List<object> GetAllGatewayTypes()
         {
-            return this._stateTypeDao.GetGatewayType();
+            List<String> gatewayTypes = this._stateTypeDao.GetGatewayType();
+            List<object> result = new List<object>();
+            foreach (String gt in gatewayTypes)
+            {
+                result.Add(new {gatewayTypeName = gt});
+            }
+            return result;
         }
 
-        public List<String> GetAllGatewayStates()
+        public List<object> GetAllGatewayStates()
         {
-            return this._stateTypeDao.GetGatewayState();
+            List<String> gatewayStates = this._stateTypeDao.GetGatewayState();
+            List<object> result = new List<object>();
+            foreach (String gs in gatewayStates)
+            {
+                result.Add(new {stateName = gs});
+            }
+            return result;
         }
     }
 }

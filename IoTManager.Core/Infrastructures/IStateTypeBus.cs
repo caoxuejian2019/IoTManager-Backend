@@ -5,9 +5,9 @@ namespace IoTManager.Core.Infrastructures
 {
     public interface IStateTypeBus
     {
-        List<String> GetAllDeviceTypes();
-        List<String> GetAllDeviceStates();
-        List<String> GetAllGatewayTypes();
-        List<String> GetAllGatewayStates();
+        List<object> GetAllDeviceTypes();
+        List<object> GetAllDeviceStates();
+        List<object> GetAllGatewayTypes();
+        List<object> GetAllGatewayStates();
     }
 }

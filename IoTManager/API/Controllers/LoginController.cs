@@ -1,4 +1,5 @@
 using System;
+using IoTManager.Utility.Serializers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IoTManager.API.Controllers
@@ -7,9 +8,12 @@ namespace IoTManager.API.Controllers
     public class LoginController: ControllerBase
     {
         [HttpPost("login")]
-        public object Login()
+        public ResponseSerializer Login()
         {
-            return new {user = "123", asdf = 1234};
+            return new ResponseSerializer(
+                200,
+                "success",
+                123);
         }
     }
 }
