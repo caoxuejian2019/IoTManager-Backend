@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using IoTManager.DI;
 using IoTManager.DI.Infrastructures;
 using IoTManager.Model.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +31,11 @@ namespace IoTManager
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
+            });
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //add swagger 
             services.AddSwaggerGen(gen => {
@@ -57,6 +64,10 @@ namespace IoTManager
             app.UseHttpsRedirection();
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
+            app.UseForwardedHeaders(
+                new ForwardedHeadersOptions
+                    {ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto});
+            app.UseAuthentication();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
