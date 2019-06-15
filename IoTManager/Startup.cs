@@ -36,7 +36,10 @@ namespace IoTManager
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
-                    builder => { builder.WithOrigins("http://139.217.219.205"); });
+                    builder => { builder.WithOrigins("http://139.217.219.205")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials(); });
             });
             services.Configure<ForwardedHeadersOptions>(options =>
             {
