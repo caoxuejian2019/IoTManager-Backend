@@ -14,7 +14,15 @@ namespace IoTManager.MonitorService
 {
     public static class AddMonitorData
     {
-        private static string connectionString = "Server=tcp:iotmanagerdbserver.database.chinacloudapi.cn,1433;Initial Catalog=iotmanagerdb;Persist Security Info=False;User ID=azureuser;Password=123qwe!@#QWE;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private static string connectionString = "Server=tcp:iotmanagerdbserver.database.chinacloudapi.cn,1433;" +
+                                                 "Initial Catalog=iotmanagerdb;" +
+                                                 "Persist Security Info=False;" +
+                                                 "User ID=azureuser;" +
+                                                 "Password=123qwe!@#QWE;" +
+                                                 "MultipleActiveResultSets=False;" +
+                                                 "Encrypt=True;" +
+                                                 "TrustServerCertificate=False;" +
+                                                 "Connection Timeout=30;";
 
         [FunctionName("AddMonitorData")]
         public static async Task<IActionResult> Run(
