@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using IoTManager.Core.Infrastructures;
 using IoTManager.IDao;
@@ -21,6 +22,35 @@ namespace IoTManager.Core
         public List<AlarmInfoSerializer> GetAllAlarmInfo()
         {
             List<AlarmInfoModel> alarmInfos = this._alarmInfoDao.Get();
+            List<AlarmInfoSerializer> result = new List<AlarmInfoSerializer>();
+            foreach (AlarmInfoModel alarmInfo in alarmInfos)
+            {
+                result.Add(new AlarmInfoSerializer(alarmInfo));
+            }
+            return result;
+        }
+
+        public AlarmInfoSerializer GetAlarmInfoById(String Id)
+        {
+            AlarmInfoModel alarmInfo = this._alarmInfoDao.GetById(Id);
+            AlarmInfoSerializer result = new AlarmInfoSerializer(alarmInfo);
+            return result;
+        }
+
+        public List<AlarmInfoSerializer> GetAlarmInfoByDeviceId(String DeviceId)
+        {
+            List<AlarmInfoModel> alarmInfos = this._alarmInfoDao.GetByDeviceId(DeviceId);
+            List<AlarmInfoSerializer> result = new List<AlarmInfoSerializer>();
+            foreach (AlarmInfoModel alarmInfo in alarmInfos)
+            {
+                result.Add(new AlarmInfoSerializer(alarmInfo));
+            }
+            return result;
+        }
+
+        public List<AlarmInfoSerializer> GetAlarmInfoByIndexId(String IndexId)
+        {
+            List<AlarmInfoModel> alarmInfos = this._alarmInfoDao.GetByIndexId(IndexId);
             List<AlarmInfoSerializer> result = new List<AlarmInfoSerializer>();
             foreach (AlarmInfoModel alarmInfo in alarmInfos)
             {

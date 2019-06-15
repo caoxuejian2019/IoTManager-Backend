@@ -1,3 +1,4 @@
+using System;
 using IoTManager.Core.Infrastructures;
 using IoTManager.Utility.Serializers;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,33 @@ namespace IoTManager.API.Controllers
                 200,
                 "success",
                 _alarmInfoBus.GetAllAlarmInfo());
+        }
+
+        [HttpGet("id/{Id}")]
+        public ResponseSerializer GetById(String Id)
+        {
+            return new ResponseSerializer(
+                200,
+                "success",
+                _alarmInfoBus.GetAlarmInfoById(Id));
+        }
+
+        [HttpGet("deviceId/{DeviceId}")]
+        public ResponseSerializer GetByDeviceId(String DeviceId)
+        {
+            return new ResponseSerializer(
+                200,
+                "success",
+                _alarmInfoBus.GetAlarmInfoByDeviceId(DeviceId));
+        }
+
+        [HttpGet("indexId/{IndexId}")]
+        public ResponseSerializer GetByIndexId(String IndexId)
+        {
+            return new ResponseSerializer(
+                200,
+                "success",
+                _alarmInfoBus.GetAlarmInfoByIndexId(IndexId));
         }
     }
 }
