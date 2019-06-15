@@ -1,3 +1,4 @@
+using System;
 using IoTManager.Core.Infrastructures;
 using IoTManager.Utility.Serializers;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,24 @@ namespace IoTManager.API.Controllers
                 200,
                 "success",
                 this._deviceDataBus.GetAllDeviceData());
+        }
+
+        [HttpGet("id/{Id}")]
+        public ResponseSerializer GetById(String Id)
+        {
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._deviceDataBus.GetDeviceDataById(Id));
+        }
+
+        [HttpGet("deviceId/{DeviceId}")]
+        public ResponseSerializer GetByDeviceId(String DeviceId)
+        {
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._deviceDataBus.GetDeviceDataByDeviceId(DeviceId));
         }
     }
 }

@@ -22,5 +22,11 @@ namespace IoTManager.Dao
 
         public List<DeviceDataModel> Get() =>
             _deviceData.Find<DeviceDataModel>(d => true).ToList();
+
+        public DeviceDataModel GetById(String Id) =>
+            _deviceData.Find<DeviceDataModel>(dd => dd.Id == Id).FirstOrDefault();
+
+        public List<DeviceDataModel> GetByDeviceId(String DeviceId) =>
+            _deviceData.Find<DeviceDataModel>(dd => dd.DeviceId == DeviceId).ToList();
     }
 }
