@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using IoTManager.Core.Infrastructures;
 using IoTManager.IDao;
 using IoTManager.Model;
+using IoTManager.Utility.Serializers;
 using Microsoft.Extensions.Logging;
 
 namespace IoTManager.Core
@@ -17,9 +18,15 @@ namespace IoTManager.Core
             this._logger = logger;
         }
 
-        public List<DeviceDataModel> GetAllDeviceData()
+        public List<DeviceDataSerializer> GetAllDeviceData()
         {
-            return _deviceDataDao.Get();
+            List<DeviceDataModel> deviceData = this._deviceDataDao.Get();
+            List<DeviceDataSerializer> result = new List<DeviceDataSerializer>();
+            foreach (DeviceDataModel dd in deviceData)
+            {
+                result.Add(new DeviceDataSerializer(dd));
+            }
+            return result;
         }
     }
 }

@@ -4,8 +4,8 @@ using IoTManager.Utility.Serializers;
 
 namespace IoTManager.Core.Infrastructures
 {
-    public interface IDeviceDataBus
+    public interface IAlarmInfoBus
     {
-        List<DeviceDataSerializer> GetAllDeviceData();
+        List<AlarmInfoSerializer> GetAllAlarmInfo();
     }
 }
