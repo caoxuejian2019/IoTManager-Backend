@@ -11,5 +11,6 @@ namespace IoTManager.Core.Infrastructures
         AlarmInfoSerializer GetAlarmInfoById(String Id);
         List<AlarmInfoSerializer> GetAlarmInfoByDeviceId(String DeviceId);
         List<AlarmInfoSerializer> GetAlarmInfoByIndexId(String IndexId);
+        String InspectAlarmInfo();
     }
 }

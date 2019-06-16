@@ -55,5 +55,14 @@ namespace IoTManager.API.Controllers
                 "success",
                 _alarmInfoBus.GetAlarmInfoByIndexId(IndexId));
         }
+
+        [HttpGet("inspect")]
+        public ResponseSerializer InspectAlarmInfo()
+        {
+            return new ResponseSerializer(
+                200,
+                "success",
+                _alarmInfoBus.InspectAlarmInfo());
+        }
     }
 }

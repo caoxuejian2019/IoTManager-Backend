@@ -52,6 +52,17 @@ namespace IoTManager.Core
             return result;
         }
 
+        public List<DeviceSerializer> GetDevicesByDeviceId(String deviceId)
+        {
+            List<DeviceModel> devices = this._deviceDao.GetByDeviceId(deviceId);
+            List<DeviceSerializer> result = new List<DeviceSerializer>();
+            foreach (DeviceModel device in devices)
+            {
+                result.Add(new DeviceSerializer(device));
+            }
+            return result;
+        }
+
         public String CreateNewDevice(DeviceSerializer deviceSerializer)
         {
             DeviceModel deviceModel = new DeviceModel();

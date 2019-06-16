@@ -97,6 +97,34 @@ namespace IoTManager.Dao
             }
         }
 
+        public List<DeviceModel> GetByDeviceId(String deviceId)
+        {
+            using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
+            {
+                return connection.Query<DeviceModel>("select device.id, " +
+                                                     "hardwareDeviceID, " +
+                                                     "deviceName, " +
+                                                     "city.cityName as city, " +
+                                                     "factory.factoryName as factory, " +
+                                                     "workshop.workshopName as workshop, " +
+                                                     "deviceState, " +
+                                                     "imageUrl, " +
+                                                     "gatewayID, " +
+                                                     "mac, " +
+                                                     "deviceType, " +
+                                                     "device.remark, " +
+                                                     "lastConnectionTime, " +
+                                                     "device.createTime, " +
+                                                     "device.updateTime " +
+                                                     "from device " +
+                                                     "join city on city.id=device.city " +
+                                                     "join factory on factory.id=device.factory " +
+                                                     "join workshop on workshop.id=device.workshop " +
+                                                     "where device.hardwareDeviceID like '%"+deviceId+"%'")
+                    .ToList();
+            }
+        }
+
         public String Create(DeviceModel deviceModel)
         {
             using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))

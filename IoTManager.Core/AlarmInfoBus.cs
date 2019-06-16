@@ -10,11 +10,13 @@ namespace IoTManager.Core
 {
     public sealed class AlarmInfoBus: IAlarmInfoBus
     {
+        private readonly IDeviceDataDao _deviceDataDao;
         private readonly IAlarmInfoDao _alarmInfoDao;
         private readonly ILogger _logger;
 
-        public AlarmInfoBus(IAlarmInfoDao alarmInfoDao, ILogger<AlarmInfoBus> logger)
+        public AlarmInfoBus(IDeviceDataDao deviceDataDao, IAlarmInfoDao alarmInfoDao, ILogger<AlarmInfoBus> logger)
         {
+            this._deviceDataDao = deviceDataDao;
             this._alarmInfoDao = alarmInfoDao;
             this._logger = logger;
         }
@@ -57,6 +59,28 @@ namespace IoTManager.Core
                 result.Add(new AlarmInfoSerializer(alarmInfo));
             }
             return result;
+        }
+
+        public String InspectAlarmInfo()
+        {
+            List<DeviceDataModel> deviceData = _deviceDataDao.Get();
+            foreach (DeviceDataModel dd in deviceData)
+            {
+                if (Convert.ToInt32(dd.IndexValue) > 100)
+                {
+                    AlarmInfoModel alarmInfo = new AlarmInfoModel();
+                    alarmInfo.AlarmInfo = dd.Id;
+                    alarmInfo.DeviceId = dd.DeviceId;
+                    alarmInfo.IndexId = dd.IndexId;
+                    alarmInfo.IndexName = dd.IndexName;
+                    alarmInfo.IndexValue = dd.IndexValue;
+                    alarmInfo.ThresholdValue = "100";
+                    alarmInfo.Timestamp = DateTime.Now;
+
+                    _alarmInfoDao.Create(alarmInfo);
+                }
+            }
+            return "success";
         }
     }
 }

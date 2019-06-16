@@ -11,6 +11,7 @@ namespace IoTManager.IDao
         List<DeviceModel> Get();
         DeviceModel GetById(int id);
         List<DeviceModel> GetByDeviceName(String deviceName);
+        List<DeviceModel> GetByDeviceId(String deviceId);
         String Create(DeviceModel deviceModel);
         String Update(int id, DeviceModel deviceModel);
         String Delete(int id);

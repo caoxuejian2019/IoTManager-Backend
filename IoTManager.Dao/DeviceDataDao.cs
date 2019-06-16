@@ -20,13 +20,19 @@ namespace IoTManager.Dao
             _deviceData = database.GetCollection<DeviceDataModel>("devicedata");
         }
 
-        public List<DeviceDataModel> Get() =>
-            _deviceData.Find<DeviceDataModel>(d => true).ToList();
+        public List<DeviceDataModel> Get()
+        {
+            return _deviceData.Find<DeviceDataModel>(d => true).ToList();
+        }
 
-        public DeviceDataModel GetById(String Id) =>
-            _deviceData.Find<DeviceDataModel>(dd => dd.Id == Id).FirstOrDefault();
+        public DeviceDataModel GetById(String Id)
+        {
+            return _deviceData.Find<DeviceDataModel>(dd => dd.Id == Id).FirstOrDefault();
+        }
 
-        public List<DeviceDataModel> GetByDeviceId(String DeviceId) =>
-            _deviceData.Find<DeviceDataModel>(dd => dd.DeviceId == DeviceId).ToList();
+        public List<DeviceDataModel> GetByDeviceId(String DeviceId)
+        {
+            return _deviceData.Find<DeviceDataModel>(dd => dd.DeviceId == DeviceId).ToList();
+        }
     }
 }

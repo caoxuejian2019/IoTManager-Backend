@@ -10,5 +10,6 @@ namespace IoTManager.IDao
         AlarmInfoModel GetById(String Id);
         List<AlarmInfoModel> GetByDeviceId(String DeviceId);
         List<AlarmInfoModel> GetByIndexId(String IndexId);
+        String Create(AlarmInfoModel alarmInfoModel);
     }
 }
