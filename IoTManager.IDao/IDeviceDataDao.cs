@@ -9,5 +9,6 @@ namespace IoTManager.IDao
         List<DeviceDataModel> Get();
         DeviceDataModel GetById(String Id);
         List<DeviceDataModel> GetByDeviceId(String DeviceId);
+        List<DeviceDataModel> GetNotInspected();
     }
 }

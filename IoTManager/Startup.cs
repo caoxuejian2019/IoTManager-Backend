@@ -53,6 +53,7 @@ namespace IoTManager
             });
             //add log
             services.AddLogging();
+            services.AddTimedJob();
             services.Configure<IoTHubAppSetting>(this.Configuration.GetSection("IoTHubAppSetting"));
             //add dependency injection
             IocContainer autofac = new AutofacContainer(services);
@@ -80,6 +81,8 @@ namespace IoTManager
             app.UseAuthentication();
 
             app.UseCors(MyAllowSpecificOrigins);
+
+            app.UseTimedJob();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.

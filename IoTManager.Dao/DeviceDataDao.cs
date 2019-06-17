@@ -34,5 +34,10 @@ namespace IoTManager.Dao
         {
             return _deviceData.Find<DeviceDataModel>(dd => dd.DeviceId == DeviceId).ToList();
         }
+
+        public List<DeviceDataModel> GetNotInspected()
+        {
+            return _deviceData.Find<DeviceDataModel>(dd => dd.Inspected == "No").ToList();
+        }
     }
 }
