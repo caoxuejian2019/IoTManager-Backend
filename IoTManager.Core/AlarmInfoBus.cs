@@ -63,7 +63,7 @@ namespace IoTManager.Core
 
         public String InspectAlarmInfo()
         {
-            List<DeviceDataModel> deviceData = _deviceDataDao.Get();
+            List<DeviceDataModel> deviceData = _deviceDataDao.GetNotInspected();
             foreach (DeviceDataModel dd in deviceData)
             {
                 if (Convert.ToInt32(dd.IndexValue) > 100)
