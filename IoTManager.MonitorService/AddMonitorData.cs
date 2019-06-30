@@ -14,7 +14,7 @@ namespace IoTManager.MonitorService
 {
     public static class AddMonitorData
     {
-        private static string connectionString = "";
+        private static string connectionString = "Server=tcp:iotmanagerdbserver.database.chinacloudapi.cn,1433;Initial Catalog=iotmanagerdb;Persist Security Info=False;User ID=azureuser;Password=123qwe!@#QWE;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         [FunctionName("AddMonitorData")]
         public static async Task<IActionResult> Run(
@@ -24,15 +24,19 @@ namespace IoTManager.MonitorService
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             string name = "iot hub";
+
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            if (string.IsNullOrEmpty(requestBody))
+            {
+                return new StatusCodeResult(404);
+            }
+
             //TODO:insert monitor data to database
             using(SqlHelper helper=new SqlHelper(connectionString))
             {
                 string sql = "insert into ....";
                 helper.ExecuteNonQuery(sql, CommandType.Text);
             }
-
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
             name = name ?? data?.name;
 
