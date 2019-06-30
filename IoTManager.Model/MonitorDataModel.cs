@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,8 @@ namespace IoTManager.Model
 {
     public class MonitorDataModel
     {
+        [JsonProperty("Id")]
+        public string Id { get; set; }
         public string GatewayId { get; set; }
         public string DeviceId { get; set; }
         public string TypeName { get; set; }

@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "IoTManager.Tcp.MonitorDataSync": {
+      "commandName": "Project"
+    }
+  }
+}
