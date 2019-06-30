@@ -11,6 +11,7 @@ namespace IoTManager.Core.Infrastructures
         List<DeviceSerializer> GetAllDevices();
         DeviceSerializer GetDeviceById(int id);
         List<DeviceSerializer> GetDevicesByDeviceName(String deviceName);
+        List<DeviceSerializer> GetDevicesByDeviceId(String deviceId);
         String CreateNewDevice(DeviceSerializer deviceSerializer);
         String UpdateDevice(int id, DeviceSerializer deviceSerializer);
         String DeleteDevice(int id);

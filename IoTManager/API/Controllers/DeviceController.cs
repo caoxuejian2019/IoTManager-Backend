@@ -48,12 +48,22 @@ namespace IoTManager.API.Controllers
         
         // GET api/device/devicename/{deviceName}
         [HttpGet("devicename/{devicename}")]
-        public ResponseSerializer GetByDeviceName(String devicename)
+        public ResponseSerializer GetByDeviceName(String deviceName)
         {
             return new ResponseSerializer(
                 200,
                 "success",
-                this._deviceBus.GetDevicesByDeviceName(devicename));
+                this._deviceBus.GetDevicesByDeviceName(deviceName));
+        }
+        
+        //GET api/device/deviceid/{deviceId}
+        [HttpGet("deviceid/{deviceId}")]
+        public ResponseSerializer GetByDeviceId(String deviceId)
+        {
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._deviceBus.GetDevicesByDeviceId(deviceId));
         }
 
         // POST api/values
@@ -86,7 +96,7 @@ namespace IoTManager.API.Controllers
                 this._deviceBus.DeleteDevice(id));
         }
 
-        [HttpDelete("batch/devices")]
+        [HttpPost("batch/devices")]
         public ResponseSerializer BatchDelete([FromBody] BatchNumber batchNumber)
         {
             return new ResponseSerializer(

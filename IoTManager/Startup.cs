@@ -25,12 +25,22 @@ namespace IoTManager
         {
             Configuration = configuration;
         }
+        
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                    builder => { builder.WithOrigins("http://139.217.219.205")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials(); });
+            });
             services.Configure<ForwardedHeadersOptions>(options =>
             {
                 options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
@@ -43,6 +53,7 @@ namespace IoTManager
             });
             //add log
             services.AddLogging();
+            services.AddTimedJob();
             services.Configure<IoTHubAppSetting>(this.Configuration.GetSection("IoTHubAppSetting"));
             //add dependency injection
             IocContainer autofac = new AutofacContainer(services);
@@ -68,6 +79,10 @@ namespace IoTManager
                 new ForwardedHeadersOptions
                     {ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto});
             app.UseAuthentication();
+
+            app.UseCors(MyAllowSpecificOrigins);
+
+            app.UseTimedJob();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
