@@ -6,9 +6,9 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace IoTManager.Tcp.MonitorDataSync
+namespace IoTManager.Tcp.MonitorDataSync.Services
 {
-    public class SockerManager
+    public sealed class SockerManager
     {
         public void StartMonitorLocalMachinePort(string port)
         {
@@ -55,15 +55,42 @@ namespace IoTManager.Tcp.MonitorDataSync
             Socket socket = obj as Socket;
             while (true)
             {
-                byte[] buffer = new byte[1024*100];
+                byte[] buffer = new byte[1024 * 100];
                 int num = socket.Receive(buffer);
                 string message = Encoding.UTF8.GetString(buffer, 0, num);
-
-                using(FileStream fs=new FileStream($"D:\\{num}.txt", FileMode.Append, FileAccess.Write))
-                {
-                    fs.Write(Encoding.UTF8.GetBytes(message));
-                }
+                Console.WriteLine(message);
+                //return message;
+                //using (FileStream fs = new FileStream($"D:\\{num}.txt", FileMode.Append, FileAccess.Write))
+                //{
+                //    fs.Write(Encoding.UTF8.GetBytes(message));
+                //}
                 //File.AppendAllLines("C:\\1.txt", new string[] { message });
+            }
+        }
+
+        public void SendCommand(string ipAddress, string port, string command)
+        {
+            IPAddress ip = IPAddress.Parse(ipAddress);
+            //客户端连接服务器的IP和端口号
+            IPEndPoint point = new IPEndPoint(ip, int.Parse(port));
+            //创建通信连接的Socket
+            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                socket.Connect(point);
+                byte[] buffer = Encoding.UTF8.GetBytes(command);
+                socket.Send(buffer);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                //ShowMsg(ex.Message);
+            }
+            finally
+            {
+                //socket.Disconnect(true);
+                socket.Close();
+                socket.Dispose();
             }
         }
     }
