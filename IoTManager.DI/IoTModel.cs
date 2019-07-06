@@ -28,6 +28,7 @@ namespace IoTManager.DI
             builder.RegisterType<DeviceDataBus>().As<IDeviceDataBus>();
             builder.RegisterType<AlarmInfoBus>().As<IAlarmInfoBus>();
             builder.RegisterType<ThresholdBus>().As<IThresholdBus>();
+            builder.RegisterType<LoginBus>().As<ILoginBus>();
             //IoTManager.Dao
             builder.RegisterType<CityDao>().As<ICityDao>();
             builder.RegisterType<DepartmentDao>().As<IDepartmentDao>();

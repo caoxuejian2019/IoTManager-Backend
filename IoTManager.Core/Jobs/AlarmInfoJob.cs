@@ -72,7 +72,6 @@ namespace IoTManager.Core.Jobs
                     {
                         if (Int32.Parse(data.IndexValue) >= threshold)
                         {
-                            System.Console.WriteLine(Int32.Parse(data.IndexValue).ToString() + "   Thres.:" + threshold.ToString());
                             abnormal = true;
                         }
                     }
