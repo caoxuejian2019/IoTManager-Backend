@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.202
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager", "IoTManager\IoTManager.csproj", "{48E11E54-90EE-453A-8731-1ACBCCADF30B}"
 EndProject
@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.AzureIoTHub", "I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.MonitorService", "IoTManager.MonitorService\IoTManager.MonitorService.csproj", "{5D791BB9-C8BE-44D8-B1C9-3132EE05071F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.Http.MonitorDataSync", "IoTManager.Http.MonitorDataSync\IoTManager.Http.MonitorDataSync.csproj", "{AC963447-7E68-4F37-9F40-9D1A05BF662B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.Http.MonitorDataSync", "IoTManager.Http.MonitorDataSync\IoTManager.Http.MonitorDataSync.csproj", "{AC963447-7E68-4F37-9F40-9D1A05BF662B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTManager.Tcp.MonitorDataSync", "IoTManager.Tcp.MonitorDataSync\IoTManager.Tcp.MonitorDataSync.csproj", "{836C9C7F-A563-4C17-83E9-4E1C6316D1DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTManager.Tcp.MonitorDataSync", "IoTManager.Tcp.MonitorDataSync\IoTManager.Tcp.MonitorDataSync.csproj", "{836C9C7F-A563-4C17-83E9-4E1C6316D1DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

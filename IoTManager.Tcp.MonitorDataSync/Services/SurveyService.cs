@@ -1,4 +1,8 @@
-﻿using System;
+﻿using IoTManager.Tcp.MonitorDataSync.Configure;
+using IoTManager.Tcp.MonitorDataSync.Utility;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,37 +10,38 @@ namespace IoTManager.Tcp.MonitorDataSync.Services
 {
     public sealed class SurveyService
     {
+        private readonly ILogger<SurveyService> _logger;
         private readonly SockerManager _sockerManager;
-        private readonly string _gatewayIpAddress;
-        private readonly string _gatewayPort;
-        private readonly string _nodeAddress;
-        private readonly string _channel;
 
-        public SurveyService(string gatewayIpAddress,string gatewayPort,string nodeAddress,string channel)
+        public SurveyService(ILoggerFactory loggerFactory, JobQueue<string> jobQueue)
         {
-            this._sockerManager = new SockerManager();
-            this._gatewayIpAddress = gatewayIpAddress;
-            this._gatewayPort = gatewayPort;
-            this._nodeAddress = nodeAddress;
-            this._channel = channel;
+            this._logger = loggerFactory.CreateLogger<SurveyService>();
+            this._sockerManager = new SockerManager(loggerFactory, jobQueue);
         }
 
-        public void SendAcquireMonitorDataCmd()
+
+        public void SendAcquireMonitorDataCmd(string gatewayIpAddress, int gatewayPort, string nodeAddress, string channel)
         {
             //00 EA 13 A5 01 01 5A
-            string command = $"{this._nodeAddress}{this._channel}A501015A";
-            this._sockerManager.SendCommand(this._gatewayIpAddress, this._gatewayPort, command);
+            string command = $"{nodeAddress}{channel}A501015A";
+            this._sockerManager.SendCommand(gatewayIpAddress, gatewayPort, command);
+        }
+
+        public void SendAcquireGatewayCmd(string gatewayIpAddress, int gatewayPort, string nodeAddress, string channel)
+        {
+            //00 EA 13 A5 01 02 5A
+            string command = $"{nodeAddress}{channel}A501025A";
+            this._sockerManager.SendCommand(gatewayIpAddress, gatewayPort, command);
         }
 
         public void AcquireMonitorData()
         {
-            
+
         }
 
         public void AcquireGateway()
         {
-            string command = $"{this._nodeAddress}{this._channel}A501025A";
-            this._sockerManager.SendCommand(this._gatewayIpAddress, this._gatewayPort, command);
+
         }
     }
 }
