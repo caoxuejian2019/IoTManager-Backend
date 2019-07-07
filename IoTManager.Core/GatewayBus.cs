@@ -72,5 +72,17 @@ namespace IoTManager.Core
         {
             return this._gatewayDao.Delete(id);
         }
+
+        public List<GatewaySerializer> GetGatewayByWorkshop(String workshop)
+        {
+            List<GatewayModel> gateways = this._gatewayDao.GetByWorkshop(workshop);
+            List<GatewaySerializer> result = new List<GatewaySerializer>();
+            foreach (GatewayModel g in gateways)
+            {
+                result.Add(new GatewaySerializer(g));
+            }
+
+            return result;
+        }
     }
 }

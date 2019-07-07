@@ -104,5 +104,14 @@ namespace IoTManager.API.Controllers
                 "success",
                 this._deviceBus.BatchDeleteDevice(batchNumber.number));
         }
+
+        [HttpGet("workshop/{workshopName}")]
+        public ResponseSerializer GetByDeviceWorkshop(String workshopName)
+        {
+            return new ResponseSerializer(
+                200,
+                "success",
+                this._deviceBus.GetDeviceByWorkshop(workshopName));
+        }
     }
 }

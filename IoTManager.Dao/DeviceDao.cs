@@ -247,5 +247,36 @@ namespace IoTManager.Dao
                 return rows;
             }
         }
+
+        public List<DeviceModel> GetByWorkshop(String workshop)
+        {
+            using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
+            {
+                return connection.Query<DeviceModel>("select device.id, " +
+                                                     "hardwareDeviceID, " +
+                                                     "deviceName, " +
+                                                     "city.cityName as city, " +
+                                                     "factory.factoryName as factory, " +
+                                                     "workshop.workshopName as workshop, " +
+                                                     "deviceState, " +
+                                                     "imageUrl, " +
+                                                     "gatewayID, " +
+                                                     "mac, " +
+                                                     "deviceType, " +
+                                                     "device.remark, " +
+                                                     "lastConnectionTime, " +
+                                                     "device.createTime, " +
+                                                     "device.updateTime " +
+                                                     "from device " +
+                                                     "join city on city.id=device.city " +
+                                                     "join factory on factory.id=device.factory " +
+                                                     "join workshop on workshop.id=device.workshop " +
+                                                     "where workshop in (select id from workshop where workshopName=@wn)", new
+                    {
+                        wn = workshop
+                    })
+                    .ToList();
+            }
+        }
     }
 }

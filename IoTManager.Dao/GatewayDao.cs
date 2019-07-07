@@ -149,5 +149,33 @@ namespace IoTManager.Dao
                 return rows == 1 ? "success" : "error";
             }
         }
+
+        public List<GatewayModel> GetByWorkshop(String workshop)
+        {
+            using (var connection = new SqlConnection(Constant.getDatabaseConnectionString()))
+            {
+                return connection.Query<GatewayModel>("select gateway.id, " +
+                                                      "hardwareGatewayID," +
+                                                      " gatewayName," +
+                                                      " gatewayType, " +
+                                                      "city.cityName as city, " +
+                                                      "factory.factoryName as factory, " +
+                                                      "workshop.workshopName as workshop, " +
+                                                      "gatewayState, " +
+                                                      "imageUrl, " +
+                                                      "gateway.remark, " +
+                                                      "gateway.lastConnectionTime, " +
+                                                      "gateway.createTime, " +
+                                                      "gateway.updateTime from gateway " +
+                                                      "join city on city.id=gateway.city " +
+                                                      "join factory on factory.id=gateway.factory " +
+                                                      "join workshop on workshop.id=gateway.workshop " +
+                                                      "where gateway.workshop in (select id from workshop where workshopName=@wn)", new
+                    {
+                        wn = workshop
+                    })
+                    .ToList();
+            }
+        }
     }
 }

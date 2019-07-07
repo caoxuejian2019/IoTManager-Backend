@@ -107,5 +107,17 @@ namespace IoTManager.Core
         {
             return this._deviceDao.BatchDelete(id);
         }
+
+        public List<DeviceSerializer> GetDeviceByWorkshop(String workshop)
+        {
+            List<DeviceModel> devices = _deviceDao.GetByWorkshop(workshop);
+            List<DeviceSerializer> result = new List<DeviceSerializer>();
+            foreach (DeviceModel d in devices)
+            {
+                result.Add(new DeviceSerializer(d));
+            }
+
+            return result;
+        }
     }
 }

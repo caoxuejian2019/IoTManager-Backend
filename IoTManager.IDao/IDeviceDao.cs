@@ -16,5 +16,6 @@ namespace IoTManager.IDao
         String Update(int id, DeviceModel deviceModel);
         String Delete(int id);
         int BatchDelete(int[] id);
+        List<DeviceModel> GetByWorkshop(String workshop);
     }
 }
