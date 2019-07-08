@@ -19,6 +19,7 @@ namespace IoTManager.DI
             builder.RegisterType<CityBus>().As<ICityBus>();
             builder.RegisterType<DepartmentBus>().As<IDepartmentBus>();
             builder.RegisterType<DeviceBus>().As<IDeviceBus>();
+            builder.RegisterType<DevicePropertyBus>().As<IDevicePropertyBus>();
             builder.RegisterType<GatewayBus>().As<IGatewayBus>();
             builder.RegisterType<RoleBus>().As<IRoleBus>();
             builder.RegisterType<UserBus>().As<IUserBus>();
@@ -33,6 +34,7 @@ namespace IoTManager.DI
             builder.RegisterType<CityDao>().As<ICityDao>();
             builder.RegisterType<DepartmentDao>().As<IDepartmentDao>();
             builder.RegisterType<DeviceDao>().As<IDeviceDao>();
+            builder.RegisterType<DevicePropertyDao>().As<IDevicePropertyDao>();
             builder.RegisterType<GatewayDao>().As<IGatewayDao>();
             builder.RegisterType<UserDao>().As<IUserDao>();
             builder.RegisterType<FactoryDao>().As<IFactoryDao>();
